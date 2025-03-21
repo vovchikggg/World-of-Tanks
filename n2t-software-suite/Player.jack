@@ -1,0 +1,49 @@
+class Player
+{
+    field int x;
+    field int y;
+    field string direction;
+    field int alive;
+
+    constructor Player new(int _x, int _y, string _direction)
+    {
+        let x = _x;
+        let y = _y;
+        let direction = _direction;
+        let alive = 1;
+        return this;
+    }
+
+    method void move() {
+        if (direction = "right")
+        {
+            let x = x + 2;
+        }
+        if (direction = "down")
+        {
+            let y = y + 2;
+        }
+        if (direction = "left")
+        {
+            let x = x - 2;
+        }
+        if (direction = "up")
+        {
+            let y = y - 2;
+        }
+        return;
+    }
+
+    //method void shoot()
+    //{
+    //    var Bullet bullet;
+    //    let bullet = Bullet.new(x, y, direction);
+    //    return;
+    //}
+
+    method void dispose()
+    {
+        do Memory.deAAlloc(this);
+        return;
+    }
+}
