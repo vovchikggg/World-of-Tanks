@@ -36,8 +36,25 @@ class Bullet
     method kill()
     {
         var List current;
-        while(()){
-            Map.map;
+        let current = Map.botsMap;
+        while (~(current == null))
+        {
+            current.getData().alive = false
+            let current = current.getNext();
+        }
+
+        let current = Map.bricksMap;
+        while (~(current == null))
+        {
+            current.getData().alive = false
+            let current = current.getNext();
+        }
+
+        let current = Map.bulletsMap;
+        while (~(current == null))
+        {
+            current.getData().alive = false
+            let current = current.getNext();
         }
     }
 
