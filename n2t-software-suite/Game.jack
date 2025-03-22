@@ -24,6 +24,29 @@ class Game {
         return;
     }
 
+    method void MoveKeyboard(char key){
+        if (key = 131) { // Up
+            let direction = 1;
+            do movePlayer();
+        }
+
+        if (key = 133) { // Down
+            let direction = 2;
+            do movePlayer();
+        }
+
+        if (key = 130) { //Left
+            let direction = 3;
+            do movePlayer();
+        }
+
+        if (key = 132) { //Right
+            let direction = 4;
+            do movePlayer();
+        }
+        return;
+    }
+
     method void run(){
         var char key;
         var boolean exit;
@@ -32,36 +55,17 @@ class Game {
         while (~exit){
             while (key = 0){
                 let key = Keyboard.keyPressed();
-                do movePlayer();
             }
 
             if (key = 81){
                 let exit = true;
             }
 
-            if (key = 131) { // Up
-                let direction = 1;
-                do movePlayer();
-            }
-
-            if (key = 133) { // Down
-                let direction = 2;
-                do movePlayer();
-            }
-
-            if (key = 130) { //Left
-                let direction = 3;
-                do movePlayer();
-            }
-
-            if (key = 132) { //Right
-                let direction = 4;
-                do movePlayer();
-            }
+            do MoveKeyboard(key);
 
             while (~(key = 0)){
                 let key = Keyboard.keyPressed();
-                do movePlayer();
+                do MoveKeyboard(key);
             }
         }
         return;
