@@ -1,5 +1,5 @@
 function Objects.new 0
-push constant 3
+push constant 4
 call Memory.alloc 1
 pop pointer 0
 push constant 0
@@ -8,6 +8,8 @@ push constant 0
 pop this 1
 push constant 0
 pop this 2
+push constant 0
+pop this 3
 push pointer 0
 return
 function Objects.getPlayer 0
@@ -48,6 +50,20 @@ push argument 1
 push this 2
 call List.new 2
 pop this 2
+push constant 0
+return
+function Objects.getBulletsList 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Objects.addNewBullet 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 3
+call List.new 2
+pop this 3
 push constant 0
 return
 function Objects.dispose 0

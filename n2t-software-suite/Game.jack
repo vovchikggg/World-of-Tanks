@@ -50,6 +50,35 @@ class Game {
         return;
     }
 
+    method void killBullet()
+    {
+        var List current;
+        let current = map.getBulletsList();
+        while (~(current = null))
+        {
+            //var int bullet_x;
+            //var int bullet_y;
+            //let bullet_x = current.getData().getX();
+            //let bullet_y = current.getData().getY();
+
+            // логика убивающая пули
+
+            let current = current.getNext();
+        }
+        return;
+    }
+
+    method void killObjects()
+    {
+        do killBullet();
+        return;
+    }
+
+    method void drowObjects()
+    {
+        do Drower.DrawPlayer(player);
+        return;
+    }
 
     method void run(){
         var char key;
@@ -57,7 +86,12 @@ class Game {
         let exit = false;
 
         while (~exit){
-            while (key = 0){
+            do killObjects();
+            do drowObjects();
+
+            while (key = 0)
+            {
+                do drowObjects();
                 let key = Keyboard.keyPressed();
             }
             if (key = 81){
@@ -72,6 +106,7 @@ class Game {
             do MoveKeyboard(key);
 
             while (~(key = 0)){
+                do drowObjects();
                 let key = Keyboard.keyPressed();
                 do MoveKeyboard(key);
             }

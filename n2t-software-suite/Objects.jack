@@ -3,14 +3,14 @@ class Objects
     field Player player;
     field List botsList;
     field List bricksList;
-    //field List bulletsList;
+    field List bulletsList;
 
     constructor Objects new()
     {
         let player = null;
         let botsList = null;
         let bricksList = null;
-        //let bulletsList = null;
+        let bulletsList = null;
         return this;
     }
 
@@ -42,14 +42,15 @@ class Objects
         return;
     }
 
-    //method List getBulletsList()
-    //{
-    //    return bulletsList;
-    //}
-    //method void addNewBullet(Bullet _bullet) {
-    //    let bulletsList = List.new(_bullet, bulletsList);
-    //    return;
-    //}
+    method List getBulletsList()
+    {
+        return bulletsList;
+    }
+
+    method void addNewBullet(Bullet _bullet) {
+        let bulletsList = List.new(_bullet, bulletsList);
+        return;
+    }
 
     method void dispose()
     {
