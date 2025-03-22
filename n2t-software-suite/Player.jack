@@ -2,10 +2,10 @@ class Player
 {
     field int x;
     field int y;
-    field string direction;
+    field int direction;
     field bool alive;
 
-    constructor Player new(int _x, int _y, string _direction)
+    constructor Player new(int _x, int _y, int _direction)
     {
         let x = _x;
         let y = _y;
@@ -27,19 +27,19 @@ class Player
     }
 
     method void move() {
-        if (direction = "right")
+        if (direction = 1)
         {
             let x = x + 2;
         }
-        if (direction = "down")
+        if (direction = 2)
         {
             let y = y + 2;
         }
-        if (direction = "left")
+        if (direction = 3)
         {
             let x = x - 2;
         }
-        if (direction = "up")
+        if (direction = 4)
         {
             let y = y - 2;
         }
