@@ -12,6 +12,18 @@ class Brick
         return this;
     }
 
+    method int getX(){
+        return x;
+    }
+
+    method int getY(){
+        return y;
+    }
+
+    method bool getAlive(){
+        return alive;
+    }
+
     method void dispose()
     {
         do Memory.deAAlloc(this);

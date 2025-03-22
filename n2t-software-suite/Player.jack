@@ -14,6 +14,18 @@ class Player
         return this;
     }
 
+    method string getDirection(){
+        return direction;
+    }
+
+    method int getX(){
+        return x;
+    }
+
+    method int getY(){
+        return y;
+    }
+
     method void move() {
         if (direction = "right")
         {
@@ -31,6 +43,7 @@ class Player
         {
             let y = y - 2;
         }
+        do Drower.DrawPlayer(this);
         return;
     }
 

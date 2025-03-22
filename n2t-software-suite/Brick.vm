@@ -11,6 +11,21 @@ not
 pop this 2
 push pointer 0
 return
+function Brick.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Brick.getY 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Brick.getAlive 0
+push argument 0
+pop pointer 0
+push this 2
+return
 function Brick.dispose 0
 push argument 0
 pop pointer 0

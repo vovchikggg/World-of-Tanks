@@ -13,6 +13,21 @@ not
 pop this 3
 push pointer 0
 return
+function Player.getDirection 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Player.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Player.getY 0
+push argument 0
+pop pointer 0
+push this 1
+return
 function Player.move 0
 push argument 0
 pop pointer 0
@@ -94,6 +109,9 @@ push constant 2
 sub
 pop this 1
 label IF_FALSE3
+push pointer 0
+call Drower.DrawPlayer 1
+pop temp 0
 push constant 0
 return
 function Player.dispose 0

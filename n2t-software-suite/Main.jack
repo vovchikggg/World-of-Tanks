@@ -1,6 +1,7 @@
 class Main {
     function void main () {
         var int x;
+		do Drower.main();
         return;
     }
 }
