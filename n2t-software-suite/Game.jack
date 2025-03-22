@@ -1,0 +1,69 @@
+class Game {
+    field Player player;
+    field char direction;
+
+    constructor Game new(){
+        let player = Player.new(180, 180, 17);
+        let direction = 0;
+        return this;
+    }
+
+    method void dispose(){
+        do player.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void movePlayer(){
+        if (direction = 1){do player.moveUp(); }
+        if (direction = 2){do player.moveDown(); }
+        if (direction = 3){do player.moveLeft(); }
+        if (direction = 4){do player.moveRight(); }
+
+        do Sys.wait(5);
+        return;
+    }
+
+    method void run(){
+        var char key;
+        var boolean exit;
+        let exit = false;
+
+        while (~exit){
+            while (key = 0){
+                let key = Keyboard.keyPressed();
+                do movePlayer();
+            }
+
+            if (key = 81){
+                let exit = true;
+            }
+
+            if (key = 131) { // Up
+                let direction = 1;
+                do movePlayer();
+            }
+
+            if (key = 133) { // Down
+                let direction = 2;
+                do movePlayer();
+            }
+
+            if (key = 130) { //Left
+                let direction = 3;
+                do movePlayer();
+            }
+
+            if (key = 132) { //Right
+                let direction = 4;
+                do movePlayer();
+            }
+
+            while (~(key = 0)){
+                let key = Keyboard.keyPressed();
+                do movePlayer();
+            }
+        }
+        return;
+    }
+}
