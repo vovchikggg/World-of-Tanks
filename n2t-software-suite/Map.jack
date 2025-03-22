@@ -4,7 +4,7 @@ class Map
     field List bricksMap;
     field List bulletsMap;
 
-    constructor List new()
+    constructor Map new()
     {
         let botsMap = null;
         let bricksMap = null;
@@ -12,17 +12,32 @@ class Map
         return this;
     }
 
-    method void addNewBot(Bot bot) {
+    function List getBotsMap()
+    {
+        return botsMap;
+    }
+
+    function List getBricksMap()
+    {
+        return bricksMap;
+    }
+
+    function List getBulletsMap()
+    {
+        return bulletsMap;
+    }
+
+    function void addNewBot(Bot bot) {
         let botsMap = List.new(bot, botsMap);
         return;
     }
 
-    method void addNewBrick(Brick brick) {
+    function void addNewBrick(Brick brick) {
         let bricksMap = List.new(brick, bricksMap);
         return;
     }
 
-    method void addNewBullet(Bullet bullet) {
+    function void addNewBullet(Bullet bullet) {
         let bulletsMap = List.new(bullet, bulletsMap);
         return;
     }
