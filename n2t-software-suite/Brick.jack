@@ -1,0 +1,20 @@
+class Brick
+{
+    field int x;
+    field int y;
+    field bool alive;
+
+    constructor Brick new(int _x, int _y)
+    {
+        let x = _x;
+        let y = _y;
+        let alive = true;
+        return this;
+    }
+
+    method void dispose()
+    {
+        do Memory.deAAlloc(this);
+        return;
+    }
+}
