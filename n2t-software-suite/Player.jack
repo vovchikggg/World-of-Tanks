@@ -3,10 +3,10 @@ class Player
     field int x, y;
     field int size;
 
-    constructor Player new (int Ax, int Ay, int Asize){
-        let x = Ax;
-        let y = Ay;
-        let size = Asize;
+    constructor Player new (int _x, int _y, int _size){
+        let x = _x;
+        let y = _y;
+        let size = _size;
         do draw();
         return this;
     }
@@ -51,7 +51,7 @@ class Player
         if (x > 1) {
             do Screen.setColor(false);
             do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
-            let x = x - 15;
+            let x = x - 2;
             do Screen.setColor(true);
             do Screen.drawRectangle(x, y, x + 1, y + size);
         }
@@ -62,7 +62,7 @@ class Player
         if ((x + size) < 510) {
             do Screen.setColor(false);
             do Screen.drawRectangle(x, y, x + 1, y + size);
-            let x = x + 15;
+            let x = x + 2;
             do Screen.setColor(true);
             do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
         }

@@ -173,7 +173,7 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 push this 0
-push constant 15
+push constant 2
 sub
 pop this 0
 push constant 0
@@ -218,7 +218,7 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 push this 0
-push constant 15
+push constant 2
 add
 pop this 0
 push constant 0
