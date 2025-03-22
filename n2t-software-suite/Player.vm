@@ -9,9 +9,6 @@ pop this 1
 push argument 2
 pop this 2
 push pointer 0
-call Player.draw 1
-pop temp 0
-push pointer 0
 return
 function Player.getSize 0
 push argument 0
@@ -136,6 +133,9 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE0
+push pointer 0
+call Drower.DrawPlayer 1
+pop temp 0
 push constant 0
 return
 function Player.moveDown 0
@@ -271,7 +271,6 @@ push this 2
 add
 push constant 1
 sub
-<<<<<<< HEAD
 push this 1
 push this 0
 push this 2
@@ -282,13 +281,6 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE0
-=======
-pop this 1
-label IF_FALSE3
-push pointer 0
-call Drower.DrawPlayer 1
-pop temp 0
->>>>>>> origin/Drower
 push constant 0
 return
 function Player.Atack 3

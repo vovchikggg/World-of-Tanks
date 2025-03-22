@@ -5,9 +5,12 @@ class Level
     constructor Level new()
     {
         let firstLevel = Objects.new();
-        do firstLevel.setPlayer(Player.new(100, 100, 1));
+        do firstLevel.setPlayer(Player.new(180, 180, 30));
         //do firstLevel.addNewBot(Bot.new(100, 100, 1));
-        do firstLevel.addNewBrick(Brick.new(50, 50));
+
+
+        //do firstLevel.addNewBrick(Brick.new(50, 50));
+
 
         //let secondLevel = Objects.new();
         //secondLevel.setPlayer(Player.new())

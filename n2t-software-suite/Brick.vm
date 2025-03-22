@@ -28,7 +28,6 @@ push argument 0
 pop pointer 0
 push this 1
 return
-<<<<<<< HEAD
 function Brick.setY 0
 push argument 0
 pop pointer 0
@@ -36,14 +35,11 @@ push argument 1
 pop this 1
 push constant 0
 return
-=======
->>>>>>> origin/Drower
 function Brick.getAlive 0
 push argument 0
 pop pointer 0
 push this 2
 return
-<<<<<<< HEAD
 function Brick.setAlive 0
 push argument 0
 pop pointer 0
@@ -51,8 +47,6 @@ push argument 1
 pop this 2
 push constant 0
 return
-=======
->>>>>>> origin/Drower
 function Brick.dispose 0
 push argument 0
 pop pointer 0
