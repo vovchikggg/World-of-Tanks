@@ -1,26 +1,71 @@
-class Player
+class Bullet
 {
-    field int x, y;
+    field int x;
+    field int y;
+    field string direction;
     field int size;
+    field bool alive;
 
-    constructor Player new (int _x, int _y, int _size){
+    constructor Bullet new(int _x, int _y, string _direction, int _size)
+    {
         let x = _x;
         let y = _y;
+        let direction = _direction;
+        let alive = true;
         let size = _size;
         do draw();
         return this;
     }
 
+    //временные методы
     method void draw()
     {
         do Screen.setColor(true);
         do Screen.drawRectangle(x, y, x + size, y + size);
         return;
     }
+    //временные методы
 
     method void erase(){
         do Screen.setColor(false);
         do Screen.drawRectangle(x, y, x + size, y + size);
+        return;
+    }
+
+
+    method bool getX()
+    {
+        return x;
+    }
+
+    method void setX(int _x)
+    {
+        let x = _x;
+        return;
+    }
+
+    method bool getY()
+    {
+        return y;
+    }
+    method void setY(int _y)
+    {
+        let y = _y;
+        return;
+    }
+
+    method bool getDirection()
+    {
+        return direction;
+    }
+
+    method bool getAlive()
+    {
+        return alive;
+    }
+    method void setAlive(bool _alive)
+    {
+        let alive = _alive;
         return;
     }
 
@@ -69,30 +114,35 @@ class Player
         return;
     }
 
-    method void Atack(char direction){
-        var Bullet bullet;
-        var int x_bullet;
-        var int y_bullet;
-        let x_bullet = (x + size - 10) / 2;
-        let y_bullet = y - 20;
-        if (direction = 1){
-            let bullet = Bullet.new(x_bullet, y_bullet, direction, 10);
-        }
-        if (direction = 2){
-            let bullet = Bullet.new(x, y + 20, direction, 10);
-        }
-        if (direction = 3){
-            let bullet = Bullet.new(x - 20, y, direction, 10);
-        }
-        if (direction = 4){
-            let bullet = Bullet.new(x + 20, y, direction, 10);
-        }
-        return;
-    }
+    //method void kill()
+    //{
+    //    var List current;
+    //    let current = Map.getBotsMap();
+    //    while (~(current = null))
+    //    {
+    //        let current.getData().setAlive(false);
+    //        let current = current.getNext();
+    //    }
 
+    //    let current = Map.getBricksMap();
+   //     while (~(current = null))
+    //    {
+     //       let current.getData().setAlive(false);
+     //       let current = current.getNext();
+    //    }
+///
+    //    let current = Map.getBulletsMap();
+     //   while (~(current = null))
+     //   {
+     //       let current.getData.setAlive(false);
+      //      let current = current.getNext();
+      //  }
+     //  return;
+    //}
 
-    method void dispose(){
-        do Memory.deAlloc(this);
+    method void dispose()
+    {
+        do Memory.deAAlloc(this);
         return;
     }
 }

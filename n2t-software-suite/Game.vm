@@ -1,5 +1,5 @@
 function Game.new 0
-push constant 2
+push constant 3
 call Memory.alloc 1
 pop pointer 0
 push constant 180
@@ -153,6 +153,17 @@ push constant 0
 not
 pop local 1
 label IF_FALSE0
+push local 0
+push constant 32
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 0
+push this 1
+call Player.Atack 2
+pop temp 0
+label IF_FALSE1
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2

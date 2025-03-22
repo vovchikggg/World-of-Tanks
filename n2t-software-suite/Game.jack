@@ -1,6 +1,7 @@
 class Game {
     field Player player;
     field char direction;
+    field Map map;
 
     constructor Game new(){
         let player = Player.new(180, 180, 17);
@@ -59,6 +60,10 @@ class Game {
 
             if (key = 81){
                 let exit = true;
+            }
+
+            if (key = 32){ // Space = пуля
+                do player.Atack(direction);
             }
 
             do MoveKeyboard(key);
