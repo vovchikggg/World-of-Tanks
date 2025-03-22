@@ -3,14 +3,14 @@ class Player
     field int x;
     field int y;
     field string direction;
-    field int alive;
+    field bool alive;
 
     constructor Player new(int _x, int _y, string _direction)
     {
         let x = _x;
         let y = _y;
         let direction = _direction;
-        let alive = 1;
+        let alive = true;
         return this;
     }
 
