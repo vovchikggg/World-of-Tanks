@@ -1,0 +1,66 @@
+class Bullet
+{
+    field int x;
+    field int y;
+    field string direction;
+    field int alive;
+
+    constructor Bullet new(int _x, int _y, string _direction)
+    {
+        x = _x
+        y = _y
+        direction = _direction
+        alive = 1
+    }
+
+    method void move() {
+        if (direction = "right")
+        {
+            let x = x + 4;
+        }
+        if (direction = "down")
+        {
+            let y = y + 4;
+        }
+        if (direction = "left")
+        {
+            let x = x - 4;
+        }
+        if (direction = "up")
+        {
+            let y = y - 4;
+        }
+        return;
+    }
+
+    method kill()
+    {
+        var List current;
+        let current = Map.botsMap;
+        while (~(current == null))
+        {
+            current.getData().alive = false
+            let current = current.getNext();
+        }
+
+        let current = Map.bricksMap;
+        while (~(current == null))
+        {
+            current.getData().alive = false
+            let current = current.getNext();
+        }
+
+        let current = Map.bulletsMap;
+        while (~(current == null))
+        {
+            current.getData().alive = false
+            let current = current.getNext();
+        }
+    }
+
+    method void dispose()
+    {
+        do Memory.deAAlloc(this);
+        return;
+    }
+}
