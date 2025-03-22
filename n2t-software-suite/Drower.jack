@@ -1,10 +1,4 @@
 class Drower {
-    function void main () {
-        var int x;
-        do Drower.DrawBrick(Brick.new(0, 0));
-        do Drower.DrawPlayer(Player.new(100, 100, 3));
-        return;
-    }
 
     function void DrawBrick(Brick brick) {
         var int memAddress;

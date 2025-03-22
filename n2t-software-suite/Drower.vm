@@ -1,17 +1,3 @@
-function Drower.main 1
-push constant 0
-push constant 0
-call Brick.new 2
-call Drower.DrawBrick 1
-pop temp 0
-push constant 100
-push constant 100
-push constant 3
-call Player.new 3
-call Drower.DrawPlayer 1
-pop temp 0
-push constant 0
-return
 function Drower.DrawBrick 4
 push argument 0
 call Brick.getX 1

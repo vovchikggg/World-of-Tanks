@@ -172,6 +172,20 @@ call Drower.DrawPlayer 1
 pop temp 0
 push constant 0
 return
+function Game.clear 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push constant 0
+push constant 0
+push constant 511
+push constant 255
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
 function Game.run 2
 push argument 0
 pop pointer 0
@@ -182,6 +196,9 @@ push local 1
 not
 not
 if-goto WHILE_END0
+push pointer 0
+call Game.clear 1
+pop temp 0
 push pointer 0
 call Game.killObjects 1
 pop temp 0
@@ -195,6 +212,9 @@ eq
 not
 if-goto WHILE_END1
 push pointer 0
+call Game.clear 1
+pop temp 0
+push pointer 0
 call Game.drowObjects 1
 pop temp 0
 call Keyboard.keyPressed 0
@@ -202,27 +222,40 @@ pop local 0
 goto WHILE_EXP1
 label WHILE_END1
 push local 0
-push constant 81
+push constant 65
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push constant 0
-not
-pop local 1
+push pointer 0
+call Game.clear 1
+pop temp 0
 label IF_FALSE0
+push pointer 0
+call Game.drowObjects 1
+pop temp 0
 push local 0
-push constant 32
+push constant 81
 eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
+push constant 0
+not
+pop local 1
+label IF_FALSE1
+push local 0
+push constant 32
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push this 0
 push this 0
 call Player.getDirection 1
 call Player.Atack 2
 pop temp 0
-label IF_FALSE1
+label IF_FALSE2
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2
@@ -234,6 +267,9 @@ eq
 not
 not
 if-goto WHILE_END2
+push pointer 0
+call Game.clear 1
+pop temp 0
 push pointer 0
 call Game.drowObjects 1
 pop temp 0

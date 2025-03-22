@@ -13,24 +13,24 @@ class Bullet
         let direction = _direction;
         let alive = true;
         let size = _size;
-        do draw();
+        //do draw();
         return this;
     }
 
     //временные методы
-    method void draw()
-    {
-        do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x + size, y + size);
-        return;
-    }
+    //method void draw()
+    //{
+    //    do Screen.setColor(true);
+    //    do Screen.drawRectangle(x, y, x + size, y + size);
+    //   return;
+    //}
     //временные методы
 
-    method void erase(){
-        do Screen.setColor(false);
-        do Screen.drawRectangle(x, y, x + size, y + size);
-        return;
-    }
+    //method void erase(){
+    //    do Screen.setColor(false);
+    //    do Screen.drawRectangle(x, y, x + size, y + size);
+    //    return;
+    //}
 
 
     method int getX()
@@ -74,11 +74,11 @@ class Bullet
         //do Screen.setColor(true);
         //do Screen.drawRectangle(x + 20, y + 20, x + 30, y + 30);
         if (y > 1){
-            do Screen.setColor(false);
-            do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
+            //do Screen.setColor(false);
+            //do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
             let y = y - 2;
-            do Screen.setColor(true);
-            do Screen.drawRectangle(x, y, x + size, y + 1);
+            //do Screen.setColor(true);
+            //do Screen.drawRectangle(x, y, x + size, y + 1);
         } 
         do Sys.wait(5);
         return;
@@ -86,11 +86,11 @@ class Bullet
 
      method void moveDown() {
         if ((y + size) < 254) {
-            do Screen.setColor(false);
-            do Screen.drawRectangle(x, y, x + size, y + 1);
+            //do Screen.setColor(false);
+            //do Screen.drawRectangle(x, y, x + size, y + 1);
             let y = y + 2;
-            do Screen.setColor(true);
-            do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
+            //do Screen.setColor(true);
+            //do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
         }
         do Sys.wait(5);
         return;
@@ -98,11 +98,11 @@ class Bullet
 
     method void moveLeft() {
         if (x > 1) {
-            do Screen.setColor(false);
-            do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
+            //do Screen.setColor(false);
+            //do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
             let x = x - 2;
-            do Screen.setColor(true);
-            do Screen.drawRectangle(x, y, x + 1, y + size);
+            //do Screen.setColor(true);
+            //do Screen.drawRectangle(x, y, x + 1, y + size);
         }
         do Sys.wait(5);
         return;
@@ -110,11 +110,11 @@ class Bullet
 
     method void moveRight() {
         if ((x + size) < 510) {
-            do Screen.setColor(false);
-            do Screen.drawRectangle(x, y, x + 1, y + size);
+            //do Screen.setColor(false);
+            //do Screen.drawRectangle(x, y, x + 1, y + size);
             let x = x + 2;
-            do Screen.setColor(true);
-            do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
+            //do Screen.setColor(true);
+            //do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
         }
         do Sys.wait(5);
         return;

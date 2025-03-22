@@ -80,20 +80,35 @@ class Game {
         return;
     }
 
+    method void clear()
+    {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0, 0, 511, 255);
+        return;
+    }
+
     method void run(){
         var char key;
         var boolean exit;
         let exit = false;
 
         while (~exit){
+            do clear();
             do killObjects();
             do drowObjects();
 
             while (key = 0)
             {
+                do clear();
                 do drowObjects();
                 let key = Keyboard.keyPressed();
             }
+
+            if (key = 65){
+                do clear();
+            }
+
+            do drowObjects();
             if (key = 81){
                 let exit = true;
             }
@@ -106,6 +121,7 @@ class Game {
             do MoveKeyboard(key);
 
             while (~(key = 0)){
+                do clear();
                 do drowObjects();
                 let key = Keyboard.keyPressed();
                 do MoveKeyboard(key);
