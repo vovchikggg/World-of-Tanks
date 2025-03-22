@@ -12,6 +12,36 @@ class Brick
         return this;
     }
 
+    method bool getX()
+    {
+        return x;
+    }
+    method void setX(int _x)
+    {
+        let x = _x;
+        return;
+    }
+
+    method bool getY()
+    {
+        return y;
+    }
+    method void setY(int _y)
+    {
+        let y = _y;
+        return;
+    }
+
+    method bool getAlive()
+    {
+        return alive;
+    }
+    method void setAlive(bool _alive)
+    {
+        let alive = _alive;
+        return;
+    }
+
     method void dispose()
     {
         do Memory.deAAlloc(this);

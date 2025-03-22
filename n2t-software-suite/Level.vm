@@ -1,0 +1,54 @@
+function Level.new 0
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push constant 2
+call Array.new 1
+pop this 0
+push constant 0
+push this 0
+add
+push constant 0
+push constant 0
+push constant 5
+call String.new 1
+push constant 114
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+call Player.new 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 0
+add
+push constant 50
+push constant 50
+call Brick.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+return
+function Level.getLevel1 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Level.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAAlloc 1
+pop temp 0
+push constant 0
+return
