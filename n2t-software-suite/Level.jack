@@ -1,18 +1,29 @@
 class Level
 {
-    field Array level1;
+    field Objects firstLevel;
 
     constructor Level new()
     {
-        let level1 = Array.new(2);
-        let level1[0] = Player.new(0, 0, "right");
-        let level1[1] = Brick.new(50, 50);
+        let firstLevel = Objects.new();
+        do firstLevel.setPlayer(Player.new(100, 100, 1));
+        //do firstLevel.addNewBot(Bot.new(100, 100, 1));
+        do firstLevel.addNewBrick(Brick.new(50, 50));
+
+        //let secondLevel = Objects.new();
+        //secondLevel.setPlayer(Player.new())
+        //secondLevel.addNewBot(Bot.new());
+        //secondLevel.addNewBrick(Brick.new());
+
+        //let thirdLevel = Objects.new();
+        //thirdLevel.setPlayer(Player.new())
+        //thirdLevel.addNewBot(Bot.new());
+        //thirdLevel.addNewBrick(Brick.new());
         return this;
     }
 
-    method Array getLevel1()
+    method List getFirstLevel()
     {
-        return level1;
+        return firstLevel;
     }
 
     method void dispose()

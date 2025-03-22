@@ -1,9 +1,11 @@
 class Game {
-    field Player player;
+    field Objects map;
     field char direction;
 
     constructor Game new(){
-        let player = Player.new(180, 180, 17);
+        var Level levels; 
+        let levels = Level.new();
+        let map = levels.getFirstLevel();
         let direction = 0;
         return this;
     }
@@ -15,6 +17,8 @@ class Game {
     }
 
     method void movePlayer(){
+        var Player player;
+        let player = map.getPlayer();
         if (direction = 1){do player.moveUp(); }
         if (direction = 2){do player.moveDown(); }
         if (direction = 3){do player.moveLeft(); }

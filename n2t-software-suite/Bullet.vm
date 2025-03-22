@@ -1,0 +1,147 @@
+function Bullet.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 2
+push constant 0
+not
+pop this 3
+push pointer 0
+return
+function Bullet.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Bullet.setX 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push constant 0
+return
+function Bullet.getY 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Bullet.setY 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function Bullet.getDirection 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Bullet.getAlive 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Bullet.setAlive 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 3
+push constant 0
+return
+function Bullet.move 0
+push argument 0
+pop pointer 0
+push this 2
+push constant 5
+call String.new 1
+push constant 114
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 4
+add
+pop this 0
+label IF_FALSE0
+push this 2
+push constant 4
+call String.new 1
+push constant 100
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 119
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 1
+push constant 4
+add
+pop this 1
+label IF_FALSE1
+push this 2
+push constant 4
+call String.new 1
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 0
+push constant 4
+sub
+pop this 0
+label IF_FALSE2
+push this 2
+push constant 2
+call String.new 1
+push constant 117
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 1
+push constant 4
+sub
+pop this 1
+label IF_FALSE3
+push constant 0
+return
+function Bullet.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAAlloc 1
+pop temp 0
+push constant 0
+return
