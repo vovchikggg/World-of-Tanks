@@ -33,6 +33,7 @@ class Player
             do Screen.setColor(true);
             do Screen.drawRectangle(x, y, x + size, y + 1);
         }
+        do Drower.DrawPlayer(this);
         return;
     }
 

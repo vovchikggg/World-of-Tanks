@@ -4,6 +4,8 @@ class Main {
         let game = Game.new();
         do game.run();
         do game.dispose();
+        var int x;
+		do Drower.main();
         return;
     }
 }
