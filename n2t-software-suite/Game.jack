@@ -1,4 +1,4 @@
-class Game {
+class Game {//
     field Player player;
     field int player_x;
     field int player_y;
@@ -11,8 +11,16 @@ class Game {
         let directionPlayer = 0;
         let player_x = player.getX();
         let player_y = player.getY();
+    field Objects map;
+    field char direction;
+
+    constructor Game new(){
+        var Level levels; 
+        let levels = Level.new();
+        let map = levels.getFirstLevel();
+        let direction = 0;
         return this;
-    }
+    }//
 
     method void dispose(){
         do player.dispose();
@@ -20,16 +28,22 @@ class Game {
         return;
     }
 
-    method void movePlayer(){
+    method void movePlayer(){//
 
         if (directionPlayer = 1){do player.moveUp(); }
         if (directionPlayer = 2){do player.moveDown(); }
         if (directionPlayer = 3){do player.moveLeft(); }
         if (directionPlayer = 4){do player.moveRight(); }
+        var Player player;
+        let player = map.getPlayer();
+        if (direction = 1){do player.moveUp(); }
+        if (direction = 2){do player.moveDown(); }
+        if (direction = 3){do player.moveLeft(); }
+        if (direction = 4){do player.moveRight(); }
 
         do Sys.wait(5);
         return;
-    }
+    }//
 
     method void MoveKeyboard(char key){
         if (key = 131) { // Up

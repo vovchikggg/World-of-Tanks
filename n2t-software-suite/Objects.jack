@@ -1,0 +1,59 @@
+class Objects
+{
+    field Player player;
+    field List botsList;
+    field List bricksList;
+    //field List bulletsList;
+
+    constructor Objects new()
+    {
+        let player = null;
+        let botsList = null;
+        let bricksList = null;
+        //let bulletsList = null;
+        return this;
+    }
+
+    method List getPlayer()
+    {
+        return player;
+    }
+    method void setPlayer(Player _player)
+    {
+        let player = _player;
+        return;
+    }
+
+    method List getBotsList()
+    {
+        return botsList;
+    }
+    method void addNewBot(Bot _bot) {
+        let botsList = List.new(_bot, botsList);
+        return;
+    }
+
+    method List getBricksList()
+    {
+        return bricksList;
+    }
+    method void addNewBrick(Brick _brick) {
+        let bricksList = List.new(_brick, bricksList);
+        return;
+    }
+
+    //method List getBulletsList()
+    //{
+    //    return bulletsList;
+    //}
+    //method void addNewBullet(Bullet _bullet) {
+    //    let bulletsList = List.new(_bullet, bulletsList);
+    //    return;
+    //}
+
+    method void dispose()
+    {
+        do Memory.deAAlloc(this);
+        return;
+    }
+}
