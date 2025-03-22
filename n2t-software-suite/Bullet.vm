@@ -141,6 +141,9 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE0
+push constant 5
+call Sys.wait 1
+pop temp 0
 push constant 0
 return
 function Bullet.moveDown 0
@@ -190,6 +193,9 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE0
+push constant 5
+call Sys.wait 1
+pop temp 0
 push constant 0
 return
 function Bullet.moveLeft 0
@@ -237,6 +243,9 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE0
+push constant 5
+call Sys.wait 1
+pop temp 0
 push constant 0
 return
 function Bullet.moveRight 0
@@ -286,6 +295,9 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE0
+push constant 5
+call Sys.wait 1
+pop temp 0
 push constant 0
 return
 function Bullet.dispose 0

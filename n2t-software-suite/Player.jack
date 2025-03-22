@@ -2,6 +2,7 @@ class Player
 {
     field int x, y;
     field int size;
+    field int direction;
 
     constructor Player new (int _x, int _y, int _size){
         let x = _x;
@@ -9,6 +10,43 @@ class Player
         let size = _size;
         do draw();
         return this;
+    }
+
+    method int getSize()
+    {
+        return size;
+    }
+
+    method int getX()
+    {
+        return x;
+    }
+
+    method void setX(int _x)
+    {
+        let x = _x;
+        return;
+    }
+
+    method int getY()
+    {
+        return y;
+    }
+    method void setY(int _y)
+    {
+        let y = _y;
+        return;
+    }
+
+    method int getDirection()
+    {
+        return direction;
+    }
+
+    method void setDirection(int _direction)
+    {
+        let direction = _direction;
+        return;
     }
 
     method void draw()
@@ -69,24 +107,32 @@ class Player
         return;
     }
 
-    method void Atack(char direction){
+
+    method void Atack(char direction){ // под вопросом
         var Bullet bullet;
-        var int x_bullet;
-        var int y_bullet;
-        let x_bullet = (x + size - 10) / 2;
-        let y_bullet = y - 20;
-        if (direction = 1){
-            let bullet = Bullet.new(x_bullet, y_bullet, direction, 10);
+        var int x_bullet_Up_Down;
+        var int y_bullet_Left_Right;
+        let x_bullet_Up_Down = x + (size / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
+        let y_bullet_Left_Right = y + (size / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
+        
+        if (direction = 1){ //Up
+            if (y - 20 < 0){return;}
+            let bullet = Bullet.new(x_bullet_Up_Down, y - 20, direction, 10);
+            while (bullet.getY() > 1){do bullet.moveUp();}
         }
-        if (direction = 2){
-            let bullet = Bullet.new(x, y + 20, direction, 10);
+        if (direction = 2){ //Down
+            if (y + size + 20 > 256){return;}
+            let bullet = Bullet.new(x_bullet_Up_Down, y + size + 20, direction, 10);
         }
-        if (direction = 3){
-            let bullet = Bullet.new(x - 20, y, direction, 10);
+        if (direction = 3){ //Left
+            if (x - 20 < 0){return;}
+            let bullet = Bullet.new(x - 20, y_bullet_Left_Right, direction, 10);
         }
-        if (direction = 4){
-            let bullet = Bullet.new(x + 20, y, direction, 10);
+        if (direction = 4){ //Right
+            if (x + size + 20 > 512){return;}
+            let bullet = Bullet.new(x + size + 20, y_bullet_Left_Right, direction, 10);
         }
+
         return;
     }
 
