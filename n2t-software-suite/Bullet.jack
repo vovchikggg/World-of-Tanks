@@ -49,8 +49,10 @@ class Bullet
             let x = player.getX() + player.getSize() + 20;
             let y = y_bullet_Left_Right;
         }
-
-        do map.addNewBullet(this);
+        if (alive = true)
+        {
+            do map.addNewBullet(this);
+        }
 
         return this;
     }
