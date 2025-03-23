@@ -31,23 +31,20 @@ class Game {
     method void MoveKeyboard(char key){
         if (key = 131) { // Up
             do player.setDirection(1);
-            do movePlayer();
         }
 
         if (key = 133) { // Down
             do player.setDirection(2);
-            do movePlayer();
         }
 
         if (key = 130) { //Left
             do player.setDirection(3);
-            do movePlayer();
         }
 
         if (key = 132) { //Right
             do player.setDirection(4);
-            do movePlayer();
         }
+        do movePlayer();
         return;
     }
 
@@ -96,8 +93,7 @@ class Game {
         let exit = false;
 
         while (~exit){
-            //do clear();
-            do killObjects();
+            //do killObjects();
 
             while (key = 0)
             {
@@ -107,29 +103,28 @@ class Game {
                 let key = Keyboard.keyPressed();
             }
 
-            //if (key = 65){
-            //    do clear();
-            //}
             if (key = 81){
                 let exit = true;
             }
 
-            let directionPlayer = player.getDirection();
 
             if (key = 32){ // Space = пуля
                 do Bullet.CraftBullet(directionPlayer, player);
                 //do player.Atack(directionPlayer);
             }
 
-            do MoveKeyboard(key);
+            //do MoveKeyboard(key);
 
             while (~(key = 0)){
                 //do clear(); // 100% нужен
-                do map.drowAllObjects();
-                let key = Keyboard.keyPressed();
-                do Drower.clearPlayer(player);
-                do clearBullets();
+                //do Drower.clearPlayer(player);
                 do MoveKeyboard(key);
+                do Drower.DrawPlayer(player);
+                //do map.drowAllObjects();
+                let key = Keyboard.keyPressed();
+        
+                //do clearBullets();
+                
             }
         }
         return;

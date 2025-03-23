@@ -58,7 +58,7 @@ class Objects
         var BricksList currentBrick;
         var BulletsList currentBullet;
 
-        do Drower.DrawPlayer(player);
+        //do Drower.DrawPlayer(player);
 
         let currentBot = botsList;
         while (~(currentBot = null))
