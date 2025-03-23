@@ -8,6 +8,7 @@ class Player
         let x = _x;
         let y = _y;
         let size = _size;
+        
         return this;
     }
 
