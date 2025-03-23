@@ -100,8 +100,9 @@ class Game {
             }
 
             do MoveKeyboard(key);
-            //do map.clearBullets()
+            //do map.clearBullets();
             do map.moveBullets();
+            do map.drowBullets();
         }
         return;
     }
