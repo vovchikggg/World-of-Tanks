@@ -62,10 +62,19 @@ gt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push pointer 0
+call Drower.clearPlayer 1
+pop temp 0
+push constant 2
+call Sys.wait 1
+pop temp 0
 push this 1
 push constant 2
 sub
 pop this 1
+push pointer 0
+call Drower.DrawPlayer 1
+pop temp 0
 label IF_FALSE0
 push constant 0
 return
@@ -80,10 +89,19 @@ lt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push pointer 0
+call Drower.clearPlayer 1
+pop temp 0
+push constant 2
+call Sys.wait 1
+pop temp 0
 push this 1
 push constant 2
 add
 pop this 1
+push pointer 0
+call Drower.DrawPlayer 1
+pop temp 0
 label IF_FALSE0
 push constant 0
 return
@@ -96,10 +114,19 @@ gt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push pointer 0
+call Drower.clearPlayer 1
+pop temp 0
+push constant 2
+call Sys.wait 1
+pop temp 0
 push this 0
 push constant 2
 sub
 pop this 0
+push pointer 0
+call Drower.DrawPlayer 1
+pop temp 0
 label IF_FALSE0
 push constant 0
 return
@@ -114,10 +141,19 @@ lt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push pointer 0
+call Drower.clearPlayer 1
+pop temp 0
+push constant 2
+call Sys.wait 1
+pop temp 0
 push this 0
 push constant 2
 add
 pop this 0
+push pointer 0
+call Drower.DrawPlayer 1
+pop temp 0
 label IF_FALSE0
 push constant 0
 return

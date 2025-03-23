@@ -80,24 +80,25 @@ class Game {
         return;
     }
 
-    method void clearBullets()
+    method void moveBullets()
     {
-        var BulletsList currentBullet;
-        var Bullet currentBulletGetData;
-        let currentBullet = map.getBulletsList();
+        var BulletsList currentBulletAtom;
+        var Bullet bullet;
+        let currentBulletAtom = map.getBulletsList();
         
         //do Screen.setColor(true);
         //do Screen.drawRectangle(100, 100, 150, 150);
 
-        while (~(currentBullet = null))
+        while (~(currentBulletAtom = null))
         {
-            let currentBulletGetData = currentBullet.getData();
-            
+            let bullet = currentBulletAtom.getData();
+            do bullet.moveBullet();
+
             //do Screen.setColor(true);
             //do Screen.drawRectangle(100, 100, 150, 150);
 
-            do Drower.clearBullet(currentBulletGetData);
-            let currentBullet = currentBullet.getNext();
+            //do Drower.clearBullet(bullet);
+            let currentBulletAtom = currentBulletAtom.getNext();
         }
 
         return;
@@ -110,42 +111,20 @@ class Game {
         let exit = false;
 
         while (~exit){
-            //do clear();
-            //do killObjects();
+            let key = Keyboard.keyPressed();
 
-            while (key = 0)
+            if (key = 81) // Q - выйти
             {
-                //do clear();
-                do map.drowAllObjects();
-                do clearBullets();
-                let key = Keyboard.keyPressed();
-            }
-
-            //if (key = 65){
-            //    do clear();
-            //}
-            if (key = 81){
                 let exit = true;
             }
 
-            let directionPlayer = player.getDirection();
-
-            if (key = 32){ // Space = пуля
+            if (key = 32) // Space - пуля
+            {
                 do Bullet.CraftBullet(directionPlayer, player, map);
-                //do clearBullets();
-                //do player.Atack(directionPlayer);
             }
 
             do MoveKeyboard(key);
-
-            while (~(key = 0)){
-                //do clear(); // 100% нужен
-                do map.drowAllObjects();
-                let key = Keyboard.keyPressed();
-                do Drower.clearPlayer(player);
-                do clearBullets();
-                do MoveKeyboard(key);
-            }
+            do Drower.clearBullets(map);
         }
         return;
     }

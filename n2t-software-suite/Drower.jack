@@ -461,4 +461,27 @@ class Drower {
         do Screen.drawRectangle(x - size, y - size, x + size, y + size);
         return;
     }
+
+    function void clearBullets(Objects map)
+    {
+        var BulletsList currentBullet;
+        var Bullet currentBulletGetData;
+        let currentBullet = map.getBulletsList();
+        
+        //do Screen.setColor(true);
+        //do Screen.drawRectangle(100, 100, 150, 150);
+
+        while (~(currentBullet = null))
+        {
+            let currentBulletGetData = currentBullet.getData();
+            
+            //do Screen.setColor(true);
+            //do Screen.drawRectangle(100, 100, 150, 150);
+
+            do Drower.clearBullet(currentBulletGetData);
+            let currentBullet = currentBullet.getNext();
+        }
+
+        return;
+    }
 }
