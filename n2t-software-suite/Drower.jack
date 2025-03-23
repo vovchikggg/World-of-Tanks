@@ -381,4 +381,15 @@ class Drower {
 
         return;
     }
+
+    function void clearPlayer(Player player)
+    {
+        var int x;
+        var int y;
+        let x = player.getX();
+        let y = player.getY();
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x, y, x + 32, y + 32);
+        return;
+    }
 }
