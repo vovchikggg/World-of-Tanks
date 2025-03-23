@@ -117,8 +117,8 @@ class Game {
             let directionPlayer = player.getDirection();
 
             if (key = 32){ // Space = пуля
-                //do CraftBullet();
-                do player.Atack(directionPlayer);
+                do Bullet.CraftBullet(directionPlayer, player);
+                //do player.Atack(directionPlayer);
             }
 
             do MoveKeyboard(key);

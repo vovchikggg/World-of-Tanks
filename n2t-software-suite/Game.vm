@@ -223,9 +223,9 @@ eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push this 0
 push local 2
-call Player.Atack 2
+push this 0
+call Bullet.CraftBullet 2
 pop temp 0
 label IF_FALSE1
 push pointer 0

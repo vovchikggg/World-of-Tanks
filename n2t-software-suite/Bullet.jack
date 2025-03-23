@@ -120,31 +120,39 @@ class Bullet
         return;
     }
 
-    //method void kill()
-    //{
-    //    var List current;
-    //    let current = Map.getBotsMap();
-    //    while (~(current = null))
-    //    {
-    //        let current.getData().setAlive(false);
-    //        let current = current.getNext();
-    //    }
+    function void CraftBullet(int direction, Player player){
+        var Bullet bullet;
+        var int xPlayer;
+        var int yPlayer;
+        var int playerSize;
+        var int x_bullet_Up_Down;
+        var int y_bullet_Left_Right;
+        let xPlayer = player.getX();
+        let yPlayer = player.getY();
+        let playerSize = player.getSize();
+        let x_bullet_Up_Down = xPlayer + (playerSize / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
+        let y_bullet_Left_Right = yPlayer + (playerSize / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
+        
+        if (direction = 1){ //Up
+            if (yPlayer - 20 < 0){return;}
+            let bullet = Bullet.new(x_bullet_Up_Down, yPlayer - 20, direction, 10);
+            while (bullet.getY() > 1){do bullet.moveUp();}
+        }
+        if (direction = 2){ //Down
+            if (yPlayer + playerSize + 20 > 256){return;}
+            let bullet = Bullet.new(x_bullet_Up_Down, yPlayer + playerSize + 20, direction, 10);
+        }
+        if (direction = 3){ //Left
+            if (xPlayer - 20 < 0){return;}
+            let bullet = Bullet.new(xPlayer - 20, y_bullet_Left_Right, direction, 10);
+        }
+        if (direction = 4){ //Right
+            if (xPlayer + playerSize + 20 > 512){return;}
+            let bullet = Bullet.new(xPlayer + playerSize + 20, y_bullet_Left_Right, direction, 10);
+        }
 
-    //    let current = Map.getBricksMap();
-   //     while (~(current = null))
-    //    {
-     //       let current.getData().setAlive(false);
-     //       let current = current.getNext();
-    //    }
-///
-    //    let current = Map.getBulletsMap();
-     //   while (~(current = null))
-     //   {
-     //       let current.getData.setAlive(false);
-      //      let current = current.getNext();
-      //  }
-     //  return;
-    //}
+        return;
+    }
 
     method void dispose()
     {

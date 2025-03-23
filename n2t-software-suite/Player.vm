@@ -60,9 +60,6 @@ gt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push pointer 0
-call Drower.clearPlayer 1
-pop temp 0
 push this 1
 push constant 2
 sub
@@ -81,9 +78,6 @@ lt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push pointer 0
-call Drower.clearPlayer 1
-pop temp 0
 push this 1
 push constant 2
 add
@@ -100,9 +94,6 @@ gt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push pointer 0
-call Drower.clearPlayer 1
-pop temp 0
 push this 0
 push constant 2
 sub
@@ -121,9 +112,6 @@ lt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push pointer 0
-call Drower.clearPlayer 1
-pop temp 0
 push this 0
 push constant 2
 add
