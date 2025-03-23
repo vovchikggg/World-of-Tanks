@@ -1,0 +1,17 @@
+class BotsList
+{
+    field Bots data;
+    field List next;
+
+    constructor BotsList new(Bot car, List cdr)
+    {
+        let data = car;
+        let next = cdr;
+        return this;
+    }
+
+    method void dispose(){
+        do Memory.deAlloc(this);
+        return;
+    }
+}
