@@ -186,7 +186,7 @@ class Objects
                     do bullet.setAlive(false);
                     do brick.setAlive(false);
                     let exit = true;
-                    //do Output.printString("kill");
+                    do Output.printString("kill");
                 }
             }
             let currentBrick = currentBrick.getNext();
