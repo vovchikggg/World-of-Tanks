@@ -12,7 +12,14 @@ class Brick
         let y = _y;
         let size = 16;
         let alive = true;
+        //do map.addNewBrick(this);
         return this;
+    }
+
+    method void addNewBrickToList()
+    {
+        do map.addNewBrick(this);
+        return;
     }
 
     method void setMap(Objects _map)

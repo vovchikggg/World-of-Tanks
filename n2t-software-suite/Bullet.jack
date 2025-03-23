@@ -14,7 +14,7 @@ class Bullet
         let x_bullet_Up_Down = player.getX() + (player.getSize() / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
         let y_bullet_Left_Right = player.getY() + (player.getSize() / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
         let direction = player.getDirection();
-        let size = 10;
+        let size = 5;
         let alive = true;
         
         if (direction = 1){ //Up
@@ -49,8 +49,10 @@ class Bullet
             let x = player.getX() + player.getSize() + 20;
             let y = y_bullet_Left_Right;
         }
-
-        do map.addNewBullet(this);
+        if (alive = true)
+        {
+            do map.addNewBullet(this);
+        }
 
         return this;
     }
@@ -112,6 +114,7 @@ class Bullet
         if (y > 1){
             let y = y - 2;
         }
+        
         return;
     }
 
@@ -143,11 +146,17 @@ class Bullet
             {
                 do moveUp();
             }
+            else{
+                let alive = false;
+            }
         }
         if (direction = 2){ //Down
             if (y + size < 255)
             {
                 do moveDown();
+            }
+            else{
+                let alive = false;
             }
         }
         if (direction = 3){ //Left
@@ -155,11 +164,17 @@ class Bullet
             {
                 do moveLeft();
             }
+            else{
+                let alive = false;
+            }
         }
         if (direction = 4){ //Right
             if (x + size < 511)
             {
                 do moveRight();
+            }
+            else{
+                let alive = false;
             }
         }
         return;

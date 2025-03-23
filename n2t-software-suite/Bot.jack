@@ -1,0 +1,118 @@
+class Bot
+{
+    field int x;
+    field int y;
+    field int size;
+    field bool alive;
+    field Objects map;
+    field int direction;
+
+    constructor Bot new(int _x, int _y)
+    {
+        let x = _x;
+        let y = _y;
+        let size = 32;
+        let alive = true;
+
+        //do map.addNewBot(this);
+
+        return this;
+    }
+
+    method void addNewBotToList()
+    {
+        do map.addNewBot(this);
+        return;
+    }
+
+    method void setMap(Objects _map)
+    {
+        let map = _map;
+        return;
+    }
+
+    method int getX()
+    {
+        return x;
+    }
+
+    method void setX(int _x)
+    {
+        let x = _x;
+        return;
+    }
+
+    method int getY()
+    {
+        return y;
+    }
+    method void setY(int _y)
+    {
+        let y = _y;
+        return;
+    }
+
+    method int getDirection()
+    {
+        return direction;
+    }
+
+    method bool getAlive()
+    {
+        return alive;
+    }
+    method void setAlive(bool _alive)
+    {
+        let alive = _alive;
+        return;
+    }
+
+    method int getSize()
+    {
+        return size;
+    }
+    method void setSize(int _size)
+    {
+        let size = _size;
+        return;
+    }
+
+    method void moveUp()
+    {
+        if (y > 1){
+            let y = y - 2;
+        }
+        
+        return;
+    }
+
+     method void moveDown() {
+        if ((y + size) < 254) {
+            let y = y + 2;
+        }
+        return;
+    }
+
+    method void moveLeft() {
+        if (x > 1) {
+            let x = x - 2;
+        }
+        return;
+    }
+
+    method void moveRight() {
+        if ((x + size) < 510) {
+            let x = x + 2;
+        }
+        return;
+    }
+
+    
+
+    method void dispose()
+    {
+
+        do Memory.deAAlloc(this);
+        return;
+    }
+}

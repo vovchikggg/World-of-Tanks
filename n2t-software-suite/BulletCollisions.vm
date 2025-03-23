@@ -1,0 +1,240 @@
+function BulletCollisions.Check 5
+push constant 0
+pop local 0
+push local 0
+push argument 0
+call Objects.getPlayer 1
+push argument 1
+push argument 2
+push argument 3
+call BulletCollisions.CheckCollisionsWithPlayer 4
+or
+pop local 0
+push argument 0
+call Objects.getBricksList 1
+pop local 1
+label WHILE_EXP0
+push local 1
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 1
+call BricksList.getData 1
+pop local 3
+push local 3
+call Brick.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+push local 3
+push argument 1
+push argument 2
+push argument 3
+call BulletCollisions.CheckCollisionsWithBrick 4
+or
+pop local 0
+label IF_FALSE0
+push local 1
+call BricksList.getNext 1
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push argument 0
+call Objects.getBulletsList 1
+pop local 2
+label WHILE_EXP1
+push local 2
+push constant 0
+eq
+not
+not
+if-goto WHILE_END1
+push local 2
+call BulletsList.getData 1
+pop local 4
+push local 4
+call Bullet.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 0
+push local 4
+push argument 1
+push argument 2
+push argument 3
+call BulletCollisions.CheckCollisionsWithBullet 4
+or
+pop local 0
+label IF_FALSE1
+push local 2
+call BulletsList.getNext 1
+pop local 2
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+return
+function BulletCollisions.CheckCollisionsWithPlayer 0
+push argument 0
+push argument 1
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push argument 0
+call Player.getX 1
+push argument 0
+call Player.getSize 1
+add
+lt
+push argument 2
+push argument 1
+call Bullet.getSize 1
+add
+push argument 0
+call Player.getX 1
+gt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 3
+push argument 0
+call Player.getY 1
+push argument 0
+call Player.getSize 1
+add
+lt
+push argument 3
+push argument 1
+call Bullet.getSize 1
+add
+push argument 0
+call Player.getY 1
+gt
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+return
+label IF_FALSE2
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+return
+function BulletCollisions.CheckCollisionsWithBrick 0
+push argument 0
+push argument 1
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push argument 0
+call Brick.getX 1
+push argument 0
+call Brick.getSize 1
+add
+lt
+push argument 2
+push argument 1
+call Bullet.getSize 1
+add
+push argument 0
+call Brick.getX 1
+gt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 3
+push argument 0
+call Brick.getY 1
+push argument 0
+call Brick.getSize 1
+add
+lt
+push argument 3
+push argument 1
+call Bullet.getSize 1
+add
+push argument 0
+call Brick.getY 1
+gt
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+return
+label IF_FALSE2
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+return
+function BulletCollisions.CheckCollisionsWithBullet 0
+push argument 0
+push argument 1
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push argument 0
+call Bullet.getX 1
+push argument 0
+call Bullet.getSize 1
+add
+lt
+push argument 2
+push argument 1
+call Bullet.getSize 1
+add
+push argument 0
+call Bullet.getX 1
+gt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 3
+push argument 0
+call Bullet.getY 1
+push argument 0
+call Bullet.getSize 1
+add
+lt
+push argument 3
+push argument 1
+call Bullet.getSize 1
+add
+push argument 0
+call Bullet.getY 1
+gt
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+return
+label IF_FALSE2
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+return

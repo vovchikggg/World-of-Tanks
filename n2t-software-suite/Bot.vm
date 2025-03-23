@@ -1,0 +1,160 @@
+function Bot.new 0
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push constant 32
+pop this 2
+push constant 0
+not
+pop this 3
+push pointer 0
+return
+function Bot.addNewBotToList 0
+push argument 0
+pop pointer 0
+push this 4
+push pointer 0
+call Objects.addNewBot 2
+pop temp 0
+push constant 0
+return
+function Bot.setMap 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 4
+push constant 0
+return
+function Bot.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Bot.setX 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push constant 0
+return
+function Bot.getY 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Bot.setY 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function Bot.getDirection 0
+push argument 0
+pop pointer 0
+push this 5
+return
+function Bot.getAlive 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Bot.setAlive 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 3
+push constant 0
+return
+function Bot.getSize 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Bot.setSize 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 2
+push constant 0
+return
+function Bot.moveUp 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push constant 2
+sub
+pop this 1
+label IF_FALSE0
+push constant 0
+return
+function Bot.moveDown 0
+push argument 0
+pop pointer 0
+push this 1
+push this 2
+add
+push constant 254
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push constant 2
+add
+pop this 1
+label IF_FALSE0
+push constant 0
+return
+function Bot.moveLeft 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 2
+sub
+pop this 0
+label IF_FALSE0
+push constant 0
+return
+function Bot.moveRight 0
+push argument 0
+pop pointer 0
+push this 0
+push this 2
+add
+push constant 510
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 2
+add
+pop this 0
+label IF_FALSE0
+push constant 0
+return
+function Bot.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAAlloc 1
+pop temp 0
+push constant 0
+return

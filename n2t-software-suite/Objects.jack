@@ -1,14 +1,14 @@
 class Objects
 {
     field Player player;
-    //field BotsList botsList;
+    field BotsList botsList;
     field BricksList bricksList;
     field BulletsList bulletsList;
 
     constructor Objects new()
     {
         let player = null;
-        //let botsList = null;
+        let botsList = null;
         let bricksList = null;
         let bulletsList = null;
         return this;
@@ -16,26 +16,27 @@ class Objects
 
     method void setMap()
     {
-        //var BotsList currentBot;
+        var BotsList currentBot;
         var BricksList currentBrick;
         var BulletsList currentBullet;
 
-        //var Bot bot;
+        var Bot bot;
         var Brick brick;
         var Bullet bullet;
 
         do player.setMap(this);
 
-        //let currentBot = botsList;
-        //while (~(currentBot = null))
-        //{
-        //    let bot = currentBot.getData();
-        //    if (bot.getAlive() = true)
-        //    {
-        //        do bot.setMap(this);
-        //    }
-        //    let currentBot = currentBot.getNext();
-        //}
+        let currentBot = botsList;
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+            if (bot.getAlive() = true)
+            {
+                do bot.setMap(this);
+                do bot.addNewBotToList();
+            }
+            let currentBot = currentBot.getNext();
+        }
 
         let currentBrick = bricksList;
         while (~(currentBrick = null))
@@ -44,6 +45,7 @@ class Objects
             if (brick.getAlive() = true)
             {
                 do brick.setMap(this);
+                do brick.addNewBrickToList();
             }
             let currentBrick = currentBrick.getNext();
         }
@@ -90,6 +92,12 @@ class Objects
         return;
     }
 
+    method void addNewBot(Bot _bot)
+    {
+        let botsList = BotsList.new(_bot, botsList);
+        return;
+    }
+
     method List getBulletsList()
     {
         return bulletsList;
@@ -102,26 +110,26 @@ class Objects
 
     method void drowAllObjects()
     {
-        //var BotsList currentBot;
+        var BotsList currentBot;
         var BricksList currentBrick;
         var BulletsList currentBullet;
 
-        //var Bot bot;
+        var Bot bot;
         var Brick brick;
         var Bullet bullet;
 
         do Drower.DrawPlayer(player);
 
-        //let currentBot = botsList;
-        //while (~(currentBot = null))
-        //{
-        //    let bot = currentBot.getData();
-        //    if (bot.getAlive() = true)
-        //    {
-        //        do Drower.DrawBot(bot);
-        //    }
-        //    let currentBot = currentBot.getNext();
-        //}
+        let currentBot = botsList;
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+            if (bot.getAlive() = true)
+            {
+                do Drower.DrawBot(bot);
+            }
+            let currentBot = currentBot.getNext();
+        }
 
         let currentBrick = bricksList;
         while (~(currentBrick = null))

@@ -25,7 +25,7 @@ pop local 1
 push argument 0
 call Player.getDirection 1
 pop this 2
-push constant 10
+push constant 5
 pop this 3
 push constant 0
 not
@@ -150,10 +150,18 @@ pop this 0
 push local 1
 pop this 1
 label IF_FALSE6
+push this 4
+push constant 0
+not
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
 push argument 1
 push pointer 0
 call Objects.addNewBullet 2
 pop temp 0
+label IF_FALSE8
 push pointer 0
 return
 function Bullet.setMap 0
@@ -302,7 +310,11 @@ label IF_TRUE1
 push pointer 0
 call Bullet.moveUp 1
 pop temp 0
+goto IF_END1
 label IF_FALSE1
+push constant 0
+pop this 4
+label IF_END1
 label IF_FALSE0
 push this 2
 push constant 2
@@ -321,7 +333,11 @@ label IF_TRUE3
 push pointer 0
 call Bullet.moveDown 1
 pop temp 0
+goto IF_END3
 label IF_FALSE3
+push constant 0
+pop this 4
+label IF_END3
 label IF_FALSE2
 push this 2
 push constant 3
@@ -338,7 +354,11 @@ label IF_TRUE5
 push pointer 0
 call Bullet.moveLeft 1
 pop temp 0
+goto IF_END5
 label IF_FALSE5
+push constant 0
+pop this 4
+label IF_END5
 label IF_FALSE4
 push this 2
 push constant 4
@@ -357,7 +377,11 @@ label IF_TRUE7
 push pointer 0
 call Bullet.moveRight 1
 pop temp 0
+goto IF_END7
 label IF_FALSE7
+push constant 0
+pop this 4
+label IF_END7
 label IF_FALSE6
 push constant 0
 return
