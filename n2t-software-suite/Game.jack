@@ -80,48 +80,51 @@ class Game {
         return;
     }
 
-    method void clear()
-    {
-        do Screen.setColor(false);
-        do Screen.drawRectangle(0, 0, 511, 255);
-        return;
-    }
+    //method void clear()
+    //{
+    //    do Screen.setColor(false);
+    //    do Screen.drawRectangle(0, 0, 511, 255);
+    //    return;
+    //}
 
     method void run(){
         var char key;
         var boolean exit;
+        var int directionPlayer;
         let exit = false;
 
         while (~exit){
-            do clear();
+            //do clear();
             do killObjects();
             do drowObjects();
 
             while (key = 0)
             {
-                do clear();
+                //do clear();
                 do drowObjects();
                 let key = Keyboard.keyPressed();
             }
 
-            if (key = 65){
-                do clear();
-            }
+            //if (key = 65){
+            //    do clear();
+            //}
 
             do drowObjects();
             if (key = 81){
                 let exit = true;
             }
 
+            let directionPlayer = player.getDirection();
+
             if (key = 32){ // Space = пуля
                 //do CraftBullet();
-                do player.Atack(player.getDirection());
+                do player.Atack(directionPlayer);
             }
 
             do MoveKeyboard(key);
 
             while (~(key = 0)){
-                do clear();
+                //do clear(); // 100% нужен
                 do drowObjects();
                 let key = Keyboard.keyPressed();
                 do MoveKeyboard(key);

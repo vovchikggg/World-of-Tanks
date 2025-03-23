@@ -107,7 +107,7 @@ class Player
     }
 
 
-    method void Atack(char direction){ // под вопросом
+    method void Atack(int direction){ // под вопросом
         var Bullet bullet;
         var int x_bullet_Up_Down;
         var int y_bullet_Left_Right;
