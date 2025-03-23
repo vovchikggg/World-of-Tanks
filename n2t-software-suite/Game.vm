@@ -4,7 +4,8 @@ call Memory.alloc 1
 pop pointer 0
 call Level.new 0
 pop local 0
-call Map.getMap 0
+push local 0
+call Level.getFirstLevel 1
 pop this 1
 push this 1
 call Objects.drowAllObjects 1

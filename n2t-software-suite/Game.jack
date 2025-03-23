@@ -5,8 +5,7 @@ class Game {
     constructor Game new(){
         var Level levels; 
         let levels = Level.new();
-        let map = Map.getMap();
-        //let map = levels.getFirstLevel();
+        let map = levels.getFirstLevel();
         do map.drowAllObjects();
         let player = map.getPlayer();
         return this;

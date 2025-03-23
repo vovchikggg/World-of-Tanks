@@ -326,10 +326,6 @@ push local 0
 call Bullet.moveRight 1
 pop temp 0
 label IF_FALSE6
-push argument 2
-push local 0
-call Objects.addNewBullet 2
-pop temp 0
 push constant 0
 return
 function Bullet.dispose 0

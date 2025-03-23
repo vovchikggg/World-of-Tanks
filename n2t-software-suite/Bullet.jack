@@ -162,7 +162,7 @@ class Bullet
             do bullet.moveRight();
         }
 
-        do map.addNewBullet(bullet);
+        //do map.addNewBullet(bullet);
 
         return;
     }
