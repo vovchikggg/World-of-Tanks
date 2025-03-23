@@ -56,11 +56,14 @@ class Game {
             {
                 let exit = true;
             }
-
-            if ((key = 32) & ( (time - ((time / 1000) * 1000)) = 0 )) // Space - пуля
+            //( (time - ((time / 1000) * 1000)) = 0 )
+            if (key = 32) // Space - пуля
             {
-                let newBullet = Bullet.new(player, map);
-                do map.addNewBullet(newBullet);
+                if (time > player.getTimeBetweenAtacks())
+                {
+                    do player.Atack();
+                    let time = 0;
+                }
             }
 
             do MoveKeyboard(key);
