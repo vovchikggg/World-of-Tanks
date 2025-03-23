@@ -774,6 +774,7 @@ class Drower {
         do Memory.poke(memAddress + 416, 16383);
         do Memory.poke(memAddress + 448, 1022);
         do Memory.poke(memAddress + 480, 16382);
+        let x = x - 16;
         let y = y + 16;
         let memAddress = 16384 + (32 * y) + (x / 16);
         do Memory.poke(memAddress + 0, -128);
