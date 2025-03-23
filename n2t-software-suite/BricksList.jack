@@ -1,0 +1,17 @@
+class BricksList
+{
+    field Brick data;
+    field List next;
+
+    constructor BricksList new(Brick car, List cdr)
+    {
+        let data = car;
+        let next = cdr;
+        return this;
+    }
+
+    method void dispose(){
+        do Memory.deAlloc(this);
+        return;
+    }
+}
