@@ -74,12 +74,6 @@ class Game {
         return;
     }
 
-    method void drowObjects()
-    {
-        do Drower.DrawPlayer(player);
-        return;
-    }
-
     //method void clear()
     //{
     //    do Screen.setColor(false);
@@ -96,20 +90,18 @@ class Game {
         while (~exit){
             //do clear();
             do killObjects();
-            do drowObjects();
+            do map.drowAllObjects();
 
             while (key = 0)
             {
                 //do clear();
-                do drowObjects();
+                do map.drowAllObjects();
                 let key = Keyboard.keyPressed();
             }
 
             //if (key = 65){
             //    do clear();
             //}
-
-            do drowObjects();
             if (key = 81){
                 let exit = true;
             }
@@ -125,7 +117,7 @@ class Game {
 
             while (~(key = 0)){
                 //do clear(); // 100% нужен
-                do drowObjects();
+                do map.drowAllObjects();
                 let key = Keyboard.keyPressed();
                 do MoveKeyboard(key);
             }

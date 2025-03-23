@@ -66,6 +66,14 @@ call List.new 2
 pop this 3
 push constant 0
 return
+function Objects.drowAllObjects 0
+push argument 0
+pop pointer 0
+push this 0
+call Drower.DrawPlayer 1
+pop temp 0
+push constant 0
+return
 function Objects.dispose 0
 push argument 0
 pop pointer 0

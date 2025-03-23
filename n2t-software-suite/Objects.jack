@@ -52,6 +52,12 @@ class Objects
         return;
     }
 
+    method void drowAllObjects()
+    {
+        do Drower.DrawPlayer(player);
+        return;
+    }
+
     method void dispose()
     {
         do Memory.deAAlloc(this);

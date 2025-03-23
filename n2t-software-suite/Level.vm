@@ -11,6 +11,12 @@ push constant 30
 call Player.new 3
 call Objects.setPlayer 2
 pop temp 0
+push this 0
+push constant 50
+push constant 50
+call Brick.new 2
+call Objects.addNewBrick 2
+pop temp 0
 push pointer 0
 return
 function Level.getFirstLevel 0
