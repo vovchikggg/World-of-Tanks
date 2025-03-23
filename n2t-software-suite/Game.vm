@@ -96,9 +96,6 @@ push this 0
 push constant 1
 call Player.setDirection 2
 pop temp 0
-push pointer 0
-call Game.movePlayer 1
-pop temp 0
 label IF_FALSE0
 push argument 1
 push constant 133
@@ -109,9 +106,6 @@ label IF_TRUE1
 push this 0
 push constant 2
 call Player.setDirection 2
-pop temp 0
-push pointer 0
-call Game.movePlayer 1
 pop temp 0
 label IF_FALSE1
 push argument 1
@@ -124,9 +118,6 @@ push this 0
 push constant 3
 call Player.setDirection 2
 pop temp 0
-push pointer 0
-call Game.movePlayer 1
-pop temp 0
 label IF_FALSE2
 push argument 1
 push constant 132
@@ -138,10 +129,10 @@ push this 0
 push constant 4
 call Player.setDirection 2
 pop temp 0
+label IF_FALSE3
 push pointer 0
 call Game.movePlayer 1
 pop temp 0
-label IF_FALSE3
 push constant 0
 return
 function Game.killBullet 1
@@ -182,6 +173,21 @@ push local 1
 not
 not
 if-goto WHILE_END0
+<<<<<<< HEAD
+=======
+label WHILE_EXP1
+push local 0
+push constant 0
+eq
+not
+if-goto WHILE_END1
+push this 1
+call Objects.drowAllObjects 1
+pop temp 0
+push pointer 0
+call Game.clearBullets 1
+pop temp 0
+>>>>>>> drowerperfect
 call Keyboard.keyPressed 0
 pop local 0
 push local 0
@@ -205,16 +211,36 @@ push this 1
 call Bullet.new 2
 pop temp 0
 label IF_FALSE1
+<<<<<<< HEAD
 push this 1
 call Objects.drowAllObjects 1
 pop temp 0
+=======
+label WHILE_EXP2
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END2
+>>>>>>> drowerperfect
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2
 pop temp 0
+<<<<<<< HEAD
 push this 1
 call Objects.moveBullets 1
 pop temp 0
+=======
+push this 0
+call Drower.DrawPlayer 1
+pop temp 0
+call Keyboard.keyPressed 0
+pop local 0
+goto WHILE_EXP2
+label WHILE_END2
+>>>>>>> drowerperfect
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0

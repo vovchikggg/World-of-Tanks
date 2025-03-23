@@ -113,7 +113,8 @@ class Drower {
 
     function void DrawPlayerRight(int x, int y){
         var int memAddress;
-
+        do Screen.setColor(false);
+        do Screen.drawRectangle(Math.max(1, x - 16), y, x, Math.min(255, y + 32));
         let memAddress = 16384 + (32 * y) + (x / 16); 
         do Memory.poke(memAddress + 0, 0);
         do Memory.poke(memAddress + 32, -21856);
@@ -132,27 +133,7 @@ class Drower {
         do Memory.poke(memAddress + 448, -64);
         do Memory.poke(memAddress + 480, -64);
 
-        let x = x + 16; //right top 
-        let memAddress = 16384 + (32 * y) + (x / 16); 
-        do Memory.poke(memAddress + 0, 0);
-        do Memory.poke(memAddress + 32, 170);
-        do Memory.poke(memAddress + 64, 170);
-        do Memory.poke(memAddress + 96, 170);
-        do Memory.poke(memAddress + 128, 170);
-        do Memory.poke(memAddress + 160, 255);
-        do Memory.poke(memAddress + 192, 127);
-        do Memory.poke(memAddress + 224, 127);
-        do Memory.poke(memAddress + 256, 127);
-        do Memory.poke(memAddress + 288, 127);
-        do Memory.poke(memAddress + 320, 127);
-        do Memory.poke(memAddress + 352, 255);
-        do Memory.poke(memAddress + 384, 255);
-        do Memory.poke(memAddress + 416, 511);
-        do Memory.poke(memAddress + 448, 511);
-        do Memory.poke(memAddress + 480, -1);
-
-        let x = x - 16;
-        let y = y + 16; // left bottom
+        let y = y + 16; //right top 
         let memAddress = 16384 + (32 * y) + (x / 16); 
         do Memory.poke(memAddress + 0, -64);
         do Memory.poke(memAddress + 32, -64);
@@ -171,7 +152,27 @@ class Drower {
         do Memory.poke(memAddress + 448, -21856);
         do Memory.poke(memAddress + 480, 0);
 
-        let x = x + 16; // right bottom 
+        let x = x + 16;
+        let y = y - 16; // left bottom
+        let memAddress = 16384 + (32 * y) + (x / 16);
+        do Memory.poke(memAddress + 0, 0);
+        do Memory.poke(memAddress + 32, 170);
+        do Memory.poke(memAddress + 64, 170);
+        do Memory.poke(memAddress + 96, 170);
+        do Memory.poke(memAddress + 128, 170);
+        do Memory.poke(memAddress + 160, 255);
+        do Memory.poke(memAddress + 192, 127);
+        do Memory.poke(memAddress + 224, 127);
+        do Memory.poke(memAddress + 256, 127);
+        do Memory.poke(memAddress + 288, 127);
+        do Memory.poke(memAddress + 320, 127);
+        do Memory.poke(memAddress + 352, 255);
+        do Memory.poke(memAddress + 384, 255);
+        do Memory.poke(memAddress + 416, 511);
+        do Memory.poke(memAddress + 448, 511);
+        do Memory.poke(memAddress + 480, -1); 
+
+        let y = y + 16; // right bottom 
         let memAddress = 16384 + (32 * y) + (x / 16); 
         do Memory.poke(memAddress + 0, -1);
         do Memory.poke(memAddress + 32, 511);
@@ -277,6 +278,9 @@ class Drower {
 
     function void DrawPlayerLeft(int x, int y){
         var int memAddress;
+        do Screen.setColor(false);
+        let y = Math.max(1, y);
+        do Screen.drawRectangle(Math.min(512-3, x+16), Math.min(255, y), Math.min(512-3, x + 64), Math.min(255, y + 32));
         let memAddress = 16384 + (32 * y) + (x / 16);
         do Memory.poke(memAddress + 0, 0); // left top
         do Memory.poke(memAddress + 32, 21760);
@@ -416,9 +420,11 @@ class Drower {
         let direction = player.getDirection();
         let x = player.getX();
         let y = player.getY();
+        let x = Math.max(x, 0);
+        let y = Math.max(y, 0);
         let x = Math.min(x, 512 - 32);
         let y = Math.min(y, 256 - 32);
-
+        
         if (direction = 1){
             do Drower.DrawPlayerUp(x, y);
         }
@@ -432,17 +438,6 @@ class Drower {
             do Drower.DrawPlayerRight(x, y);
         }
 
-        return;
-    }
-
-    function void clearPlayer(Player player)
-    {
-        var int x;
-        var int y;
-        let x = player.getX();
-        let y = player.getY();
-        do Screen.setColor(false);
-        do Screen.drawRectangle(x, y, x + 32, y + 32);
         return;
     }
 

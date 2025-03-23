@@ -57,6 +57,7 @@ function Player.moveUp 0
 push argument 0
 pop pointer 0
 push this 1
+<<<<<<< HEAD
 push constant 1
 gt
 if-goto IF_TRUE0
@@ -66,16 +67,20 @@ push pointer 0
 call Drower.clearPlayer 1
 pop temp 0
 push this 1
+=======
+>>>>>>> drowerperfect
 push constant 2
 sub
+push constant 1
+call Math.max 2
 pop this 1
-label IF_FALSE0
 push constant 0
 return
 function Player.moveDown 0
 push argument 0
 pop pointer 0
 push this 1
+<<<<<<< HEAD
 push this 2
 add
 push constant 254
@@ -87,17 +92,20 @@ push pointer 0
 call Drower.clearPlayer 1
 pop temp 0
 push this 1
+=======
+>>>>>>> drowerperfect
 push constant 2
 add
+push constant 255
+call Math.min 2
 pop this 1
-label IF_FALSE0
 push constant 0
 return
 function Player.moveLeft 0
 push argument 0
 pop pointer 0
-push this 0
 push constant 1
+<<<<<<< HEAD
 gt
 if-goto IF_TRUE0
 goto IF_FALSE0
@@ -105,17 +113,20 @@ label IF_TRUE0
 push pointer 0
 call Drower.clearPlayer 1
 pop temp 0
+=======
+>>>>>>> drowerperfect
 push this 0
 push constant 2
 sub
+call Math.max 2
 pop this 0
-label IF_FALSE0
 push constant 0
 return
 function Player.moveRight 0
 push argument 0
 pop pointer 0
 push this 0
+<<<<<<< HEAD
 push this 2
 add
 push constant 510
@@ -127,10 +138,13 @@ push pointer 0
 call Drower.clearPlayer 1
 pop temp 0
 push this 0
+=======
+>>>>>>> drowerperfect
 push constant 2
 add
+push constant 511
+call Math.min 2
 pop this 0
-label IF_FALSE0
 push constant 0
 return
 function Player.dispose 0

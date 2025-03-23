@@ -69,9 +69,6 @@ return
 function Objects.drowAllObjects 3
 push argument 0
 pop pointer 0
-push this 0
-call Drower.DrawPlayer 1
-pop temp 0
 push this 1
 pop local 0
 label WHILE_EXP0
