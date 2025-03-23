@@ -4,6 +4,7 @@ class Objects
     field List botsList;
     field List bricksList;
     field List bulletsList;
+    field List current;
 
     constructor Objects new()
     {
@@ -21,6 +22,7 @@ class Objects
     method void setPlayer(Player _player)
     {
         let player = _player;
+        do Drower.DrawPlayer(_player);
         return;
     }
 
@@ -39,6 +41,7 @@ class Objects
     }
     method void addNewBrick(Brick _brick) {
         let bricksList = List.new(_brick, bricksList);
+        do Drower.DrawBrick(_brick);
         return;
     }
 
@@ -55,6 +58,12 @@ class Objects
     method void drowAllObjects()
     {
         do Drower.DrawPlayer(player);
+        let current = bricksList;
+        while (~(current = null))
+        {
+            do Drower.DrawBrick(current.getData());
+            let current = current.getNext();
+        }
         return;
     }
 

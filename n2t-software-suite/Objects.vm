@@ -1,5 +1,5 @@
 function Objects.new 0
-push constant 4
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push constant 0
@@ -22,6 +22,9 @@ push argument 0
 pop pointer 0
 push argument 1
 pop this 0
+push argument 1
+call Drower.DrawPlayer 1
+pop temp 0
 push constant 0
 return
 function Objects.getBotsList 0
@@ -50,6 +53,9 @@ push argument 1
 push this 2
 call List.new 2
 pop this 2
+push argument 1
+call Drower.DrawBrick 1
+pop temp 0
 push constant 0
 return
 function Objects.getBulletsList 0
@@ -72,6 +78,24 @@ pop pointer 0
 push this 0
 call Drower.DrawPlayer 1
 pop temp 0
+push this 2
+pop this 4
+label WHILE_EXP0
+push this 4
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push this 4
+call List.getData 1
+call Drower.DrawBrick 1
+pop temp 0
+push this 4
+call List.getNext 1
+pop this 4
+goto WHILE_EXP0
+label WHILE_END0
 push constant 0
 return
 function Objects.dispose 0
