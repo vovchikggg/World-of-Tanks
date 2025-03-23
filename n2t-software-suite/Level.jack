@@ -10,16 +10,6 @@ class Level
         do firstLevel.addNewBrick(Brick.new(50, 50));
         do firstLevel.addNewBrick(Brick.new(100, 50));
         do firstLevel.addNewBrick(Brick.new(150, 50));
-
-        //let secondLevel = Objects.new();
-        //secondLevel.setPlayer(Player.new())
-        //secondLevel.addNewBot(Bot.new());
-        //secondLevel.addNewBrick(Brick.new());
-
-        //let thirdLevel = Objects.new();
-        //thirdLevel.setPlayer(Player.new())
-        //thirdLevel.addNewBot(Bot.new());
-        //thirdLevel.addNewBrick(Brick.new());
         return this;
     }
 

@@ -49,19 +49,6 @@ class Player
         return;
     }
 
-    //method void draw()
-    //{
-    //    do Screen.setColor(true);
-    //    do Screen.drawRectangle(x, y, x + size, y + size);
-    //    return;
-    //}
-
-    //method void erase(){
-    //    do Screen.setColor(false);
-    //    do Screen.drawRectangle(x, y, x + size, y + size);
-    //    return;
-    //}
-
     method void moveUp()
     {
         let y = Math.max(y - 2, 1);
@@ -80,6 +67,28 @@ class Player
 
     method void moveRight() {
         let x = Math.min(x + 2, 511);
+        return;
+    }
+
+    method void movePlayer(){
+        if (direction = 1)
+        {
+            do moveUp();
+        }
+        if (direction = 2)
+        {
+            do moveDown();
+        }
+        if (direction = 3)
+        {
+            do moveLeft();
+        }
+        if (direction = 4)
+        {
+            do moveRight();
+        }
+
+        do Sys.wait(5);
         return;
     }
 

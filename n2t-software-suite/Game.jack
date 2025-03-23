@@ -22,68 +22,32 @@ class Game {
         return;
     }
 
-    method void movePlayer(){
-
-        if (player.getDirection() = 1){do player.moveUp(); }
-        if (player.getDirection() = 2){do player.moveDown(); }
-        if (player.getDirection() = 3){do player.moveLeft(); }
-        if (player.getDirection() = 4){do player.moveRight(); }
-
-        do Sys.wait(5);
-        return;
-    }
-
     method void MoveKeyboard(char key){
         if (key = 131) { // Up
             do player.setDirection(1);
-            do movePlayer();
+            do player.movePlayer();
         }
 
         if (key = 133) { // Down
             do player.setDirection(2);
-            do movePlayer();
+            do player.movePlayer();
         }
 
         if (key = 130) { //Left
             do player.setDirection(3);
-            do movePlayer();
+            do player.movePlayer();
         }
 
         if (key = 132) { //Right
             do player.setDirection(4);
-            do movePlayer();
+            do player.movePlayer();
         }
-        return;
-    }
-
-    method void killBullet()
-    {
-        var List current;
-        let current = map.getBulletsList();
-        while (~(current = null))
-        {
-            //var int bullet_x;
-            //var int bullet_y;
-            //let bullet_x = current.getData().getX();
-            //let bullet_y = current.getData().getY();
-
-            // логика убивающая пули
-
-            let current = current.getNext();
-        }
-        return;
-    }
-
-    method void killObjects()
-    {
-        do killBullet();
         return;
     }
 
     method void run(){
         var char key;
         var boolean exit;
-        var int directionPlayer;
         let exit = false;
 
         while (~exit){
@@ -100,6 +64,7 @@ class Game {
             }
 
             do MoveKeyboard(key);
+
             do map.clearBullets();
             do map.moveBullets();
             do map.drowAllObjects();
