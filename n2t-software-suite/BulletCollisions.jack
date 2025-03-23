@@ -38,16 +38,16 @@ class BulletCollisions
             let currentBrick = currentBrick.getNext();
         }
 
-        let currentBullet = map.getBulletsList();
-        while (~(currentBullet = null))
-        {
-            let anotherBullet = currentBullet.getData();
-            if (anotherBullet.getAlive() = true)
-            {
-                let flag = flag | BulletCollisions.CheckCollisionsWithBullet(anotherBullet, bullet, newX, newY);
-            }
-            let currentBullet = currentBullet.getNext();
-        }
+        //let currentBullet = map.getBulletsList();
+        //while (~(currentBullet = null))
+        //{
+        //    let anotherBullet = currentBullet.getData();
+        //    if (anotherBullet.getAlive() = true)
+        //   {
+        //        let flag = flag | BulletCollisions.CheckCollisionsWithBullet(anotherBullet, bullet, newX, newY);
+        //    }
+        //    let currentBullet = currentBullet.getNext();
+        //}
 
         return flag;
     }
@@ -84,7 +84,7 @@ class BulletCollisions
 
     function bool CheckCollisionsWithBullet(Bullet anotherBullet, Bullet bullet, int newX, int newY)
     {
-        if (~(anotherBullet = bullet))
+        if (~(anotherBullet.getX() = bullet.getX()))
         {
             if ( (newX < (anotherBullet.getX() + anotherBullet.getSize()) ) & ( (newX + bullet.getSize()) > anotherBullet.getX() ))
             {

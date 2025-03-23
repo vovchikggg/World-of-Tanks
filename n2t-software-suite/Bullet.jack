@@ -7,7 +7,7 @@ class Bullet
     field bool alive;
     field Objects map;
 
-    constructor Bullet new(Player player, Objects map)
+    constructor Bullet new(Player player)
     {
         var int x_bullet_Up_Down;
         var int y_bullet_Left_Right;
@@ -111,28 +111,32 @@ class Bullet
 
     method void moveUp()
     {
-        if (y > 1){
+        if (y > 1)
+        {
             let y = y - 2;
         }
         
         return;
     }
 
-     method void moveDown() {
-        if ((y + size) < 254) {
+    method void moveDown() {
+        if ((y + size) < 254)
+        {
             let y = y + 2;
         }
         return;
     }
 
-    method void moveLeft() {
+    method void moveLeft()
+    {
         if (x > 1) {
             let x = x - 2;
         }
         return;
     }
 
-    method void moveRight() {
+    method void moveRight()
+    {
         if ((x + size) < 510) {
             let x = x + 2;
         }

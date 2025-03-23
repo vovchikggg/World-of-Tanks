@@ -44,6 +44,7 @@ class Game {
     method void run(){
         var char key;
         var boolean exit;
+        var Bullet newBullet;
         let exit = false;
 
         while (~exit){
@@ -56,11 +57,14 @@ class Game {
 
             if (key = 32) // Space - пуля
             {
-                do Bullet.new(player, map);
+                let newBullet = Bullet.new(player);
+                do map.addNewBullet(newBullet);
+                do newBullet.setMap(map);
             }
 
             do MoveKeyboard(key);
 
+            do map.killObjects();
             do map.clearBullets();
             do map.moveBullets();
             do map.drowAllObjects();

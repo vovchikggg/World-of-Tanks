@@ -90,7 +90,7 @@ pop temp 0
 label IF_FALSE3
 push constant 0
 return
-function Game.run 2
+function Game.run 3
 push argument 0
 pop pointer 0
 push constant 0
@@ -119,13 +119,23 @@ if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
 push this 0
+call Bullet.new 1
+pop local 2
 push this 1
-call Bullet.new 2
+push local 2
+call Objects.addNewBullet 2
+pop temp 0
+push local 2
+push this 1
+call Bullet.setMap 2
 pop temp 0
 label IF_FALSE1
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2
+pop temp 0
+push this 1
+call Objects.killObjects 1
 pop temp 0
 push this 1
 call Objects.clearBullets 1

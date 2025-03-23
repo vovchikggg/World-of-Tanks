@@ -185,6 +185,114 @@ goto WHILE_EXP1
 label WHILE_END1
 push constant 0
 return
+function Objects.killObjects 2
+push argument 0
+pop pointer 0
+push this 2
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BulletsList.getData 1
+pop local 1
+push local 1
+call Bullet.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push local 1
+call Objects.killBrick 2
+pop temp 0
+label IF_FALSE0
+push local 0
+call BulletsList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Objects.killBrick 3
+push argument 0
+pop pointer 0
+push this 1
+pop local 0
+push constant 0
+pop local 2
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+push local 2
+not
+and
+not
+if-goto WHILE_END0
+push local 0
+call BricksList.getData 1
+pop local 1
+push local 1
+call Brick.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithBrick 4
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push local 1
+push constant 0
+call Brick.setAlive 2
+pop temp 0
+push constant 0
+not
+pop local 2
+push constant 4
+call String.new 1
+push constant 107
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label IF_FALSE1
+label IF_FALSE0
+push local 0
+call BricksList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
 function Objects.moveBullets 2
 push argument 0
 pop pointer 0
