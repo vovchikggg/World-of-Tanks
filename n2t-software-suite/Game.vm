@@ -90,9 +90,11 @@ pop temp 0
 label IF_FALSE3
 push constant 0
 return
-function Game.run 2
+function Game.run 4
 push argument 0
 pop pointer 0
+push constant 0
+pop local 3
 push constant 0
 pop local 1
 label WHILE_EXP0
@@ -118,14 +120,26 @@ eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
+push local 3
 push this 0
-push this 1
-call Bullet.new 2
+call Player.getTimeBetweenAtacks 1
+gt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 0
+call Player.Atack 1
 pop temp 0
+push constant 0
+pop local 3
+label IF_FALSE2
 label IF_FALSE1
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2
+pop temp 0
+push this 1
+call Objects.killObjects 1
 pop temp 0
 push this 1
 call Objects.clearBullets 1
@@ -136,6 +150,10 @@ pop temp 0
 push this 1
 call Objects.drowAllObjects 1
 pop temp 0
+push local 3
+push constant 1
+add
+pop local 3
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0

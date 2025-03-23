@@ -4,13 +4,20 @@ class Player
     field int size;
     field int direction;
     field Objects map;
+    field int timeBetweenAtacks;
 
     constructor Player new(int _x, int _y, int _size){
         let x = _x;
         let y = _y;
         let direction = 4;
         let size = _size;
+        let timeBetweenAtacks = 500;
         return this;
+    }
+
+    method int getTimeBetweenAtacks()
+    {
+        return timeBetweenAtacks;
     }
 
     method void setMap(Objects _map)
@@ -124,6 +131,12 @@ class Player
         }
 
         do Sys.wait(5);
+        return;
+    }
+
+    method void Atack()
+    {
+        do Bullet.new(this, map);
         return;
     }
 

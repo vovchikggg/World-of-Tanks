@@ -44,6 +44,9 @@ class Game {
     method void run(){
         var char key;
         var boolean exit;
+        var Bullet newBullet;
+        var int time;
+        let time = 0;
         let exit = false;
 
         while (~exit){
@@ -53,17 +56,24 @@ class Game {
             {
                 let exit = true;
             }
-
+            //( (time - ((time / 1000) * 1000)) = 0 )
             if (key = 32) // Space - пуля
             {
-                do Bullet.new(player, map);
+                if (time > player.getTimeBetweenAtacks())
+                {
+                    do player.Atack();
+                    let time = 0;
+                }
             }
 
             do MoveKeyboard(key);
 
+            do map.killObjects();
             do map.clearBullets();
             do map.moveBullets();
             do map.drowAllObjects();
+
+            let time = time + 1;
         }
         return;
     }

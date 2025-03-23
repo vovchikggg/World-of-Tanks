@@ -156,6 +156,52 @@ class Objects
         return;
     }
 
+    method void killObjects()
+    {
+        //var BotsList currentBot;
+        var BulletsList currentBullet;
+
+        //var Bot bot;
+        var Bullet bullet;
+
+        let currentBullet = bulletsList;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+            if (bullet.getAlive() = true)
+            {
+                do killBrick(bullet);
+            }
+            let currentBullet = currentBullet.getNext();
+        }
+        return;
+    }
+
+    method void killBrick(Bullet bullet)
+    {
+        var BricksList currentBrick;
+        var Brick brick;
+        var bool exit;
+        let currentBrick = bricksList;
+        let exit = false;
+        while ( (~(currentBrick = null)) & (~(exit)) )
+        {
+            let brick = currentBrick.getData();
+            if (brick.getAlive() = true)
+            {
+                if ( BulletCollisions.CheckCollisionsWithBrick(brick, bullet, bullet.getX(), bullet.getY()) = true )
+                {
+                    do bullet.setAlive(false);
+                    do brick.setAlive(false);
+                    let exit = true;
+                    do Output.printString("kill");
+                }
+            }
+            let currentBrick = currentBrick.getNext();
+        }
+        return;
+    }
+
     method void moveBullets()
     {
         var BulletsList currentBullet;

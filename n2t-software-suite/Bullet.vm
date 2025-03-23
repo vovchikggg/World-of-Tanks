@@ -150,6 +150,8 @@ pop this 0
 push local 1
 pop this 1
 label IF_FALSE6
+push argument 1
+pop this 5
 push this 4
 push constant 0
 not
@@ -157,9 +159,25 @@ eq
 if-goto IF_TRUE8
 goto IF_FALSE8
 label IF_TRUE8
-push argument 1
+push this 5
 push pointer 0
 call Objects.addNewBullet 2
+pop temp 0
+push constant 6
+call String.new 1
+push constant 98
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+call Output.printString 1
 pop temp 0
 label IF_FALSE8
 push pointer 0
