@@ -75,11 +75,9 @@ class Game {
         return;
     }
 
-    method void clearObjects()
+    method void clearBullets()
     {
         var BulletsList currentBullet;
-
-        do Drower.clearPlayer(player);
 
         let currentBullet = map.getBulletsList();
         while (~(currentBullet = null))
@@ -105,6 +103,7 @@ class Game {
             {
                 //do clear();
                 do map.drowAllObjects();
+                do clearBullets();
                 let key = Keyboard.keyPressed();
             }
 
@@ -128,8 +127,8 @@ class Game {
                 //do clear(); // 100% нужен
                 do map.drowAllObjects();
                 let key = Keyboard.keyPressed();
-                do clearObjects();
-                
+                do Drower.clearPlayer(player);
+                do clearBullets();
                 do MoveKeyboard(key);
             }
         }
