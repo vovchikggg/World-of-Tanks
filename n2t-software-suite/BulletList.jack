@@ -1,0 +1,27 @@
+class BulletList
+{
+    field Bullet data;
+    field BulletList next;
+
+    constructor BulletList new(Bullet car, List cdr)
+    {
+        let data = car;
+        let next = cdr;
+        return this;
+    }
+
+    method Bullet getData()
+    {
+        return data;
+    }
+
+    method BulletList getNext()
+    {
+        return next;
+    }
+
+    method void dispose(){
+        do Memory.deAlloc(this);
+        return;
+    }
+}
