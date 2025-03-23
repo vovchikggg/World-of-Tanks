@@ -172,32 +172,6 @@ call Game.killBullet 1
 pop temp 0
 push constant 0
 return
-function Game.moveBullets 2
-push argument 0
-pop pointer 0
-push this 1
-call Objects.getBulletsList 1
-pop local 0
-label WHILE_EXP0
-push local 0
-push constant 0
-eq
-not
-not
-if-goto WHILE_END0
-push local 0
-call BulletsList.getData 1
-pop local 1
-push local 1
-call Bullet.moveBullet 1
-pop temp 0
-push local 0
-call BulletsList.getNext 1
-pop local 0
-goto WHILE_EXP0
-label WHILE_END0
-push constant 0
-return
 function Game.run 3
 push argument 0
 pop pointer 0
@@ -237,7 +211,7 @@ push local 0
 call Game.MoveKeyboard 2
 pop temp 0
 push this 1
-call Drower.clearBullets 1
+call Objects.moveBullets 1
 pop temp 0
 goto WHILE_EXP0
 label WHILE_END0

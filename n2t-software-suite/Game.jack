@@ -80,30 +80,6 @@ class Game {
         return;
     }
 
-    method void moveBullets()
-    {
-        var BulletsList currentBulletAtom;
-        var Bullet bullet;
-        let currentBulletAtom = map.getBulletsList();
-        
-        //do Screen.setColor(true);
-        //do Screen.drawRectangle(100, 100, 150, 150);
-
-        while (~(currentBulletAtom = null))
-        {
-            let bullet = currentBulletAtom.getData();
-            do bullet.moveBullet();
-
-            //do Screen.setColor(true);
-            //do Screen.drawRectangle(100, 100, 150, 150);
-
-            //do Drower.clearBullet(bullet);
-            let currentBulletAtom = currentBulletAtom.getNext();
-        }
-
-        return;
-    }
-
     method void run(){
         var char key;
         var boolean exit;
@@ -124,7 +100,8 @@ class Game {
             }
 
             do MoveKeyboard(key);
-            do Drower.clearBullets(map);
+            //do map.clearBullets()
+            do map.moveBullets();
         }
         return;
     }
