@@ -5,10 +5,16 @@ class Game {
     constructor Game new(){
         var Level levels; 
         let levels = Level.new();
-        let map = levels.getFirstLevel();
+        let map = Map.getMap();
+        //let map = levels.getFirstLevel();
         do map.drowAllObjects();
         let player = map.getPlayer();
         return this;
+    }
+
+    method Objects getMap()
+    {
+        return map;
     }
 
     method void dispose(){
@@ -78,11 +84,20 @@ class Game {
     method void clearBullets()
     {
         var BulletsList currentBullet;
-
+        var Bullet currentBulletGetData;
         let currentBullet = map.getBulletsList();
+        
+        //do Screen.setColor(true);
+        //do Screen.drawRectangle(100, 100, 150, 150);
+
         while (~(currentBullet = null))
         {
-            do Drower.clearBullet(currentBullet.getData());
+            let currentBulletGetData = currentBullet.getData();
+            
+            //do Screen.setColor(true);
+            //do Screen.drawRectangle(100, 100, 150, 150);
+
+            do Drower.clearBullet(currentBulletGetData);
             let currentBullet = currentBullet.getNext();
         }
 
@@ -97,7 +112,7 @@ class Game {
 
         while (~exit){
             //do clear();
-            do killObjects();
+            //do killObjects();
 
             while (key = 0)
             {
@@ -117,7 +132,8 @@ class Game {
             let directionPlayer = player.getDirection();
 
             if (key = 32){ // Space = пуля
-                do Bullet.CraftBullet(directionPlayer, player);
+                do Bullet.CraftBullet(directionPlayer, player, map);
+                //do clearBullets();
                 //do player.Atack(directionPlayer);
             }
 

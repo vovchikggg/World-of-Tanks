@@ -4,8 +4,7 @@ call Memory.alloc 1
 pop pointer 0
 call Level.new 0
 pop local 0
-push local 0
-call Level.getFirstLevel 1
+call Map.getMap 0
 pop this 1
 push this 1
 call Objects.drowAllObjects 1
@@ -14,6 +13,11 @@ push this 1
 call Objects.getPlayer 1
 pop this 0
 push pointer 0
+return
+function Game.getMap 0
+push argument 0
+pop pointer 0
+push this 1
 return
 function Game.dispose 0
 push argument 0
@@ -167,7 +171,7 @@ call Game.killBullet 1
 pop temp 0
 push constant 0
 return
-function Game.clearBullets 1
+function Game.clearBullets 2
 push argument 0
 pop pointer 0
 push this 1
@@ -182,6 +186,8 @@ not
 if-goto WHILE_END0
 push local 0
 call BulletsList.getData 1
+pop local 1
+push local 1
 call Drower.clearBullet 1
 pop temp 0
 push local 0
@@ -201,9 +207,6 @@ push local 1
 not
 not
 if-goto WHILE_END0
-push pointer 0
-call Game.killObjects 1
-pop temp 0
 label WHILE_EXP1
 push local 0
 push constant 0
@@ -241,7 +244,8 @@ goto IF_FALSE1
 label IF_TRUE1
 push local 2
 push this 0
-call Bullet.CraftBullet 2
+push this 1
+call Bullet.CraftBullet 3
 pop temp 0
 label IF_FALSE1
 push pointer 0

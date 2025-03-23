@@ -11,6 +11,9 @@ class Level
         do firstLevel.addNewBrick(Brick.new(100, 50));
         do firstLevel.addNewBrick(Brick.new(150, 50));
 
+        do firstLevel.addNewBullet(Brick.new(200, 50));
+        do firstLevel.addNewBullet(Brick.new(250, 50));
+
         //let secondLevel = Objects.new();
         //secondLevel.setPlayer(Player.new())
         //secondLevel.addNewBot(Bot.new());

@@ -1,0 +1,17 @@
+class Map
+{
+    field Objects map;
+
+    constructor Map new()
+    {
+        var Level level;
+        let level = Level.new();
+        let map = level.getFirstLevel();
+        return this;
+    }
+
+    function Objects getMap()
+    {
+        return map;
+    }
+}

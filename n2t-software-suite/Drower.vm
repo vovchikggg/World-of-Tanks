@@ -2290,31 +2290,15 @@ call Screen.drawRectangle 4
 pop temp 0
 push constant 0
 return
-function Drower.clearBullet 3
-push argument 0
-call Bullet.getX 1
-pop local 0
-push argument 0
-call Bullet.getY 1
-pop local 1
-push argument 0
-call Bullet.getSize 1
-pop local 2
+function Drower.clearBullet 0
 push constant 0
+not
 call Screen.setColor 1
 pop temp 0
-push local 0
-push local 2
-sub
-push local 1
-push local 2
-sub
-push local 0
-push local 2
-add
-push local 1
-push local 2
-add
+push constant 100
+push constant 100
+push constant 150
+push constant 150
 call Screen.drawRectangle 4
 pop temp 0
 push constant 0
