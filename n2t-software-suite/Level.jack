@@ -5,13 +5,26 @@ class Level
     constructor Level new()
     {
         let firstLevel = Objects.new();
+
         do firstLevel.setPlayer(Player.new(180, 180, 30));
-        //do firstLevel.addNewBot(Bot.new(100, 100, 1));
+
+        //do firstLevel.BricksFirstLevel(firstLevel);
+
         do firstLevel.addNewBrick(Brick.new(50, 50));
         do firstLevel.addNewBrick(Brick.new(100, 50));
         do firstLevel.addNewBrick(Brick.new(150, 50));
+
+        do firstLevel.addNewBot(Bot.new(100, 100));
+
         return this;
     }
+
+    //method void BricksFirstLevel(firstLevel)
+    //{
+    //    do firstLevel.addNewBrick(Brick.new(50, 50));
+    //    do firstLevel.addNewBrick(Brick.new(100, 50));
+    //    do firstLevel.addNewBrick(Brick.new(150, 50));
+    //}
 
     method List getFirstLevel()
     {

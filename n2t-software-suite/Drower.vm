@@ -2316,6 +2316,32 @@ pop temp 0
 label IF_FALSE3
 push constant 0
 return
+function Drower.DrawBot 3
+push argument 0
+call Bot.getX 1
+pop local 0
+push argument 0
+call Bot.getY 1
+pop local 1
+push argument 0
+call Bot.getSize 1
+pop local 2
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push local 0
+push local 1
+push local 0
+push local 2
+add
+push local 1
+push local 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
 function Drower.clearBullet 3
 push argument 0
 call Bullet.getX 1
