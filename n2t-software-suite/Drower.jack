@@ -448,17 +448,17 @@ class Drower {
 
     function void clearBullet(Bullet bullet)
     {
-        do Screen.setColor(true);
-        do Screen.drawRectangle(100, 100, 150, 150);
+        //do Screen.setColor(true);
+        //do Screen.drawRectangle(100, 100, 150, 150);
 
-        //var int x;
-        //var int y;
-        //var int size;
-        //let x = bullet.getX();
-        //let y = bullet.getY();
-        //let size = bullet.getSize();
-        //do Screen.setColor(false);
-        //do Screen.drawRectangle(x - size, y - size, x + size, y + size);
+        var int x;
+        var int y;
+        var int size;
+        let x = bullet.getX();
+        let y = bullet.getY();
+        let size = bullet.getSize();
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x - size, y - size, x + size, y + size);
         return;
     }
 }

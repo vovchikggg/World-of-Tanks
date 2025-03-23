@@ -146,7 +146,7 @@ class Bullet
         if (direction = 1){ //Up
             if (yPlayer - 20 < 0){return;}
             let bullet = Bullet.new(x_bullet_Up_Down, yPlayer - 20, direction, 10);
-            while (bullet.getY() > 1){do bullet.moveUp(); do Drower.DrawBullet(bullet);}
+            while (bullet.getY() > 1){do bullet.moveUp(); do Drower.clearBullet(bullet); do Drower.DrawBullet(bullet);}
         }
         if (direction = 2){ //Down
             if (yPlayer + playerSize + 20 > 256){return;}
@@ -162,7 +162,7 @@ class Bullet
             do bullet.moveRight();
         }
 
-        //do map.addNewBullet(bullet);
+        do map.addNewBullet(bullet);
 
         return;
     }

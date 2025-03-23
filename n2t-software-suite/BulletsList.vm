@@ -1,4 +1,4 @@
-function BulletList.new 0
+function BulletsList.new 0
 push constant 2
 call Memory.alloc 1
 pop pointer 0
@@ -8,17 +8,17 @@ push argument 1
 pop this 1
 push pointer 0
 return
-function BulletList.getData 0
+function BulletsList.getData 0
 push argument 0
 pop pointer 0
 push this 0
 return
-function BulletList.getNext 0
+function BulletsList.getNext 0
 push argument 0
 pop pointer 0
 push this 1
 return
-function BulletList.dispose 0
+function BulletsList.dispose 0
 push argument 0
 pop pointer 0
 push pointer 0

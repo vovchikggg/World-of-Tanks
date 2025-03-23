@@ -1,9 +1,9 @@
-class BulletList
+class BulletsList
 {
     field Bullet data;
-    field BulletList next;
+    field BulletsList next;
 
-    constructor BulletList new(Bullet car, List cdr)
+    constructor BulletsList new(Bullet car, List cdr)
     {
         let data = car;
         let next = cdr;
@@ -15,7 +15,7 @@ class BulletList
         return data;
     }
 
-    method BulletList getNext()
+    method BulletsList getNext()
     {
         return next;
     }

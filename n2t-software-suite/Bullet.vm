@@ -232,6 +232,9 @@ push local 0
 call Bullet.moveUp 1
 pop temp 0
 push local 0
+call Drower.clearBullet 1
+pop temp 0
+push local 0
 call Drower.DrawBullet 1
 pop temp 0
 goto WHILE_EXP0
@@ -326,6 +329,10 @@ push local 0
 call Bullet.moveRight 1
 pop temp 0
 label IF_FALSE6
+push argument 2
+push local 0
+call Objects.addNewBullet 2
+pop temp 0
 push constant 0
 return
 function Bullet.dispose 0
