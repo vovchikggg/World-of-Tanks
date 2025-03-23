@@ -1,0 +1,150 @@
+class Collisions
+{
+    function bool CheckCollisions(Objects map, int x, int y, int size)
+    {
+        var bool flag;
+
+        //var BotsList currentBot;
+        var BricksList currentBrick;
+        var BulletsList currentBullet;
+        
+        //var Bot bot;
+        var Brick brick;
+        var Bullet bullet;
+
+        let flag = false;
+
+        //let flag = flag | Collisions.CheckCollisionsWithPlayer(map.Player, x, y, size);
+
+        //let currentBot = map.getBotsList();
+        //while (~(currentBot = null))
+        //{
+        //    let bot = currentBot.getData();
+        //    if (bot.getAlive() = true)
+        //    {
+        //        //let flag = flag | Collisions.CheckCollisionsWithBot(bot, x, y, size);
+        //    }
+        //    let currentBot = currentBot.getNext();
+        //}
+
+        let currentBrick = map.getBricksList();
+        while (~(currentBrick = null))
+        {
+            let brick = currentBrick.getData();
+            if (brick.getAlive() = true)
+            {
+                let flag = flag | Collisions.CheckCollisionsWithBrick(brick, x, y, size);
+            }
+            let currentBrick = currentBrick.getNext();
+        }
+
+        //let currentBullet = map.getBulletsList();
+        //while (~(currentBullet = null))
+        //{
+        //    let bullet = currentBullet.getData();
+        //    if (bullet.getAlive() = true)
+        //    {
+        //        //let flag = flag | Collisions.CheckCollisionsWithBullet(bullet, x, y, size);
+        //    }
+        //    let currentBullet = currentBullet.getNext();
+        //}
+
+        return flag;
+    }
+
+    //function bool CheckCollisionsWithPlayer(Player player, int x, int y, int size)
+    //{
+        //if ( (x > player.getX()) | (x = player.getX()) )
+        //{
+        //    if ( (x < (player.getX() + player.getSize()) ) | (x = (player.getX() + player.getSize()) ))
+        //    {
+        //        if ( (y > player.getY()) | (y = player.getY()) )
+        //        {
+        //            if ( (y < (player.getY() + player.getSize()) ) | (y = (player.getY() + player.getSize()) ))
+        //            {
+        //                return true;
+        //            }
+        //        }
+
+        //        if ( (y + size > player.getY()) | (y + size = player.getY()) )
+        //        {
+        //            if ( (y + size < (player.getY() + player.getSize()) ) | (y + size = (player.getY() + player.getSize()) ))
+        //            {
+        //                return true;
+        //            }
+        //        }
+        //    }
+        //}
+
+        //if ( (x + size > player.getX()) | (x + size = player.getX()) )
+        //{
+        //    if ( (x + size < (player.getX() + player.getSize()) ) | (x + size = (player.getX() + player.getSize()) ))
+        //    {
+        //        if ( (y > player.getY()) | (y = player.getY()) )
+        //        {
+        //            if ( (y < (player.getY() + player.getSize()) ) | (y = (player.getY() + player.getSize()) ))
+        //            {
+        //                return true;
+        //            }
+        //        }
+
+        //        if ( (y + size > player.getY()) | (y + size = player.getY()) )
+        //        {
+        //           if ( (y + size < (player.getY() + player.getSize()) ) | (y + size = (player.getY() + player.getSize()) ))
+        //            {
+        //                return true;
+        //            }
+        //        }
+        //    }
+        //}
+        //return false;
+    //}
+
+    function bool CheckCollisionsWithBrick(Brick brick, int x, int y, int size)
+    {
+        if ( (x > brick.getX()) | (x = brick.getX()) )
+        {
+            if ( (x < (brick.getX() + brick.getSize()) ) | (x = (brick.getX() + brick.getSize()) ))
+            {
+                if ( (y > brick.getY()) | (y = brick.getY()) )
+                {
+                    if ( (y < (brick.getY() + brick.getSize()) ) | (y = (brick.getY() + brick.getSize()) ))
+                    {
+                        return true;
+                    }
+                }
+
+                if ( (y + size > brick.getY()) | (y + size = brick.getY()) )
+                {
+                    if ( (y + size < (brick.getY() + brick.getSize()) ) | (y + size = (brick.getY() + brick.getSize()) ))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        if ( (x + size > brick.getX()) | (x + size = brick.getX()) )
+        {
+            if ( (x + size < (brick.getX() + brick.getSize()) ) | (x + size = (brick.getX() + brick.getSize()) ))
+            {
+                if ( (y > brick.getY()) | (y = brick.getY()) )
+                {
+                    if ( (y < (brick.getY() + brick.getSize()) ) | (y = (brick.getY() + brick.getSize()) ))
+                    {
+                        return true;
+                    }
+                }
+
+                if ( (y + size > brick.getY()) | (y + size = brick.getY()) )
+                {
+                    if ( (y + size < (brick.getY() + brick.getSize()) ) | (y + size = (brick.getY() + brick.getSize()) ))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}

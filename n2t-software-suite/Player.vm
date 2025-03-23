@@ -1,5 +1,5 @@
 function Player.new 0
-push constant 4
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -12,10 +12,24 @@ push argument 2
 pop this 2
 push pointer 0
 return
+function Player.setMap 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 4
+push constant 0
+return
 function Player.getSize 0
 push argument 0
 pop pointer 0
 push this 2
+return
+function Player.setSize 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 2
+push constant 0
 return
 function Player.getX 0
 push argument 0
@@ -53,48 +67,100 @@ push argument 1
 pop this 3
 push constant 0
 return
-function Player.moveUp 0
+function Player.moveUp 1
 push argument 0
 pop pointer 0
 push this 1
 push constant 2
 sub
+pop local 0
+push this 4
+push this 0
+push local 0
+push this 2
+call Collisions.CheckCollisions 4
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
 push constant 1
 call Math.max 2
 pop this 1
+label IF_FALSE0
 push constant 0
 return
-function Player.moveDown 0
+function Player.moveDown 1
 push argument 0
 pop pointer 0
 push this 1
 push constant 2
 add
+pop local 0
+push this 4
+push this 0
+push local 0
+push this 2
+call Collisions.CheckCollisions 4
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
 push constant 255
 call Math.min 2
 pop this 1
+label IF_FALSE0
 push constant 0
 return
-function Player.moveLeft 0
+function Player.moveLeft 1
 push argument 0
 pop pointer 0
-push constant 1
 push this 0
 push constant 2
 sub
+pop local 0
+push this 4
+push local 0
+push this 1
+push this 2
+call Collisions.CheckCollisions 4
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1
+push local 0
 call Math.max 2
 pop this 0
+label IF_FALSE0
 push constant 0
 return
-function Player.moveRight 0
+function Player.moveRight 1
 push argument 0
 pop pointer 0
 push this 0
 push constant 2
-add
+eq
+pop local 0
+push this 4
+push local 0
+push this 1
+push this 2
+call Collisions.CheckCollisions 4
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
 push constant 511
 call Math.min 2
 pop this 0
+label IF_FALSE0
 push constant 0
 return
 function Player.movePlayer 0

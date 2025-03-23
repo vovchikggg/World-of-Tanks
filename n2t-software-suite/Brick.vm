@@ -1,15 +1,24 @@
 function Brick.new 0
-push constant 3
+push constant 5
 call Memory.alloc 1
 pop pointer 0
 push argument 0
 pop this 0
 push argument 1
 pop this 1
+push constant 16
+pop this 2
 push constant 0
 not
-pop this 2
+pop this 3
 push pointer 0
+return
+function Brick.setMap 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 4
+push constant 0
 return
 function Brick.getX 0
 push argument 0
@@ -35,16 +44,28 @@ push argument 1
 pop this 1
 push constant 0
 return
-function Brick.getAlive 0
+function Brick.getSize 0
 push argument 0
 pop pointer 0
 push this 2
+return
+function Brick.setSize 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 2
+push constant 0
+return
+function Brick.getAlive 0
+push argument 0
+pop pointer 0
+push this 3
 return
 function Brick.setAlive 0
 push argument 0
 pop pointer 0
 push argument 1
-pop this 2
+pop this 3
 push constant 0
 return
 function Brick.dispose 0

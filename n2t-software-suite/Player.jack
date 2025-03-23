@@ -3,8 +3,9 @@ class Player
     field int x, y;
     field int size;
     field int direction;
+    field Objects map;
 
-    constructor Player new (int _x, int _y, int _size){
+    constructor Player new(int _x, int _y, int _size){
         let x = _x;
         let y = _y;
         let direction = 4;
@@ -12,9 +13,20 @@ class Player
         return this;
     }
 
-    method int getSize()
+    method void setMap(Objects _map)
+    {
+        let map = _map;
+        return;
+    }
+
+    method bool getSize()
     {
         return size;
+    }
+    method void setSize(int _size)
+    {
+        let size = _size;
+        return;
     }
 
     method int getX()
@@ -51,22 +63,45 @@ class Player
 
     method void moveUp()
     {
-        let y = Math.max(y - 2, 1);
+        var int newY;
+        let newY = y - 2;
+        if (Collisions.CheckCollisions(map, x, newY, size) = false)
+        {
+            let y = Math.max(newY, 1);
+        }
         return;
     }
 
-     method void moveDown() {
-        let y = Math.min(y + 2, 255);
+    method void moveDown()
+    {
+        var int newY;
+        let newY = y + 2;
+        if (Collisions.CheckCollisions(map, x, newY, size) = false)
+        {
+            let y = Math.min(newY, 255);
+        }
         return;
     }
 
-    method void moveLeft() {
-        let x = Math.max(1, x - 2);
+    method void moveLeft()
+    {
+        var int newX;
+        let newX = x - 2;
+        if (Collisions.CheckCollisions(map, newX, y, size) = false)
+        {
+            let x = Math.max(1, newX);
+        }
         return;
     }
 
-    method void moveRight() {
-        let x = Math.min(x + 2, 511);
+    method void moveRight()
+    {
+        var int newX;
+        let newX = x = 2;
+        if (Collisions.CheckCollisions(map, newX, y, size) = false)
+        {
+            let x = Math.min(newX, 511);
+        }
         return;
     }
 

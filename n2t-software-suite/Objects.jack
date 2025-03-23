@@ -14,6 +14,54 @@ class Objects
         return this;
     }
 
+    method void setMap()
+    {
+        //var BotsList currentBot;
+        var BricksList currentBrick;
+        var BulletsList currentBullet;
+
+        //var Bot bot;
+        var Brick brick;
+        var Bullet bullet;
+
+        do player.setMap(this);
+
+        //let currentBot = botsList;
+        //while (~(currentBot = null))
+        //{
+        //    let bot = currentBot.getData();
+        //    if (bot.getAlive() = true)
+        //    {
+        //        do bot.setMap(this);
+        //    }
+        //    let currentBot = currentBot.getNext();
+        //}
+
+        let currentBrick = bricksList;
+        while (~(currentBrick = null))
+        {
+            let brick = currentBrick.getData();
+            if (brick.getAlive() = true)
+            {
+                do brick.setMap(this);
+            }
+            let currentBrick = currentBrick.getNext();
+        }
+
+        let currentBullet = bulletsList;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+            if (bullet.getAlive() = true)
+            {
+                do bullet.setMap(this);
+            }
+            let currentBullet = currentBullet.getNext();
+        }
+
+        return;
+    }
+
     method List getPlayer()
     {
         return player;
