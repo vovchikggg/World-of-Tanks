@@ -115,26 +115,21 @@ class Objects
         return;
     }
 
-    //method void clearBullets()
-    //{
-    //    var BulletsList currentBulletAtom;
-    //    var Bullet bullet;
-    //    let currentBulletAtom = bulletsList;
+    method void clearBullets()
+    {
+        var BulletsList currentBullet;
+        var Bullet bullet;
+        let currentBullet = bulletsList;
 
-    //    while (~(currentBulletAtom = null))
-    //    {
-    //        let bullet = currentBulletAtom.getData();
-    //        if (bullet = null)
-    //        {
-    //            return;
-    //        }
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
 
-    //        do Drower.clearBullet(bullet);
-    //        let currentBulletAtom = currentBulletAtom.getNext();
-    //    }
-
-    //    return;
-    //}
+            do Drower.clearBullet(bullet);
+            let currentBullet = currentBullet.getNext();
+        }
+        return;
+    }
 
     method void dispose()
     {

@@ -96,6 +96,9 @@ push this 0
 push constant 1
 call Player.setDirection 2
 pop temp 0
+push pointer 0
+call Game.movePlayer 1
+pop temp 0
 label IF_FALSE0
 push argument 1
 push constant 133
@@ -106,6 +109,9 @@ label IF_TRUE1
 push this 0
 push constant 2
 call Player.setDirection 2
+pop temp 0
+push pointer 0
+call Game.movePlayer 1
 pop temp 0
 label IF_FALSE1
 push argument 1
@@ -118,6 +124,9 @@ push this 0
 push constant 3
 call Player.setDirection 2
 pop temp 0
+push pointer 0
+call Game.movePlayer 1
+pop temp 0
 label IF_FALSE2
 push argument 1
 push constant 132
@@ -129,10 +138,10 @@ push this 0
 push constant 4
 call Player.setDirection 2
 pop temp 0
-label IF_FALSE3
 push pointer 0
 call Game.movePlayer 1
 pop temp 0
+label IF_FALSE3
 push constant 0
 return
 function Game.killBullet 1
@@ -201,10 +210,13 @@ push local 0
 call Game.MoveKeyboard 2
 pop temp 0
 push this 1
-call Objects.drowAllObjects 1
+call Objects.clearBullets 1
 pop temp 0
 push this 1
 call Objects.moveBullets 1
+pop temp 0
+push this 1
+call Objects.drowAllObjects 1
 pop temp 0
 goto WHILE_EXP0
 label WHILE_END0

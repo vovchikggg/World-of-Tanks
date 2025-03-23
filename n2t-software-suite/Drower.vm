@@ -2330,11 +2330,7 @@ push constant 0
 call Screen.setColor 1
 pop temp 0
 push local 0
-push local 2
-sub
 push local 1
-push local 2
-sub
 push local 0
 push local 2
 add

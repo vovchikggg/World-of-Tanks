@@ -36,20 +36,23 @@ class Game {
     method void MoveKeyboard(char key){
         if (key = 131) { // Up
             do player.setDirection(1);
+            do movePlayer();
         }
 
         if (key = 133) { // Down
             do player.setDirection(2);
+            do movePlayer();
         }
 
         if (key = 130) { //Left
             do player.setDirection(3);
+            do movePlayer();
         }
 
         if (key = 132) { //Right
             do player.setDirection(4);
+            do movePlayer();
         }
-        do movePlayer();
         return;
     }
 
@@ -95,11 +98,11 @@ class Game {
             {
                 do Bullet.new(player, map);
             }
-            
+
             do MoveKeyboard(key);
-            do map.drowAllObjects();
-            //do map.clearBullets();
+            do map.clearBullets();
             do map.moveBullets();
+            do map.drowAllObjects();
         }
         return;
     }
