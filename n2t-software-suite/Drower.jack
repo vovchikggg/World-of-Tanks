@@ -442,18 +442,18 @@ class Drower {
     }
 
     //метод нужно переделать
-    function void DrawBot(Bot bot)
-    {
-        var int x;
-        var int y;
-        var int size;
-        let x = bot.getX();
-        let y = bot.getY();
-        let size = bot.getSize();
-        do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x + size, y + size);
-        return;
-    }
+    //function void DrawBot(Bot bot)
+    //{
+    //    var int x;
+    //    var int y;
+    //    var int size;
+    //    let x = bot.getX();
+    //    let y = bot.getY();
+    //    let size = bot.getSize();
+    //    do Screen.setColor(true);
+    //    do Screen.drawRectangle(x, y, x + size, y + size);
+    //    return;
+    //}
 
     function void clearBullet(Bullet bullet)
     {
