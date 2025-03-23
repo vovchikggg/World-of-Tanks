@@ -6,14 +6,10 @@ class Game {
         var Level levels; 
         let levels = Level.new();
         let map = levels.getFirstLevel();
+        do map.setMap();
         do map.drowAllObjects();
         let player = map.getPlayer();
         return this;
-    }
-
-    method Objects getMap()
-    {
-        return map;
     }
 
     method void dispose(){

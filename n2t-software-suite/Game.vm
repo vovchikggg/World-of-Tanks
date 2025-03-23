@@ -8,17 +8,15 @@ push local 0
 call Level.getFirstLevel 1
 pop this 1
 push this 1
+call Objects.setMap 1
+pop temp 0
+push this 1
 call Objects.drowAllObjects 1
 pop temp 0
 push this 1
 call Objects.getPlayer 1
 pop this 0
 push pointer 0
-return
-function Game.getMap 0
-push argument 0
-pop pointer 0
-push this 1
 return
 function Game.dispose 0
 push argument 0

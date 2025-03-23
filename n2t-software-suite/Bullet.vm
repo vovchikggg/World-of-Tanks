@@ -1,5 +1,5 @@
 function Bullet.new 2
-push constant 5
+push constant 6
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -155,6 +155,13 @@ push pointer 0
 call Objects.addNewBullet 2
 pop temp 0
 push pointer 0
+return
+function Bullet.setMap 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 5
+push constant 0
 return
 function Bullet.getX 0
 push argument 0
