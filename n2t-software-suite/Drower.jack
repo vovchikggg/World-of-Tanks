@@ -356,6 +356,59 @@ class Drower {
         return;
     }
 
+    function void DrawBulletUp(int x, int y, int size)
+    {
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x, y, x + size, y + 1);
+        return;
+    }
+
+    function void DrawBulletDown(int x, int y, int size)
+    {
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
+        return;
+    }
+
+    function void DrawBulletLeft(int x, int y, int size)
+    {
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x, y, x + 1, y + size);
+        return;
+    }
+
+    function void DrawBulletRight(int x, int y, int size)
+    {
+        do Screen.setColor(true);
+        do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
+        return;
+    }
+
+    function void DrawBullet(Bullet bullet) {
+        var int x;
+        var int y;
+        var int size;
+        var int direction;
+        let direction = bullet.getDirection();
+        let x = bullet.getX();
+        let y = bullet.getY();
+        let size = bullet.getSize();
+
+        if (direction = 1){
+            do Drower.DrawBulletUp(x, y, size);
+        }
+        if (direction = 2){
+            do Drower.DrawBulletDown(x, y, size);
+        }
+        if (direction = 3){
+            do Drower.DrawBulletLeft(x, y, size);
+        }
+        if (direction = 4){
+            do Drower.DrawBulletRight(x, y, size);
+        }
+        return;
+    }
+
     function void DrawPlayer(Player player) {
         var int x;
         var int y;
@@ -390,6 +443,19 @@ class Drower {
         let y = player.getY();
         do Screen.setColor(false);
         do Screen.drawRectangle(x, y, x + 32, y + 32);
+        return;
+    }
+
+    function void clearBullet(Bullet bullet)
+    {
+        var int x;
+        var int y;
+        var int size;
+        let x = bullet.getX();
+        let y = bullet.getY();
+        let size = bullet.getSize();
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x - size, y - size, x + size, y + size);
         return;
     }
 }

@@ -78,6 +78,18 @@ push argument 1
 pop this 4
 push constant 0
 return
+function Bullet.getSize 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Bullet.setSize 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 3
+push constant 0
+return
 function Bullet.moveUp 0
 push argument 0
 pop pointer 0
@@ -87,41 +99,10 @@ gt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push constant 0
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 1
-push this 3
-add
-push constant 1
-sub
-push this 0
-push this 3
-add
-push this 1
-push this 3
-add
-call Screen.drawRectangle 4
-pop temp 0
 push this 1
 push constant 2
 sub
 pop this 1
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 1
-push this 0
-push this 3
-add
-push this 1
-push constant 1
-add
-call Screen.drawRectangle 4
-pop temp 0
 label IF_FALSE0
 push constant 5
 call Sys.wait 1
@@ -139,41 +120,10 @@ lt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push constant 0
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 1
-push this 0
-push this 3
-add
-push this 1
-push constant 1
-add
-call Screen.drawRectangle 4
-pop temp 0
 push this 1
 push constant 2
 add
 pop this 1
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 1
-push this 3
-add
-push constant 1
-sub
-push this 0
-push this 3
-add
-push this 1
-push this 3
-add
-call Screen.drawRectangle 4
-pop temp 0
 label IF_FALSE0
 push constant 5
 call Sys.wait 1
@@ -189,41 +139,10 @@ gt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push constant 0
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 3
-add
-push constant 1
-sub
-push this 1
-push this 0
-push this 3
-add
-push this 1
-push this 3
-add
-call Screen.drawRectangle 4
-pop temp 0
 push this 0
 push constant 2
 sub
 pop this 0
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 1
-push this 0
-push constant 1
-add
-push this 1
-push this 3
-add
-call Screen.drawRectangle 4
-pop temp 0
 label IF_FALSE0
 push constant 5
 call Sys.wait 1
@@ -241,41 +160,10 @@ lt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push constant 0
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 1
-push this 0
-push constant 1
-add
-push this 1
-push this 3
-add
-call Screen.drawRectangle 4
-pop temp 0
 push this 0
 push constant 2
 add
 pop this 0
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 3
-add
-push constant 1
-sub
-push this 1
-push this 0
-push this 3
-add
-push this 1
-push this 3
-add
-call Screen.drawRectangle 4
-pop temp 0
 label IF_FALSE0
 push constant 5
 call Sys.wait 1
@@ -342,6 +230,9 @@ not
 if-goto WHILE_END0
 push local 0
 call Bullet.moveUp 1
+pop temp 0
+push local 0
+call Drower.DrawBullet 1
 pop temp 0
 goto WHILE_EXP0
 label WHILE_END0

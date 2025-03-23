@@ -107,36 +107,6 @@ class Player
         return;
     }
 
-
-    method void Atack(int direction){ // под вопросом
-        var Bullet bullet;
-        var int x_bullet_Up_Down;
-        var int y_bullet_Left_Right;
-        let x_bullet_Up_Down = x + (size / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
-        let y_bullet_Left_Right = y + (size / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
-        
-        if (direction = 1){ //Up
-            if (y - 20 < 0){return;}
-            let bullet = Bullet.new(x_bullet_Up_Down, y - 20, direction, 10);
-            while (bullet.getY() > 1){do bullet.moveUp();}
-        }
-        if (direction = 2){ //Down
-            if (y + size + 20 > 256){return;}
-            let bullet = Bullet.new(x_bullet_Up_Down, y + size + 20, direction, 10);
-        }
-        if (direction = 3){ //Left
-            if (x - 20 < 0){return;}
-            let bullet = Bullet.new(x - 20, y_bullet_Left_Right, direction, 10);
-        }
-        if (direction = 4){ //Right
-            if (x + size + 20 > 512){return;}
-            let bullet = Bullet.new(x + size + 20, y_bullet_Left_Right, direction, 10);
-        }
-
-        return;
-    }
-
-
     method void dispose(){
         do Memory.deAlloc(this);
         return;

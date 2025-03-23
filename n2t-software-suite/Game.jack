@@ -75,12 +75,21 @@ class Game {
         return;
     }
 
-    //method void clear()
-    //{
-    //    do Screen.setColor(false);
-    //    do Screen.drawRectangle(0, 0, 511, 255);
-    //    return;
-    //}
+    method void clearObjects()
+    {
+        var BulletsList currentBullet;
+
+        do Drower.clearPlayer(player);
+
+        let currentBullet = map.getBulletsList();
+        while (~(currentBullet = null))
+        {
+            do Drower.clearBullet(currentBullet.getData());
+            let currentBullet = currentBullet.getNext();
+        }
+
+        return;
+    }
 
     method void run(){
         var char key;
@@ -119,6 +128,8 @@ class Game {
                 //do clear(); // 100% нужен
                 do map.drowAllObjects();
                 let key = Keyboard.keyPressed();
+                do clearObjects();
+                
                 do MoveKeyboard(key);
             }
         }
