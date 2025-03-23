@@ -21,7 +21,6 @@ class Objects
     method void setPlayer(Player _player)
     {
         let player = _player;
-        do Drower.DrawPlayer(_player);
         return;
     }
 
@@ -40,7 +39,6 @@ class Objects
     }
     method void addNewBrick(Brick _brick) {
         let bricksList = BricksList.new(_brick, bricksList);
-        do Drower.DrawBrick(_brick);
         return;
     }
 
@@ -65,7 +63,7 @@ class Objects
         let currentBot = botsList;
         while (~(currentBot = null))
         {
-            do Drower.DrawBrick(currentBot.getData());
+            //do Drower.DrawBot(currentBot.getData());
             let currentBot = currentBot.getNext();
         }
 
@@ -79,7 +77,7 @@ class Objects
         let currentBullet = bulletsList;
         while (~(currentBullet = null))
         {
-            do Drower.DrawBrick(currentBullet.getData());
+            //do Drower.DrawBullet(currentBullet.getData());
             let currentBullet = currentBullet.getNext();
         }
 
