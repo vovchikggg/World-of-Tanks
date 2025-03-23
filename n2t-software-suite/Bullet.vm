@@ -1,41 +1,156 @@
-function Bullet.new 0
+function Bullet.new 2
 push constant 5
 call Memory.alloc 1
 pop pointer 0
 push argument 0
-pop this 0
-push argument 1
-pop this 1
-push argument 2
+call Player.getX 1
+push argument 0
+call Player.getSize 1
+push constant 2
+call Math.divide 2
+add
+push constant 5
+sub
+pop local 0
+push argument 0
+call Player.getY 1
+push argument 0
+call Player.getSize 1
+push constant 2
+call Math.divide 2
+add
+push constant 5
+sub
+pop local 1
+push argument 0
+call Player.getDirection 1
 pop this 2
+push constant 10
+pop this 3
 push constant 0
 not
 pop this 4
-push argument 3
-pop this 3
-push pointer 0
-call Bullet.draw 1
-pop temp 0
-push pointer 0
-return
-function Bullet.draw 0
+push this 2
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
 push argument 0
-pop pointer 0
+call Player.getY 1
+push constant 20
+sub
 push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 1
-push this 0
-push this 3
-add
-push this 1
-push this 3
-add
-call Screen.drawRectangle 4
-pop temp 0
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push constant 0
+pop this 4
+label IF_FALSE1
+push local 0
+pop this 0
+push argument 0
+call Player.getY 1
+push constant 20
+sub
+pop this 1
+label IF_FALSE0
+push this 2
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 0
+call Player.getY 1
+push argument 0
+call Player.getSize 1
+add
+push constant 20
+add
+push constant 256
+gt
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+pop this 4
+label IF_FALSE3
+push local 0
+pop this 0
+push argument 0
+call Player.getY 1
+push argument 0
+call Player.getSize 1
+add
+push constant 20
+add
+pop this 1
+label IF_FALSE2
+push this 2
+push constant 3
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push argument 0
+call Player.getX 1
+push constant 20
+sub
+push constant 0
+lt
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 0
+pop this 4
+label IF_FALSE5
+push argument 0
+call Player.getX 1
+push constant 20
+sub
+pop this 0
+push local 1
+pop this 1
+label IF_FALSE4
+push this 2
+push constant 4
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push argument 0
+call Player.getX 1
+push argument 0
+call Player.getSize 1
+add
+push constant 20
+add
+push constant 512
+gt
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push constant 0
+pop this 4
+label IF_FALSE7
+push argument 0
+call Player.getX 1
+push argument 0
+call Player.getSize 1
+add
+push constant 20
+add
+pop this 0
+push local 1
+pop this 1
+label IF_FALSE6
+push argument 1
+push pointer 0
+call Objects.addNewBullet 2
+pop temp 0
+push pointer 0
 return
 function Bullet.getX 0
 push argument 0
@@ -104,9 +219,6 @@ push constant 2
 sub
 pop this 1
 label IF_FALSE0
-push constant 5
-call Sys.wait 1
-pop temp 0
 push constant 0
 return
 function Bullet.moveDown 0
@@ -125,9 +237,6 @@ push constant 2
 add
 pop this 1
 label IF_FALSE0
-push constant 5
-call Sys.wait 1
-pop temp 0
 push constant 0
 return
 function Bullet.moveLeft 0
@@ -144,9 +253,6 @@ push constant 2
 sub
 pop this 0
 label IF_FALSE0
-push constant 5
-call Sys.wait 1
-pop temp 0
 push constant 0
 return
 function Bullet.moveRight 0
@@ -165,156 +271,11 @@ push constant 2
 add
 pop this 0
 label IF_FALSE0
-push constant 5
-call Sys.wait 1
-pop temp 0
 push constant 0
 return
-function Bullet.CraftBullet 6
-push argument 1
-call Player.getX 1
-pop local 1
-push argument 1
-call Player.getY 1
-pop local 2
-push argument 1
-call Player.getSize 1
-pop local 3
-push local 1
-push local 3
-push constant 2
-call Math.divide 2
-add
-push constant 5
-sub
-pop local 4
-push local 2
-push local 3
-push constant 2
-call Math.divide 2
-add
-push constant 5
-sub
-pop local 5
+function Bullet.CraftBullet 0
 push argument 0
-push constant 1
-eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
-push local 2
-push constant 20
-sub
-push constant 0
-lt
-if-goto IF_TRUE1
-goto IF_FALSE1
-label IF_TRUE1
-push constant 0
-return
-label IF_FALSE1
-push local 4
-push local 2
-push constant 20
-sub
-push argument 0
-push constant 10
-call Bullet.new 4
-pop local 0
-label IF_FALSE0
-push argument 0
-push constant 2
-eq
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
-push local 2
-push local 3
-add
-push constant 20
-add
-push constant 256
-gt
-if-goto IF_TRUE3
-goto IF_FALSE3
-label IF_TRUE3
-push constant 0
-return
-label IF_FALSE3
-push local 4
-push local 2
-push local 3
-add
-push constant 20
-add
-push argument 0
-push constant 10
-call Bullet.new 4
-pop local 0
-label IF_FALSE2
-push argument 0
-push constant 3
-eq
-if-goto IF_TRUE4
-goto IF_FALSE4
-label IF_TRUE4
-push local 1
-push constant 20
-sub
-push constant 0
-lt
-if-goto IF_TRUE5
-goto IF_FALSE5
-label IF_TRUE5
-push constant 0
-return
-label IF_FALSE5
-push local 1
-push constant 20
-sub
-push local 5
-push argument 0
-push constant 10
-call Bullet.new 4
-pop local 0
-label IF_FALSE4
-push argument 0
-push constant 4
-eq
-if-goto IF_TRUE6
-goto IF_FALSE6
-label IF_TRUE6
-push local 1
-push local 3
-add
-push constant 20
-add
-push constant 512
-gt
-if-goto IF_TRUE7
-goto IF_FALSE7
-label IF_TRUE7
-push constant 0
-return
-label IF_FALSE7
-push local 1
-push local 3
-add
-push constant 20
-add
-push local 5
-push argument 0
-push constant 10
-call Bullet.new 4
-pop local 0
-push local 0
-call Bullet.moveRight 1
-pop temp 0
-label IF_FALSE6
-push argument 2
-push local 0
-call Objects.addNewBullet 2
-pop temp 0
+pop pointer 0
 push constant 0
 return
 function Bullet.moveBullet 0

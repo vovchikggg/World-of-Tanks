@@ -29,22 +29,6 @@ push constant 50
 call Brick.new 2
 call Objects.addNewBrick 2
 pop temp 0
-push this 0
-push constant 200
-push constant 50
-push constant 1
-push constant 30
-call Bullet.new 4
-call Objects.addNewBullet 2
-pop temp 0
-push this 0
-push constant 250
-push constant 50
-push constant 2
-push constant 30
-call Bullet.new 4
-call Objects.addNewBullet 2
-pop temp 0
 push pointer 0
 return
 function Level.getFirstLevel 0

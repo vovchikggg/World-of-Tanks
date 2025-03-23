@@ -96,13 +96,12 @@ class Game {
 
             if (key = 32) // Space - пуля
             {
-                do Bullet.CraftBullet(directionPlayer, player, map);
+                do Bullet.new(player, map);
             }
-
+            do map.drowAllObjects();
             do MoveKeyboard(key);
             //do map.clearBullets();
             do map.moveBullets();
-            do map.drowBullets();
         }
         return;
     }

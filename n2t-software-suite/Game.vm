@@ -200,21 +200,20 @@ eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push local 2
 push this 0
 push this 1
-call Bullet.CraftBullet 3
+call Bullet.new 2
 pop temp 0
 label IF_FALSE1
+push this 1
+call Objects.drowAllObjects 1
+pop temp 0
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2
 pop temp 0
 push this 1
 call Objects.moveBullets 1
-pop temp 0
-push this 1
-call Objects.drowBullets 1
 pop temp 0
 goto WHILE_EXP0
 label WHILE_END0

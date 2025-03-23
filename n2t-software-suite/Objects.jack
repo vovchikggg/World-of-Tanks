@@ -77,7 +77,7 @@ class Objects
         let currentBullet = bulletsList;
         while (~(currentBullet = null))
         {
-            //do Drower.DrawBullet(currentBullet.getData());
+            do Drower.DrawBullet(currentBullet.getData());
             let currentBullet = currentBullet.getNext();
         }
 
@@ -86,66 +86,39 @@ class Objects
 
     method void moveBullets()
     {
-        var BulletsList currentBulletAtom;
+        var BulletsList currentBullet;
         var Bullet bullet;
-        let currentBulletAtom = bulletsList;
-
-        while (~(currentBulletAtom = null))
+        let currentBullet = bulletsList;
+        while (~(currentBullet = null))
         {
-            let bullet = currentBulletAtom.getData();
-            if (bullet = null)
-            {
-                return;
-            }
-
+            let bullet = currentBullet.getData();
             do bullet.moveBullet();
-            let currentBulletAtom = currentBulletAtom.getNext();
-        }
 
+            let currentBullet = currentBullet.getNext();
+        }
         return;
     }
 
-    method void clearBullets()
-    {
-        var BulletsList currentBulletAtom;
-        var Bullet bullet;
-        let currentBulletAtom = bulletsList;
+    //method void clearBullets()
+    //{
+    //    var BulletsList currentBulletAtom;
+    //    var Bullet bullet;
+    //    let currentBulletAtom = bulletsList;
 
-        while (~(currentBulletAtom = null))
-        {
-            let bullet = currentBulletAtom.getData();
-            if (bullet = null)
-            {
-                return;
-            }
+    //    while (~(currentBulletAtom = null))
+    //    {
+    //        let bullet = currentBulletAtom.getData();
+    //        if (bullet = null)
+    //        {
+    //            return;
+    //        }
 
-            do Drower.clearBullet(bullet);
-            let currentBulletAtom = currentBulletAtom.getNext();
-        }
+    //        do Drower.clearBullet(bullet);
+    //        let currentBulletAtom = currentBulletAtom.getNext();
+    //    }
 
-        return;
-    }
-
-    method void drowBullets()
-    {
-        var BulletsList currentBulletAtom;
-        var Bullet bullet;
-        let currentBulletAtom = bulletsList;
-
-        while (~(currentBulletAtom = null))
-        {
-            let bullet = currentBulletAtom.getData();
-            if (bullet = null)
-            {
-                return;
-            }
-
-            do Drower.DrawBullet(bullet);
-            let currentBulletAtom = currentBulletAtom.getNext();
-        }
-
-        return;
-    }
+    //    return;
+    //}
 
     method void dispose()
     {
