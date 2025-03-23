@@ -1,0 +1,99 @@
+class PlayerCollisions
+{
+    function bool Check(Objects map, Player player, int newX, int newY)
+    {
+        var bool flag;
+
+        //var BotsList currentBot;
+        var BricksList currentBrick;
+        var BulletsList currentBullet;
+        
+        //var Bot anotherBot;
+        var Brick anotherBrick;
+        var Bullet anotherBullet;
+
+        let flag = false;
+
+        let flag = flag | PlayerCollisions.CheckCollisionsWithPlayer(map.getPlayer(), player, newX, newY);
+
+        //let currentBot = map.getBotsList();
+        //while (~(currentBot = null))
+        //{
+        //    let anotherBot = currentBot.getData();
+        //    if (anotherBot.getAlive() = true)
+        //    {
+        //        let flag = flag | PlayerCollisions.CheckCollisionsWithBot(anotherBot, player, newX, newY);
+        //    }
+        //    let currentBot = currentBot.getNext();
+        //}
+
+        let currentBrick = map.getBricksList();
+        while (~(currentBrick = null))
+        {
+            let anotherBrick = currentBrick.getData();
+            if (anotherBrick.getAlive() = true)
+            {
+                let flag = flag | PlayerCollisions.CheckCollisionsWithBrick(anotherBrick, player, newX, newY);
+            }
+            let currentBrick = currentBrick.getNext();
+        }
+
+        let currentBullet = map.getBulletsList();
+        while (~(currentBullet = null))
+        {
+            let anotherBullet = currentBullet.getData();
+            if (anotherBullet.getAlive() = true)
+            {
+                let flag = flag | PlayerCollisions.CheckCollisionsWithBullet(anotherBullet, player, newX, newY);
+            }
+            let currentBullet = currentBullet.getNext();
+        }
+
+        return flag;
+    }
+
+    function bool CheckCollisionsWithPlayer(Player anotherPlayer, Player player, int newX, int newY)
+    {
+        if (~(anotherPlayer = player))
+        {
+            if ( (newX < (anotherPlayer.getX() + anotherPlayer.getSize()) ) & ( (newX + player.getSize()) > anotherPlayer.getX() ))
+            {
+                if ( (newY < (anotherPlayer.getY() + anotherPlayer.getSize()) ) & ( (newY + player.getSize()) > anotherPlayer.getY() ))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    function bool CheckCollisionsWithBrick(Brick anotherBrick, Player player, int newX, int newY)
+    {
+        if (~(anotherBrick = player))
+        {
+            if ( (newX < (anotherBrick.getX() + anotherBrick.getSize()) ) & ( (newX + player.getSize()) > anotherBrick.getX() ))
+            {
+                if ( (newY < (anotherBrick.getY() + anotherBrick.getSize()) ) & ( (newY + player.getSize()) > anotherBrick.getY() ))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    function bool CheckCollisionsWithBullet(Bullet anotherBullet, Player player, int newX, int newY)
+    {
+        if (~(anotherBullet = player))
+        {
+            if ( (newX < (anotherBullet.getX() + anotherBullet.getSize()) ) & ( (newX + player.getSize()) > anotherBullet.getX() ))
+            {
+                if ( (newY < (anotherBullet.getY() + anotherBullet.getSize()) ) & ( (newY + player.getSize()) > anotherBullet.getY() ))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}

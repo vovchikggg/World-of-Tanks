@@ -65,7 +65,7 @@ class Player
     {
         var int newY;
         let newY = y - 2;
-        if (Collisions.CheckCollisions(map, x, newY, size) = false)
+        if (PlayerCollisions.Check(map, this, x, newY) = false)
         {
             let y = Math.max(newY, 1);
         }
@@ -76,7 +76,7 @@ class Player
     {
         var int newY;
         let newY = y + 2;
-        if (Collisions.CheckCollisions(map, x, newY, size) = false)
+        if (PlayerCollisions.Check(map, this, x, newY) = false)
         {
             let y = Math.min(newY, 255);
         }
@@ -87,7 +87,7 @@ class Player
     {
         var int newX;
         let newX = x - 2;
-        if (Collisions.CheckCollisions(map, newX, y, size) = false)
+        if (PlayerCollisions.Check(map, this, newX, y) = false)
         {
             let x = Math.max(1, newX);
         }
@@ -97,8 +97,8 @@ class Player
     method void moveRight()
     {
         var int newX;
-        let newX = x = 2;
-        if (Collisions.CheckCollisions(map, newX, y, size) = false)
+        let newX = x + 2;
+        if (PlayerCollisions.Check(map, this, newX, y) = false)
         {
             let x = Math.min(newX, 511);
         }

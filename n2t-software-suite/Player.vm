@@ -75,10 +75,10 @@ push constant 2
 sub
 pop local 0
 push this 4
+push pointer 0
 push this 0
 push local 0
-push this 2
-call Collisions.CheckCollisions 4
+call PlayerCollisions.Check 4
 push constant 0
 eq
 if-goto IF_TRUE0
@@ -99,10 +99,10 @@ push constant 2
 add
 pop local 0
 push this 4
+push pointer 0
 push this 0
 push local 0
-push this 2
-call Collisions.CheckCollisions 4
+call PlayerCollisions.Check 4
 push constant 0
 eq
 if-goto IF_TRUE0
@@ -123,10 +123,10 @@ push constant 2
 sub
 pop local 0
 push this 4
+push pointer 0
 push local 0
 push this 1
-push this 2
-call Collisions.CheckCollisions 4
+call PlayerCollisions.Check 4
 push constant 0
 eq
 if-goto IF_TRUE0
@@ -144,13 +144,13 @@ push argument 0
 pop pointer 0
 push this 0
 push constant 2
-eq
+add
 pop local 0
 push this 4
+push pointer 0
 push local 0
 push this 1
-push this 2
-call Collisions.CheckCollisions 4
+call PlayerCollisions.Check 4
 push constant 0
 eq
 if-goto IF_TRUE0
