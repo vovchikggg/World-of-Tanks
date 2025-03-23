@@ -359,28 +359,28 @@ class Drower {
     function void DrawBulletUp(int x, int y, int size)
     {
         do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x + size, y + 1);
+        do Screen.drawRectangle(x, y, x + size, y + size);
         return;
     }
 
     function void DrawBulletDown(int x, int y, int size)
     {
         do Screen.setColor(true);
-        do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
+        do Screen.drawRectangle(x, y, x + size, y + size);
         return;
     }
 
     function void DrawBulletLeft(int x, int y, int size)
     {
         do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x + 1, y + size);
+        do Screen.drawRectangle(x, y, x + size, y + size);
         return;
     }
 
     function void DrawBulletRight(int x, int y, int size)
     {
         do Screen.setColor(true);
-        do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
+        do Screen.drawRectangle(x, y, x + size, y + size);
         return;
     }
 
