@@ -2316,32 +2316,6 @@ pop temp 0
 label IF_FALSE3
 push constant 0
 return
-function Drower.DrawBot 3
-push argument 0
-call Bot.getX 1
-pop local 0
-push argument 0
-call Bot.getY 1
-pop local 1
-push argument 0
-call Bot.getSize 1
-pop local 2
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push local 0
-push local 1
-push local 0
-push local 2
-add
-push local 1
-push local 2
-add
-call Screen.drawRectangle 4
-pop temp 0
-push constant 0
-return
 function Drower.clearBullet 3
 push argument 0
 call Bullet.getX 1
@@ -2365,6 +2339,82 @@ push local 2
 add
 call Screen.drawRectangle 4
 pop temp 0
+push constant 0
+return
+function Drower.DrawBot 3
+push argument 0
+call Bot.getDirection 1
+pop local 2
+push argument 0
+call Bot.getX 1
+pop local 0
+push argument 0
+call Bot.getY 1
+pop local 1
+push local 0
+push constant 0
+call Math.max 2
+pop local 0
+push local 1
+push constant 0
+call Math.max 2
+pop local 1
+push local 0
+push constant 512
+push constant 32
+sub
+call Math.min 2
+pop local 0
+push local 1
+push constant 256
+push constant 32
+sub
+call Math.min 2
+pop local 1
+push local 2
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+push local 1
+call Drower.DrawBotUp 2
+pop temp 0
+label IF_FALSE0
+push local 2
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 0
+push local 1
+call Drower.DrawBotDown 2
+pop temp 0
+label IF_FALSE1
+push local 2
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 0
+push local 1
+call Drower.DrawBotLeft 2
+pop temp 0
+label IF_FALSE2
+push local 2
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push local 0
+push local 1
+call Drower.DrawBotRight 2
+pop temp 0
+label IF_FALSE3
 push constant 0
 return
 function Drower.DrawBotUp 1
@@ -4039,6 +4089,10 @@ add
 push constant 16382
 call Memory.poke 2
 pop temp 0
+push argument 0
+push constant 16
+sub
+pop argument 0
 push argument 1
 push constant 16
 add

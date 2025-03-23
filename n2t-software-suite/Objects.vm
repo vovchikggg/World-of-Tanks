@@ -264,7 +264,7 @@ return
 function Objects.killObjects 2
 push argument 0
 pop pointer 0
-push this 2
+push this 3
 pop local 0
 label WHILE_EXP0
 push local 0
@@ -299,7 +299,7 @@ return
 function Objects.killBrick 3
 push argument 0
 pop pointer 0
-push this 1
+push this 2
 pop local 0
 push constant 0
 pop local 2

@@ -11,6 +11,7 @@ class Bot
     {
         let x = _x;
         let y = _y;
+        let direction = 1;
         let size = 32;
         let alive = true;
 
