@@ -64,66 +64,22 @@ class Player
 
     method void moveUp()
     {
-<<<<<<< HEAD
-        if (y > 1){
-            do Drower.clearPlayer(this);
-            //do Screen.setColor(false);
-            //do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
-            let y = y - 2;
-            //do Screen.setColor(true);
-            //do Screen.drawRectangle(x, y, x + size, y + 1);
-        }
-=======
             let y = Math.max(y - 2, 1);
->>>>>>> drowerperfect
         return;
     }
 
      method void moveDown() {
-<<<<<<< HEAD
-        if ((y + size) < 254) {
-            do Drower.clearPlayer(this);
-            //do Screen.setColor(false);
-            //do Screen.drawRectangle(x, y, x + size, y + 1);
-            let y = y + 2;
-            //do Screen.setColor(true);
-            //do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
-        }
-=======
             let y = Math.min(y + 2, 255);
->>>>>>> drowerperfect
         return;
     }
 
     method void moveLeft() {
-<<<<<<< HEAD
-        if (x > 1) {
-            do Drower.clearPlayer(this);
-            //do Screen.setColor(false);
-            //do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
-            let x = x - 2;
-            //do Screen.setColor(true);
-            //do Screen.drawRectangle(x, y, x + 1, y + size);
-        }
-=======
             let x = Math.max(1, x - 2);
->>>>>>> drowerperfect
         return;
     }
 
     method void moveRight() {
-<<<<<<< HEAD
-        if ((x + size) < 510) {
-            do Drower.clearPlayer(this);
-            //do Screen.setColor(false);
-            //do Screen.drawRectangle(x, y, x + 1, y + size);
-            let x = x + 2;
-            //do Screen.setColor(true);
-            //do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
-        }
-=======
             let x = Math.min(x + 2, 511);
->>>>>>> drowerperfect
         return;
     }
 
