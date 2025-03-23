@@ -64,22 +64,22 @@ class Player
 
     method void moveUp()
     {
-            let y = Math.max(y - 2, 1);
+        let y = Math.max(y - 2, 1);
         return;
     }
 
      method void moveDown() {
-            let y = Math.min(y + 2, 255);
+        let y = Math.min(y + 2, 255);
         return;
     }
 
     method void moveLeft() {
-            let x = Math.max(1, x - 2);
+        let x = Math.max(1, x - 2);
         return;
     }
 
     method void moveRight() {
-            let x = Math.min(x + 2, 511);
+        let x = Math.min(x + 2, 511);
         return;
     }
 

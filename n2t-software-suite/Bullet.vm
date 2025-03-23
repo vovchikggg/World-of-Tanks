@@ -67,6 +67,8 @@ call Player.getY 1
 push argument 0
 call Player.getSize 1
 add
+push this 3
+add
 push constant 20
 add
 push constant 256
@@ -124,6 +126,8 @@ push argument 0
 call Player.getX 1
 push argument 0
 call Player.getSize 1
+add
+push this 3
 add
 push constant 20
 add
@@ -288,12 +292,10 @@ gt
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push constant 0
-return
-label IF_FALSE1
 push pointer 0
 call Bullet.moveUp 1
 pop temp 0
+label IF_FALSE1
 label IF_FALSE0
 push this 2
 push constant 2
@@ -309,12 +311,10 @@ lt
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
-push constant 0
-return
-label IF_FALSE3
 push pointer 0
 call Bullet.moveDown 1
 pop temp 0
+label IF_FALSE3
 label IF_FALSE2
 push this 2
 push constant 3
@@ -328,12 +328,10 @@ gt
 if-goto IF_TRUE5
 goto IF_FALSE5
 label IF_TRUE5
-push constant 0
-return
-label IF_FALSE5
 push pointer 0
 call Bullet.moveLeft 1
 pop temp 0
+label IF_FALSE5
 label IF_FALSE4
 push this 2
 push constant 4
@@ -349,12 +347,10 @@ lt
 if-goto IF_TRUE7
 goto IF_FALSE7
 label IF_TRUE7
-push constant 0
-return
-label IF_FALSE7
 push pointer 0
 call Bullet.moveRight 1
 pop temp 0
+label IF_FALSE7
 label IF_FALSE6
 push constant 0
 return

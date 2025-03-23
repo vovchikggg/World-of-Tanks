@@ -95,8 +95,9 @@ class Game {
             {
                 do Bullet.new(player, map);
             }
-            do map.drowAllObjects();
+            
             do MoveKeyboard(key);
+            do map.drowAllObjects();
             //do map.clearBullets();
             do map.moveBullets();
         }

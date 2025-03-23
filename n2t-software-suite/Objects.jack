@@ -1,14 +1,14 @@
 class Objects
 {
     field Player player;
-    field BotsList botsList;
+    //field BotsList botsList;
     field BricksList bricksList;
     field BulletsList bulletsList;
 
     constructor Objects new()
     {
         let player = null;
-        let botsList = null;
+        //let botsList = null;
         let bricksList = null;
         let bulletsList = null;
         return this;
@@ -24,14 +24,14 @@ class Objects
         return;
     }
 
-    method BotsList getBotsList()
-    {
-        return botsList;
-    }
-    method void addNewBot(Bot _bot) {
-        let botsList = BotsList.new(_bot, botsList);
-        return;
-    }
+    //method BotsList getBotsList()
+    //{
+    //    return botsList;
+    //}
+    //method void addNewBot(Bot _bot) {
+    //    let botsList = BotsList.new(_bot, botsList);
+    //    return;
+    //}
 
     method BricksList getBricksList()
     {
@@ -54,30 +54,46 @@ class Objects
 
     method void drowAllObjects()
     {
-        var BotsList currentBot;
+        //var BotsList currentBot;
         var BricksList currentBrick;
         var BulletsList currentBullet;
 
-        //do Drower.DrawPlayer(player);
+        //var Bot bot;
+        var Brick brick;
+        var Bullet bullet;
 
-        let currentBot = botsList;
-        while (~(currentBot = null))
-        {
-            //do Drower.DrawBot(currentBot.getData());
-            let currentBot = currentBot.getNext();
-        }
+        do Drower.DrawPlayer(player);
+
+        //let currentBot = botsList;
+        //while (~(currentBot = null))
+        //{
+        //    let bot = currentBot.getData();
+        //    if (bot.getAlive() = true)
+        //    {
+        //        do Drower.DrawBot(bot);
+        //    }
+        //    let currentBot = currentBot.getNext();
+        //}
 
         let currentBrick = bricksList;
         while (~(currentBrick = null))
         {
-            do Drower.DrawBrick(currentBrick.getData());
+            let brick = currentBrick.getData();
+            if (brick.getAlive() = true)
+            {
+                do Drower.DrawBrick(brick);
+            }
             let currentBrick = currentBrick.getNext();
         }
 
         let currentBullet = bulletsList;
         while (~(currentBullet = null))
         {
-            do Drower.DrawBullet(currentBullet.getData());
+            let bullet = currentBullet.getData();
+            if (bullet.getAlive() = true)
+            {
+                do Drower.DrawBullet(bullet);
+            }
             let currentBullet = currentBullet.getNext();
         }
 
