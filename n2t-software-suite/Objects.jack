@@ -173,7 +173,7 @@ class Objects
 
         do Drower.DrawPlayer(player);
 
-        //do Drower.DrawBase(base);
+        do Drower.DrawBase(base);
 
         let currentBot = botsList;
         while (~(currentBot = null))
