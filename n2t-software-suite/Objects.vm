@@ -251,6 +251,10 @@ if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
 push local 5
+call Bullet.getX 1
+call Output.printInt 1
+pop temp 0
+push local 5
 call Drower.DrawBullet 1
 pop temp 0
 label IF_FALSE2

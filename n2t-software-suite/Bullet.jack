@@ -9,45 +9,39 @@ class Bullet
 
     constructor Bullet new(Player player, Objects _map)
     {
-        var int x_bullet_Up_Down;
-        var int y_bullet_Left_Right;
-        let x_bullet_Up_Down = player.getX() + (player.getSize() / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
-        let y_bullet_Left_Right = player.getY() + (player.getSize() / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
+        let x = player.getX();
+        let y = player.getY();
         let direction = player.getDirection();
         let size = 5;
         let alive = true;
-        
+
         if (direction = 1){ //Up
-            if (player.getY() - 20 < 0)
+            if (player.getY() - 10 < 0)
             {
                 let alive = false;
             }
-            let x = x_bullet_Up_Down;
-            let y = player.getY() - 20;
+            do Output.printString("upper");
+            //do Output.printInt(x);
+            let x = x + 8;
+            let y = y - 5;
         }
         if (direction = 2){ //Down
-            if (player.getY() + player.getSize() + size + 20 > 256)
+            if (player.getY() + 10 > 256)
             {
                 let alive = false;
             }
-            let x = x_bullet_Up_Down;
-            let y = player.getY() + player.getSize() + 20;
         }
         if (direction = 3){ //Left
-            if (player.getX() - 20 < 0)
+            if (player.getX() - 10 < 0)
             {
                 let alive = false;
             }
-            let x = player.getX() - 20;
-            let y = y_bullet_Left_Right;
         }
         if (direction = 4){ //Right
-            if (player.getX() + player.getSize() + size + 20 > 512)
+            if (player.getX() + 10 > 512)
             {
                 let alive = false;
             }
-            let x = player.getX() + player.getSize() + 20;
-            let y = y_bullet_Left_Right;
         }
         let map = _map;
         if (alive = true)

@@ -69,8 +69,8 @@ class Game {
             do MoveKeyboard(key);
 
             do map.killObjects();
-            do map.clearBullets();
-            do map.moveBullets();
+            //do map.clearBullets();
+            //do map.moveBullets();
             do map.drowAllObjects();
 
             let time = time + 1;
