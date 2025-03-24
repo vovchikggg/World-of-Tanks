@@ -392,17 +392,54 @@ class Objects
         return;
     }
 
-    method void moveBots()
+    method void moveBots(Base base)
     {
         var BotsList currentBot;
         var Bot bot;
+        var int xBot;
+        var int yBot;
+        var int xBase;
+        var int yBase;
+
         let currentBot = botsList;
+        let xBase = base.getX();
+        let yBase = base.getY();
         while (~(currentBot = null))
         {
             let bot = currentBot.getData();
-            //
-            do bot.setDirection(4);
-            //
+            let xBot = bot.getX();
+            let yBot = bot.getY();
+
+            //            do bot.setDirection(4);
+            //            do bot.moveBot();
+            //            do bot.setDirection(2);
+
+            //do bot.setDirection(3);
+
+            //игрок будет идти пока разница по модулю не больше 10 пикселей
+
+            if ((xBase - xBot) > 0) // Значит бот слева от базы
+            {
+                if ((yBase - yBot) > (xBase - xBot)) //dist по y до базы > dist по x до базы
+                {
+                    do bot.setDirection(2); //down
+                }
+                else
+                {
+                    do bot.setDirection(4); //right
+                }
+            }
+            else // Справа от базы
+            {
+                if ((yBase - yBot) > (xBot - xBase)) //dist по y до базы > dist по x до базы
+                {
+                    do bot.setDirection(2); //down
+                }
+                else
+                {
+                    do bot.setDirection(3); //left
+                }
+            }
             do bot.moveBot();
 
             let currentBot = currentBot.getNext();

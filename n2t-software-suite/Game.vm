@@ -213,6 +213,11 @@ push local 0
 call Game.MoveKeyboard 2
 pop temp 0
 push this 1
+push this 1
+call Objects.getBase 1
+call Objects.moveBots 2
+pop temp 0
+push this 1
 call Objects.clearDeadBulletsFromList 1
 pop temp 0
 push this 1
@@ -226,9 +231,6 @@ call Objects.moveBullets 1
 pop temp 0
 push this 1
 call Objects.drowAllObjects 1
-pop temp 0
-push this 1
-call Objects.moveBots 1
 pop temp 0
 push local 3
 push constant 1

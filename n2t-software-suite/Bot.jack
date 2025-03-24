@@ -107,7 +107,25 @@ class Bot
 
     method void moveBot()
     {
-        do moveRight();
+        if (direction = 1)
+        {
+            do moveUp();
+        }
+
+        if (direction = 2)
+        {
+            do moveDown();
+        }
+        
+        if (direction = 3)
+        {
+            do moveLeft();
+        }
+
+        if (direction = 4)
+        {
+            do moveRight();
+        }
         return;
     }
 

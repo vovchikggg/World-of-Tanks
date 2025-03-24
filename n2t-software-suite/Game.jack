@@ -103,16 +103,14 @@ class Game {
             }
 
             do MoveKeyboard(key);
-
+            //
+            do map.moveBots(map.getBase());
+            //
             do map.clearDeadBulletsFromList();
             do map.killObjects();
             do map.clearBullets();
             do map.moveBullets();
             do map.drowAllObjects();
-
-            //
-            do map.moveBots();
-            //
 
             let time = time + 1;
         }
