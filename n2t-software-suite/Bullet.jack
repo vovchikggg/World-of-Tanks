@@ -26,7 +26,7 @@ class Bullet
             let y = player.getY() - 20;
         }
         if (direction = 2){ //Down
-            if (player.getY() + player.getSize() + size + 20 > 256)
+            if (player.getY() + player.getSize() + size + 20 > 255)
             {
                 let alive = false;
             }
@@ -42,7 +42,7 @@ class Bullet
             let y = y_bullet_Left_Right;
         }
         if (direction = 4){ //Right
-            if (player.getX() + player.getSize() + size + 20 > 512)
+            if (player.getX() + player.getSize() + size + 20 > 511)
             {
                 let alive = false;
             }

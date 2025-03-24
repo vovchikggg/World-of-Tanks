@@ -455,34 +455,6 @@ class Drower {
         return;
     }
 
-    function void DrawBulletUp(int x, int y, int size)
-    {
-        do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x + size, y + size);
-        return;
-    }
-
-    function void DrawBulletDown(int x, int y, int size)
-    {
-        do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x + size, y + size);
-        return;
-    }
-
-    function void DrawBulletLeft(int x, int y, int size)
-    {
-        do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x + size, y + size);
-        return;
-    }
-
-    function void DrawBulletRight(int x, int y, int size)
-    {
-        do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x + size, y + size);
-        return;
-    }
-
     function void DrawBullet(Bullet bullet) {
         var int x;
         var int y;
@@ -493,18 +465,15 @@ class Drower {
         let y = bullet.getY();
         let size = bullet.getSize();
 
-        if (direction = 1){
-            do Drower.DrawBulletUp(x, y, size);
+        if ((x > 0) & (x < 256) & (x + size > 0) & (x + size < 256))
+        {
+            if ((y > 0) & (y < 256) & (y + size > 0) & (y + size < 256))
+            {
+                do Screen.setColor(true);
+                do Screen.drawRectangle(x, y, x + size, y + size);
+            }
         }
-        if (direction = 2){
-            do Drower.DrawBulletDown(x, y, size);
-        }
-        if (direction = 3){
-            do Drower.DrawBulletLeft(x, y, size);
-        }
-        if (direction = 4){
-            do Drower.DrawBulletRight(x, y, size);
-        }
+        
         return;
     }
 
@@ -548,7 +517,13 @@ class Drower {
         let y = bullet.getY();
         let size = bullet.getSize();
         do Screen.setColor(false);
-        do Screen.drawRectangle(x, y, x + size, y + size);
+        if ((x > 0) & (x < 256) & (x + size > 0) & (x + size < 256))
+        {
+            if ((y > 0) & (y < 256) & (y + size > 0) & (y + size < 256))
+            {
+                do Screen.drawRectangle(x, y, x + size, y + size);
+            }
+        }
         return;
     }
 

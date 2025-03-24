@@ -71,7 +71,7 @@ push this 3
 add
 push constant 20
 add
-push constant 256
+push constant 255
 gt
 if-goto IF_TRUE3
 goto IF_FALSE3
@@ -131,7 +131,7 @@ push this 3
 add
 push constant 20
 add
-push constant 512
+push constant 511
 gt
 if-goto IF_TRUE7
 goto IF_FALSE7
