@@ -233,6 +233,10 @@ push constant 0
 pop local 3
 label IF_FALSE5
 push this 1
+push local 4
+call Objects.moveBots 2
+pop temp 0
+push this 1
 call Objects.clearDeadBulletsFromList 1
 pop temp 0
 push this 1

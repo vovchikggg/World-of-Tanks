@@ -109,6 +109,8 @@ class Game {
                 let time = 0;
             }
             //
+
+            do map.moveBots(base);
             do map.clearDeadBulletsFromList();
             do map.clearBullets();
             do map.moveBullets();
