@@ -457,27 +457,33 @@ class Objects
             //do bot.setDirection(3);
 
             //игрок будет идти пока разница по модулю не больше 10 пикселей
-
-            if ((xBase - xBot) > 0) // Значит бот слева от базы
+            if ((yBase - yBot) < 75)
             {
-                if ((yBase - yBot) > (xBase - xBot)) //dist по y до базы > dist по x до базы
-                {
-                    do bot.setDirection(2); //down
-                }
-                else
-                {
-                    do bot.setDirection(4); //right
-                }
+                do bot.setDirection(2); //down
             }
-            else // Справа от базы
+            else
             {
-                if ((yBase - yBot) > (xBot - xBase)) //dist по y до базы > dist по x до базы
+                if ((xBase - xBot) > 0) // Значит бот слева от базы
                 {
-                    do bot.setDirection(2); //down
+                    if ((yBase - yBot - 60) > (xBase - xBot - 0)) //dist по y до базы > dist по x до базы
+                    {
+                        do bot.setDirection(2); //down
+                    }
+                    else
+                    {
+                        do bot.setDirection(4); //right
+                    }
                 }
-                else
+                else // Справа от базы
                 {
-                    do bot.setDirection(3); //left
+                    if ((yBase - yBot - 10) > (xBot - xBase - 0)) //dist по y до базы > dist по x до базы
+                    {
+                        do bot.setDirection(2); //down
+                    }
+                    else
+                    {
+                        do bot.setDirection(3); //left
+                    }
                 }
             }
             do bot.moveBot();

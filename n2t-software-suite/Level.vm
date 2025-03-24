@@ -138,26 +138,6 @@ call Brick.new 2
 call Objects.addNewBrick 2
 pop temp 0
 push this 0
-push constant 100
-push constant 12
-sub
-push constant 50
-push constant 32
-add
-call Brick.new 2
-call Objects.addNewBrick 2
-pop temp 0
-push this 0
-push constant 100
-push constant 20
-add
-push constant 50
-push constant 32
-add
-call Brick.new 2
-call Objects.addNewBrick 2
-pop temp 0
-push this 0
 push constant 512
 push constant 100
 sub
@@ -196,30 +176,6 @@ add
 push constant 50
 push constant 32
 sub
-call Brick.new 2
-call Objects.addNewBrick 2
-pop temp 0
-push this 0
-push constant 512
-push constant 100
-sub
-push constant 12
-sub
-push constant 50
-push constant 32
-add
-call Brick.new 2
-call Objects.addNewBrick 2
-pop temp 0
-push this 0
-push constant 512
-push constant 100
-sub
-push constant 20
-add
-push constant 50
-push constant 32
-add
 call Brick.new 2
 call Objects.addNewBrick 2
 pop temp 0
