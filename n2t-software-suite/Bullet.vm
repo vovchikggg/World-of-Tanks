@@ -38,7 +38,7 @@ goto IF_FALSE0
 label IF_TRUE0
 push argument 0
 call Player.getY 1
-push constant 20
+push constant 5
 sub
 push constant 0
 lt
@@ -52,7 +52,7 @@ push local 0
 pop this 0
 push argument 0
 call Player.getY 1
-push constant 20
+push constant 5
 sub
 pop this 1
 label IF_FALSE0
@@ -69,7 +69,7 @@ call Player.getSize 1
 add
 push this 3
 add
-push constant 20
+push constant 5
 add
 push constant 256
 gt
@@ -86,7 +86,7 @@ call Player.getY 1
 push argument 0
 call Player.getSize 1
 add
-push constant 20
+push constant 5
 add
 pop this 1
 label IF_FALSE2
@@ -98,7 +98,7 @@ goto IF_FALSE4
 label IF_TRUE4
 push argument 0
 call Player.getX 1
-push constant 20
+push constant 5
 sub
 push constant 0
 lt
@@ -110,7 +110,7 @@ pop this 4
 label IF_FALSE5
 push argument 0
 call Player.getX 1
-push constant 20
+push constant 5
 sub
 pop this 0
 push local 1
@@ -129,7 +129,7 @@ call Player.getSize 1
 add
 push this 3
 add
-push constant 20
+push constant 5
 add
 push constant 512
 gt
@@ -144,7 +144,7 @@ call Player.getX 1
 push argument 0
 call Player.getSize 1
 add
-push constant 20
+push constant 5
 add
 pop this 0
 push local 1

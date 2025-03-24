@@ -8,13 +8,63 @@ class Level
     {
         // 1 Level
         let firstLevel = Objects.new();
-        do firstLevel.setPlayer(Player.new(180, 180, 30));
-        do firstLevel.addNewBrick(Brick.new(50, 50));
-        do firstLevel.addNewBrick(Brick.new(100, 50));
-        do firstLevel.addNewBrick(Brick.new(150, 50));
-        do firstLevel.addNewBot(Bot.new(100, 100));
-        do firstLevel.addNewBot(Bot.new(100, 100));
-        do firstLevel.setBase(Bot.new(100, 100));
+        do firstLevel.setBase(Base.new(256, 256-32));
+        do firstLevel.setPlayer(Player.new(224-16, 224, 30));
+        do firstLevel.addNewBrick(Brick.new(224+32, 224-16));
+        do firstLevel.addNewBrick(Brick.new(224+16, 224-16));
+        do firstLevel.addNewBrick(Brick.new(224+16, 224));
+        do firstLevel.addNewBrick(Brick.new(224+16, 224+16));
+
+        do firstLevel.addNewBrick(Brick.new(224+32+16, 224-16));
+        do firstLevel.addNewBrick(Brick.new(224+64, 224-16));
+        do firstLevel.addNewBrick(Brick.new(224+64, 224));
+        do firstLevel.addNewBrick(Brick.new(224+64, 224+16));
+
+        do firstLevel.addNewBrick(Brick.new(256, 100));
+        do firstLevel.addNewBrick(Brick.new(256, 116));
+        do firstLevel.addNewBrick(Brick.new(256, 84));
+        do firstLevel.addNewBrick(Brick.new(256, 132));
+        do firstLevel.addNewBrick(Brick.new(256, 148));
+
+        do firstLevel.addNewBrick(Brick.new(256+16, 148));
+        do firstLevel.addNewBrick(Brick.new(256+32, 148));
+        do firstLevel.addNewBrick(Brick.new(256+48, 148));
+        do firstLevel.addNewBrick(Brick.new(256-16, 148));
+        do firstLevel.addNewBrick(Brick.new(256-32, 148));
+        do firstLevel.addNewBrick(Brick.new(256-48, 148));
+         do firstLevel.addNewBrick(Brick.new(256+16, 148-64));
+        do firstLevel.addNewBrick(Brick.new(256+32, 148-64));
+        do firstLevel.addNewBrick(Brick.new(256+48, 148-64));
+        do firstLevel.addNewBrick(Brick.new(256-16, 148-64));
+        do firstLevel.addNewBrick(Brick.new(256-32, 148-64));
+        do firstLevel.addNewBrick(Brick.new(256-48, 148-64));
+
+        do firstLevel.addNewBrick(Brick.new(160, 148+16));
+        do firstLevel.addNewBrick(Brick.new(160, 148+32));
+        do firstLevel.addNewBrick(Brick.new(160, 148+48));
+        do firstLevel.addNewBrick(Brick.new(160, 196+16));
+        do firstLevel.addNewBrick(Brick.new(160, 196+32));
+        do firstLevel.addNewBrick(Brick.new(160, 196+48));
+        do firstLevel.addNewBrick(Brick.new(160, 148));
+
+        do firstLevel.addNewBrick(Brick.new(380, 148+16));
+        do firstLevel.addNewBrick(Brick.new(380, 148+32));
+        do firstLevel.addNewBrick(Brick.new(380, 148+48));
+        do firstLevel.addNewBrick(Brick.new(380, 148+64));
+        do firstLevel.addNewBrick(Brick.new(380, 212+16));
+        do firstLevel.addNewBrick(Brick.new(380, 212+32));
+        do firstLevel.addNewBrick(Brick.new(380, 148));
+
+        do firstLevel.addNewBrick(Brick.new(100-16, 50-6));
+        do firstLevel.addNewBrick(Brick.new(100, 50-16));
+        do firstLevel.addNewBrick(Brick.new(100+16, 50-16));
+
+        do firstLevel.addNewBot(Bot.new(100, 50));
+        do firstLevel.addNewBot(Bot.new(512-100, 50));
+        do firstLevel.addNewBrick(Brick.new(512-100+32, 50-6));
+        do firstLevel.addNewBrick(Brick.new(512-100, 50-16));
+        do firstLevel.addNewBrick(Brick.new(512-100+16, 50-16));
+
 
         // 2 Level
         let secondLevel = Objects.new();
@@ -25,7 +75,7 @@ class Level
         do secondLevel.addNewBrick(Brick.new(200, 50));
         do secondLevel.addNewBrick(Brick.new(250, 50));
         do secondLevel.addNewBot(Bot.new(100, 100));
-        do secondLevel.setBase(Bot.new(224, 224));
+        do secondLevel.setBase(Base.new(224, 224));
 
         // 3 Level
 
