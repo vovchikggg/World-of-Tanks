@@ -11,7 +11,8 @@ class Player
         let y = _y;
         let direction = 4;
         let size = _size;
-        let timeBetweenAtacks = 500;
+        //let timeBetweenAtacks = 500;
+        let timeBetweenAtacks = 25;
         return this;
     }
 
