@@ -3,33 +3,24 @@ class Game {
     field Objects map;
     field ExitGame exitGame;
     field int levelNumber;
-    field Level levels;
+    field Level level;
     field CurrentLevel currentLevel;
 
-    //constructor Game new(ExitGame _exitGame, int _levelNumber){
-    //    let levelNumber = _levelNumber;
-    //    let levels = Level.new();
-
-    //    if (levelNumber = 1)
-    //    {
-    //        let map = levels.getFirstLevel();
-    //        do map.setMap();
-    //        do map.drowAllObjects();
-    //        let player = map.getPlayer();
-    //        let exitGame = _exitGame;
-    //    }
-    //    return this;
-    //}
-
-    constructor Game new(ExitGame _exitGame, Level _levels, int _levelNumber, CurrentLevel _currentLevel){
-        //let levelNumber = _levels.getLevel();
-        //let levels = _levels;
-        let levels = _levels;
-        let levelNumber = _levelNumber;
+    constructor Game new(ExitGame _exitGame, Level _level, CurrentLevel _currentLevel){
+        let level = _level;
         let currentLevel = _currentLevel;
+        let levelNumber = _currentLevel.getLevel();
         if (levelNumber = 1)
         {
-            let map = levels.getFirstLevel();
+            let map = level.getFirstLevel();
+            do map.setMap();
+            do map.drowAllObjects();
+            let player = map.getPlayer();
+            let exitGame = _exitGame;
+        }
+        if (levelNumber = 2)
+        {
+            let map = level.getSecondLevel();
             do map.setMap();
             do map.drowAllObjects();
             let player = map.getPlayer();
@@ -81,8 +72,17 @@ class Game {
 
         while (~exitLevel){
             let key = Keyboard.keyPressed();
+            if (key = 49) // 1 Level (Нажать на 1)
+            {
+                do currentLevel.setLevel(1);
+                let exitLevel = true;
+            }
 
-
+            if (key = 50) // 2 Level (Нажать на 2)
+            {
+                do currentLevel.setLevel(2);
+                let exitLevel = true;
+            }
 
             if (key = 81) // Q - выйти
             {
@@ -90,11 +90,6 @@ class Game {
                 do exitGame.setExitGame(true);
             }
 
-            if (key = 49) // 1 Level (Нажать на 1)
-            {
-                do currentLevel.setLevel(1);
-                let exitLevel = true;
-            }
             //( (time - ((time / 1000) * 1000)) = 0 )
             if (key = 32) // Space - пуля
             {

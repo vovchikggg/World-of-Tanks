@@ -11,19 +11,14 @@ class Main {
         let exit = exitGame.getExitGame();
         let currentLevel = CurrentLevel.new();
 
-        let levelNumber = 1;
-
         while (~(exit))
         {
             let level = Level.new();
-            if (levelNumber = 1)
-            {
-                let game = Game.new(exitGame, level, levelNumber, currentLevel);
-                //let game = Game.new(exitGame, levelNumber);
-                do game.run();
-                do game.dispose();
-                let exit = exitGame.getExitGame();
-            }
+            let game = Game.new(exitGame, level, currentLevel);
+            //let game = Game.new(exitGame, levelNumber);
+            do game.run();
+            do game.dispose();
+            let exit = exitGame.getExitGame();
         }
 
         //let game = Game.new();

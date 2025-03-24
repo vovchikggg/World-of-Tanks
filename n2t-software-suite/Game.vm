@@ -5,9 +5,10 @@ pop pointer 0
 push argument 1
 pop this 4
 push argument 2
-pop this 3
-push argument 3
 pop this 5
+push argument 2
+call CurrentLevel.getLevel 1
+pop this 3
 push this 3
 push constant 1
 eq
@@ -29,6 +30,27 @@ pop this 0
 push argument 0
 pop this 2
 label IF_FALSE0
+push this 3
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 4
+call Level.getSecondLevel 1
+pop this 1
+push this 1
+call Objects.setMap 1
+pop temp 0
+push this 1
+call Objects.drowAllObjects 1
+pop temp 0
+push this 1
+call Objects.getPlayer 1
+pop this 0
+push argument 0
+pop this 2
+label IF_FALSE1
 push pointer 0
 return
 function Game.dispose 0
@@ -124,11 +146,39 @@ if-goto WHILE_END0
 call Keyboard.keyPressed 0
 pop local 0
 push local 0
-push constant 81
+push constant 49
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push this 5
+push constant 1
+call CurrentLevel.setLevel 2
+pop temp 0
+push constant 0
+not
+pop local 1
+label IF_FALSE0
+push local 0
+push constant 50
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 5
+push constant 2
+call CurrentLevel.setLevel 2
+pop temp 0
+push constant 0
+not
+pop local 1
+label IF_FALSE1
+push local 0
+push constant 81
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push constant 0
 not
 pop local 1
@@ -137,41 +187,27 @@ push constant 0
 not
 call ExitGame.setExitGame 2
 pop temp 0
-label IF_FALSE0
-push local 0
-push constant 49
-eq
-if-goto IF_TRUE1
-goto IF_FALSE1
-label IF_TRUE1
-push this 5
-push constant 1
-call CurrentLevel.setLevel 2
-pop temp 0
-push constant 0
-not
-pop local 1
-label IF_FALSE1
+label IF_FALSE2
 push local 0
 push constant 32
 eq
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
 push local 3
 push this 0
 call Player.getTimeBetweenAtacks 1
 gt
-if-goto IF_TRUE3
-goto IF_FALSE3
-label IF_TRUE3
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
 push this 0
 call Player.Atack 1
 pop temp 0
 push constant 0
 pop local 3
+label IF_FALSE4
 label IF_FALSE3
-label IF_FALSE2
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2
