@@ -179,6 +179,74 @@ pop temp 0
 label IF_FALSE0
 push constant 0
 return
+function Objects.clearAllObjects 6
+push argument 0
+pop pointer 0
+push this 1
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BotsList.getData 1
+pop local 3
+push local 3
+push constant 0
+call Bot.setAlive 2
+pop temp 0
+push local 0
+call BotsList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push this 2
+pop local 1
+label WHILE_EXP1
+push local 1
+push constant 0
+eq
+not
+not
+if-goto WHILE_END1
+push local 1
+call BricksList.getData 1
+pop local 4
+push local 4
+push constant 0
+call Brick.setAlive 2
+pop temp 0
+push local 1
+call BricksList.getNext 1
+pop local 1
+goto WHILE_EXP1
+label WHILE_END1
+push this 3
+pop local 2
+label WHILE_EXP2
+push local 2
+push constant 0
+eq
+not
+not
+if-goto WHILE_END2
+push local 2
+call BulletsList.getData 1
+pop local 5
+push local 5
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push local 2
+call BulletsList.getNext 1
+pop local 2
+goto WHILE_EXP2
+label WHILE_END2
+push constant 0
+return
 function Objects.drowAllObjects 6
 push argument 0
 pop pointer 0

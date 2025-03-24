@@ -106,6 +106,45 @@ class Objects
         return;
     }
 
+    method void clearAllObjects()
+    {
+        var BotsList currentBot;
+        var BricksList currentBrick;
+        var BulletsList currentBullet;
+
+        var Bot bot;
+        var Brick brick;
+        var Bullet bullet;
+
+        //do player.setAlive(false);
+
+        let currentBot = botsList;
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+            do bot.setAlive(false);
+            let currentBot = currentBot.getNext();
+        }
+
+        let currentBrick = bricksList;
+        while (~(currentBrick = null))
+        {
+            let brick = currentBrick.getData();
+            do brick.setAlive(false);
+            let currentBrick = currentBrick.getNext();
+        }
+
+        let currentBullet = bulletsList;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+            do bullet.setAlive(false);
+            let currentBullet = currentBullet.getNext();
+        }
+
+        return;
+    }
+
     method void drowAllObjects()
     {
         var BotsList currentBot;
