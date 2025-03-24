@@ -8,13 +8,26 @@ class PlayerCollisions
         var BricksList currentBrick;
         var BulletsList currentBullet;
         
+        var Player player;
+        var Base base;
         var Bot anotherBot;
         var Brick anotherBrick;
         var Bullet anotherBullet;
 
         let flag = false;
 
-        let flag = flag | PlayerCollisions.CheckCollisionsWithPlayer(map.getPlayer(), player, newX, newY);
+        let player = map.getPlayer();
+        let base = map.getBase();
+
+        if (player.getAlive() = true)
+        {
+            let flag = flag | PlayerCollisions.CheckCollisionsWithPlayer(player, player, newX, newY);
+        }
+        
+        if (base.getAlive() = true)
+        {
+            let flag = flag | PlayerCollisions.CheckCollisionsWithPlayer(base, player, newX, newY);
+        }
 
         let currentBot = map.getBotsList();
         while (~(currentBot = null))

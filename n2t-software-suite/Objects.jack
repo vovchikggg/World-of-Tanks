@@ -171,9 +171,15 @@ class Objects
         var Brick brick;
         var Bullet bullet;
 
-        do Drower.DrawPlayer(player);
+        if (player.getAlive() = true)
+        {
+            do Drower.DrawPlayer(player);
+        }
 
-        //do Drower.DrawBase(base);
+        if (base.getAlive() = true)
+        {
+            do Drower.DrawBase(base);
+        }
 
         let currentBot = botsList;
         while (~(currentBot = null))
@@ -226,6 +232,7 @@ class Objects
             if (bullet.getAlive() = true)
             {
                 do killPlayer(bullet);
+                do killBase(bullet);
                 do killBot(bullet);
                 do killBrick(bullet);
                 do killBullet(bullet);
@@ -237,10 +244,26 @@ class Objects
 
     method void killPlayer(Bullet bullet)
     {
-        if ( BulletCollisions.CheckCollisionsWithPlayer(player, bullet, bullet.getX(), bullet.getY()) = true )
+        if (player.getAlive() = true)
         {
-            do bullet.setAlive(false);
-            do player.setAlive(false);
+            if ( BulletCollisions.CheckCollisionsWithPlayer(player, bullet, bullet.getX(), bullet.getY()) = true )
+            {
+                do bullet.setAlive(false);
+                do player.setAlive(false);
+            }
+        }
+        return;
+    }
+
+    method void killBase(Bullet bullet)
+    {
+        if (base.getAlive() = true)
+        {
+            if ( BulletCollisions.CheckCollisionsWithBase(base, bullet, bullet.getX(), bullet.getY()) = true )
+            {
+                do bullet.setAlive(false);
+                do base.setAlive(false);
+            }
         }
         return;
     }

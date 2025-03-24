@@ -42,9 +42,9 @@ call Bot.new 2
 call Objects.addNewBot 2
 pop temp 0
 push this 0
-push constant 100
-push constant 100
-call Bot.new 2
+push constant 256
+push constant 224
+call Base.new 2
 call Objects.setBase 2
 pop temp 0
 call Objects.new 0
@@ -95,7 +95,7 @@ pop temp 0
 push this 1
 push constant 224
 push constant 224
-call Bot.new 2
+call Base.new 2
 call Objects.setBase 2
 pop temp 0
 push pointer 0
