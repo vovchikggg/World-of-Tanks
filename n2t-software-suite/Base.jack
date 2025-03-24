@@ -1,0 +1,68 @@
+class Base
+{
+    field int x, y;
+    field int size;
+    field bool alive;
+    field Objects map;
+
+    constructor Base new(int _x, int _y)
+    {
+        let x = _x;
+        let y = _y;
+        let size = 32;
+        let alive = true;
+        return this;
+    }
+
+    method void setMap(Objects _map)
+    {
+        let map = _map;
+        return;
+    }
+
+    method bool getX()
+    {
+        return x;
+    }
+    method void setX(int _x)
+    {
+        let x = _x;
+        return;
+    }
+
+    method bool getY()
+    {
+        return y;
+    }
+    method void setY(int _y)
+    {
+        let y = _y;
+        return;
+    }
+
+    method bool getSize()
+    {
+        return size;
+    }
+    method void setSize(int _size)
+    {
+        let size = _size;
+        return;
+    }
+
+    method bool getAlive()
+    {
+        return alive;
+    }
+    method void setAlive(bool _alive)
+    {
+        let alive = _alive;
+        return;
+    }
+
+    method void dispose()
+    {
+        do Memory.deAAlloc(this);
+        return;
+    }
+}
