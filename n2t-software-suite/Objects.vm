@@ -277,6 +277,14 @@ function Objects.drowAllObjects 6
 push argument 0
 pop pointer 0
 push this 0
+call Player.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
 call Drower.DrawPlayer 1
 pop temp 0
 push this 1
@@ -299,13 +307,13 @@ call Bot.getAlive 1
 push constant 0
 not
 eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push local 3
 call Drower.DrawBot 1
 pop temp 0
-label IF_FALSE0
+label IF_FALSE2
 push local 0
 call BotsList.getNext 1
 pop local 0
@@ -328,13 +336,13 @@ call Brick.getAlive 1
 push constant 0
 not
 eq
-if-goto IF_TRUE1
-goto IF_FALSE1
-label IF_TRUE1
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
 push local 4
 call Drower.DrawBrick 1
 pop temp 0
-label IF_FALSE1
+label IF_FALSE3
 push local 1
 call BricksList.getNext 1
 pop local 1
@@ -357,13 +365,13 @@ call Bullet.getAlive 1
 push constant 0
 not
 eq
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
 push local 5
 call Drower.DrawBullet 1
 pop temp 0
-label IF_FALSE2
+label IF_FALSE4
 push local 2
 call BulletsList.getNext 1
 pop local 2
@@ -422,6 +430,14 @@ function Objects.killPlayer 0
 push argument 0
 pop pointer 0
 push this 0
+call Player.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
 push argument 1
 push argument 1
 call Bullet.getX 1
@@ -431,9 +447,9 @@ call BulletCollisions.CheckCollisionsWithPlayer 4
 push constant 0
 not
 eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push argument 1
 push constant 0
 call Bullet.setAlive 2

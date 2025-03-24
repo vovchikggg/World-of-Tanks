@@ -15,6 +15,21 @@ class BulletCollisions
         return false;
     }
 
+    function bool CheckCollisionsWithBase(Base anotherBase, Bullet bullet, int newX, int newY)
+    {
+        if (~(anotherBase = bullet))
+        {
+            if ( (newX < (anotherBase.getX() + anotherBase.getSize()) ) & ( (newX + bullet.getSize()) > anotherBase.getX() ))
+            {
+                if ( (newY < (anotherBase.getY() + anotherBase.getSize()) ) & ( (newY + bullet.getSize()) > anotherBase.getY() ))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     function bool CheckCollisionsWithBot(Bot anotherBot, Bullet bullet, int newX, int newY)
     {
         if (~(anotherBot = bullet))

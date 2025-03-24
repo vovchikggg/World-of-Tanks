@@ -2679,74 +2679,6 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
-function Drower.DrawBulletUp 0
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push argument 0
-push argument 1
-push argument 0
-push argument 2
-add
-push argument 1
-push argument 2
-add
-call Screen.drawRectangle 4
-pop temp 0
-push constant 0
-return
-function Drower.DrawBulletDown 0
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push argument 0
-push argument 1
-push argument 0
-push argument 2
-add
-push argument 1
-push argument 2
-add
-call Screen.drawRectangle 4
-pop temp 0
-push constant 0
-return
-function Drower.DrawBulletLeft 0
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push argument 0
-push argument 1
-push argument 0
-push argument 2
-add
-push argument 1
-push argument 2
-add
-call Screen.drawRectangle 4
-pop temp 0
-push constant 0
-return
-function Drower.DrawBulletRight 0
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push argument 0
-push argument 1
-push argument 0
-push argument 2
-add
-push argument 1
-push argument 2
-add
-call Screen.drawRectangle 4
-pop temp 0
-push constant 0
-return
 function Drower.DrawBullet 4
 push argument 0
 call Bullet.getDirection 1
@@ -2760,54 +2692,66 @@ pop local 1
 push argument 0
 call Bullet.getSize 1
 pop local 2
-push local 3
-push constant 1
-eq
+push local 0
+push constant 0
+gt
+push local 0
+push constant 256
+lt
+and
+push local 0
+push local 2
+add
+push constant 0
+gt
+and
+push local 0
+push local 2
+add
+push constant 256
+lt
+and
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 0
+push local 1
+push constant 0
+gt
+push local 1
+push constant 256
+lt
+and
 push local 1
 push local 2
-call Drower.DrawBulletUp 3
-pop temp 0
-label IF_FALSE0
-push local 3
-push constant 2
-eq
+add
+push constant 0
+gt
+and
+push local 1
+push local 2
+add
+push constant 256
+lt
+and
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
 push local 0
 push local 1
+push local 0
 push local 2
-call Drower.DrawBulletDown 3
+add
+push local 1
+push local 2
+add
+call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE1
-push local 3
-push constant 3
-eq
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
-push local 0
-push local 1
-push local 2
-call Drower.DrawBulletLeft 3
-pop temp 0
-label IF_FALSE2
-push local 3
-push constant 4
-eq
-if-goto IF_TRUE3
-goto IF_FALSE3
-label IF_TRUE3
-push local 0
-push local 1
-push local 2
-call Drower.DrawBulletRight 3
-pop temp 0
-label IF_FALSE3
+label IF_FALSE0
 push constant 0
 return
 function Drower.DrawPlayer 3
@@ -2900,6 +2844,50 @@ push constant 0
 call Screen.setColor 1
 pop temp 0
 push local 0
+push constant 0
+gt
+push local 0
+push constant 256
+lt
+and
+push local 0
+push local 2
+add
+push constant 0
+gt
+and
+push local 0
+push local 2
+add
+push constant 256
+lt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+push constant 0
+gt
+push local 1
+push constant 256
+lt
+and
+push local 1
+push local 2
+add
+push constant 0
+gt
+and
+push local 1
+push local 2
+add
+push constant 256
+lt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 0
 push local 1
 push local 0
 push local 2
@@ -2909,6 +2897,8 @@ push local 2
 add
 call Screen.drawRectangle 4
 pop temp 0
+label IF_FALSE1
+label IF_FALSE0
 push constant 0
 return
 function Drower.DrawBot 3
