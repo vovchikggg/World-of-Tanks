@@ -1,13 +1,27 @@
-function Bullet.new 0
+function Bullet.new 2
 push constant 6
 call Memory.alloc 1
 pop pointer 0
 push argument 0
 call Player.getX 1
-pop this 0
+push argument 0
+call Player.getSize 1
+push constant 2
+call Math.divide 2
+add
+push constant 5
+sub
+pop local 0
 push argument 0
 call Player.getY 1
-pop this 1
+push argument 0
+call Player.getSize 1
+push constant 2
+call Math.divide 2
+add
+push constant 5
+sub
+pop local 1
 push argument 0
 call Player.getDirection 1
 pop this 2
@@ -24,7 +38,7 @@ goto IF_FALSE0
 label IF_TRUE0
 push argument 0
 call Player.getY 1
-push constant 10
+push constant 20
 sub
 push constant 0
 lt
@@ -34,12 +48,11 @@ label IF_TRUE1
 push constant 0
 pop this 4
 label IF_FALSE1
-push this 0
-push constant 8
-add
+push local 0
 pop this 0
-push this 1
-push constant 5
+push argument 0
+call Player.getY 1
+push constant 20
 sub
 pop this 1
 label IF_FALSE0
@@ -51,7 +64,12 @@ goto IF_FALSE2
 label IF_TRUE2
 push argument 0
 call Player.getY 1
-push constant 10
+push argument 0
+call Player.getSize 1
+add
+push this 3
+add
+push constant 20
 add
 push constant 256
 gt
@@ -61,6 +79,16 @@ label IF_TRUE3
 push constant 0
 pop this 4
 label IF_FALSE3
+push local 0
+pop this 0
+push argument 0
+call Player.getY 1
+push argument 0
+call Player.getSize 1
+add
+push constant 20
+add
+pop this 1
 label IF_FALSE2
 push this 2
 push constant 3
@@ -70,7 +98,7 @@ goto IF_FALSE4
 label IF_TRUE4
 push argument 0
 call Player.getX 1
-push constant 10
+push constant 20
 sub
 push constant 0
 lt
@@ -80,6 +108,13 @@ label IF_TRUE5
 push constant 0
 pop this 4
 label IF_FALSE5
+push argument 0
+call Player.getX 1
+push constant 20
+sub
+pop this 0
+push local 1
+pop this 1
 label IF_FALSE4
 push this 2
 push constant 4
@@ -89,7 +124,12 @@ goto IF_FALSE6
 label IF_TRUE6
 push argument 0
 call Player.getX 1
-push constant 10
+push argument 0
+call Player.getSize 1
+add
+push this 3
+add
+push constant 20
 add
 push constant 512
 gt
@@ -99,6 +139,16 @@ label IF_TRUE7
 push constant 0
 pop this 4
 label IF_FALSE7
+push argument 0
+call Player.getX 1
+push argument 0
+call Player.getSize 1
+add
+push constant 20
+add
+pop this 0
+push local 1
+pop this 1
 label IF_FALSE6
 push pointer 0
 return

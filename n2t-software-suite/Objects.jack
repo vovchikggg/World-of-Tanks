@@ -199,8 +199,7 @@ class Objects
             let bullet = currentBullet.getData();
             if (bullet.getAlive() = true)
             {
-                //do Output.printInt(bullet.getX());
-                do Drower.DrawBullet(bullet);
+               do Drower.DrawBullet(bullet);
             }
             let currentBullet = currentBullet.getNext();
         }

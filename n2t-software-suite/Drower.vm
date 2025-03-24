@@ -2679,13 +2679,17 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
-function Drower.DrawBulletUp 1
+function Drower.DrawBulletUp 3
+push argument 1
+pop local 2
+push argument 0
+pop local 1
 push constant 16384
 push constant 32
-push argument 1
+push local 2
 call Math.multiply 2
 add
-push argument 0
+push local 1
 push constant 16
 call Math.divide 2
 add
@@ -2718,36 +2722,6 @@ push local 0
 push constant 128
 add
 push constant 960
-call Memory.poke 2
-pop temp 0
-push local 0
-push constant 160
-add
-push constant 0
-call Memory.poke 2
-pop temp 0
-push local 0
-push constant 192
-add
-push constant 0
-call Memory.poke 2
-pop temp 0
-push local 0
-push constant 224
-add
-push constant 0
-call Memory.poke 2
-pop temp 0
-push local 0
-push constant 256
-add
-push constant 0
-call Memory.poke 2
-pop temp 0
-push local 0
-push constant 288
-add
-push constant 0
 call Memory.poke 2
 pop temp 0
 push constant 0

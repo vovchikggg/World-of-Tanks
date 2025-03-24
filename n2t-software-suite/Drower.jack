@@ -48,7 +48,6 @@ class Drower {
 	        do Memory.poke(memAddress + 64, 0);
             let x = x - 16;
         }
-        
         let memAddress = 16384 + (32 * y) + (x / 16); 
         do Memory.poke(memAddress + 0, -32000 - 768);
         do Memory.poke(memAddress + 32, -32000 - 768);
@@ -458,18 +457,8 @@ class Drower {
 
     function void DrawBulletUp(int x, int y, int size)
     {
-        var int memAddress;
-        let memAddress = 16384 + (32 * y) + (x / 16); 
-        do Memory.poke(memAddress + 0, 384);
-        do Memory.poke(memAddress + 32, 384);
-        do Memory.poke(memAddress + 64, 960);
-        do Memory.poke(memAddress + 96, 960);
-        do Memory.poke(memAddress + 128, 960);
-        do Memory.poke(memAddress + 160, 0);
-        do Memory.poke(memAddress + 192, 0);
-        do Memory.poke(memAddress + 224, 0);
-        do Memory.poke(memAddress + 256, 0);
-        do Memory.poke(memAddress + 288, 0);
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x, y, x + size, y + size);
         return;
     }
 
