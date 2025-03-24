@@ -391,31 +391,30 @@ class Objects
 
     method void moveBots()
     {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-        let currentBullet = bulletsList;
-        while (~(currentBullet = null))
+        var BulletsList currentBot;
+        var Bullet bot;
+        let currentBot = botsList;
+        while (~(currentBot = null))
         {
-            let bullet = currentBullet.getData();
-            do bullet.moveBullet();
+            let bot = currentBot.getData();
+            do bot.moveBot();
 
-            let currentBullet = currentBullet.getNext();
+            let currentBot = currentBot.getNext();
         }
         return;
     }
 
     method void clearBots()
     {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-        let currentBullet = bulletsList;
-
-        while (~(currentBullet = null))
+        var BulletsList currentBot;
+        var Bullet bot;
+        let currentBot = botsList;
+        while (~(currentBot = null))
         {
-            let bullet = currentBullet.getData();
+            let bot = currentBot.getData();
+            do Drower.clearBot(bot);
 
-            do Drower.clearBullet(bullet);
-            let currentBullet = currentBullet.getNext();
+            let currentBot = currentBot.getNext();
         }
         return;
     }

@@ -906,4 +906,8 @@ class Drower {
         do Memory.poke(memAddress + 480, 1);
         return;
     }
+
+    function clearBot()
+    {
+    }
 }
