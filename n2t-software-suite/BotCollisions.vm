@@ -37,55 +37,20 @@ push local 5
 push argument 1
 push argument 2
 push argument 3
-call BotCollisions.CheckCollisionsWithPlayer 4
+call BotCollisions.CheckCollisionsWithBase 4
 or
 pop local 0
 label IF_FALSE1
 push argument 0
-call Objects.getBotsList 1
-pop local 1
-label WHILE_EXP0
-push local 1
-push constant 0
-eq
-not
-not
-if-goto WHILE_END0
-push local 1
-call BotsList.getData 1
-pop local 6
-push local 6
-call Bot.getAlive 1
-push constant 0
-not
-eq
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
-push local 0
-push local 6
-push argument 1
-push argument 2
-push argument 3
-call BotCollisions.CheckCollisionsWithBot 4
-or
-pop local 0
-label IF_FALSE2
-push local 1
-call BotsList.getNext 1
-pop local 1
-goto WHILE_EXP0
-label WHILE_END0
-push argument 0
 call Objects.getBricksList 1
 pop local 2
-label WHILE_EXP1
+label WHILE_EXP0
 push local 2
 push constant 0
 eq
 not
 not
-if-goto WHILE_END1
+if-goto WHILE_END0
 push local 2
 call BricksList.getData 1
 pop local 7
@@ -94,9 +59,9 @@ call Brick.getAlive 1
 push constant 0
 not
 eq
-if-goto IF_TRUE3
-goto IF_FALSE3
-label IF_TRUE3
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push local 0
 push local 7
 push argument 1
@@ -105,12 +70,12 @@ push argument 3
 call BotCollisions.CheckCollisionsWithBrick 4
 or
 pop local 0
-label IF_FALSE3
+label IF_FALSE2
 push local 2
 call BricksList.getNext 1
 pop local 2
-goto WHILE_EXP1
-label WHILE_END1
+goto WHILE_EXP0
+label WHILE_END0
 push local 0
 return
 function BotCollisions.CheckCollisionsWithPlayer 0
@@ -152,6 +117,58 @@ call Bot.getSize 1
 add
 push argument 0
 call Player.getY 1
+gt
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+return
+label IF_FALSE2
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+return
+function BotCollisions.CheckCollisionsWithBase 0
+push argument 0
+push argument 1
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push argument 0
+call Base.getX 1
+push argument 0
+call Base.getSize 1
+add
+lt
+push argument 2
+push argument 1
+call Bot.getSize 1
+add
+push argument 0
+call Base.getX 1
+gt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 3
+push argument 0
+call Base.getY 1
+push argument 0
+call Base.getSize 1
+add
+lt
+push argument 3
+push argument 1
+call Bot.getSize 1
+add
+push argument 0
+call Base.getY 1
 gt
 and
 if-goto IF_TRUE2

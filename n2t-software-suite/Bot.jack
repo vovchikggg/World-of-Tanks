@@ -77,30 +77,44 @@ class Bot
 
     method void moveUp()
     {
-        if (y > 1){
-            let y = y - 2;
-        }
-        
-        return;
-    }
-
-     method void moveDown() {
-        if ((y + size) < 254) {
-            let y = y + 2;
+        var int newY;
+        let newY = y - 2;
+        if (BotCollisions.Check(map, this, x, newY) = false)
+        {
+            let y = Math.max(newY, 1);
         }
         return;
     }
 
-    method void moveLeft() {
-        if (x > 1) {
-            let x = x - 2;
+    method void moveDown()
+    {
+        var int newY;
+        let newY = y + 2;
+        if (BotCollisions.Check(map, this, x, newY) = false)
+        {
+            let y = Math.min(newY, 255);
         }
         return;
     }
 
-    method void moveRight() {
-        if ((x + size) < 510) {
-            let x = x + 2;
+    method void moveLeft()
+    {
+        var int newX;
+        let newX = x - 2;
+        if (BotCollisions.Check(map, this, newX, y) = false)
+        {
+            let x = Math.max(1, newX);
+        }
+        return;
+    }
+
+    method void moveRight()
+    {
+        var int newX;
+        let newX = x + 2;
+        if (BotCollisions.Check(map, this, newX, y) = false)
+        {
+            let x = Math.min(newX, 511);
         }
         return;
     }

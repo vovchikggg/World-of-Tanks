@@ -26,7 +26,7 @@ class BotCollisions
 
         if (base.getAlive() = true)
         {
-            let flag = flag | BotCollisions.CheckCollisionsWithPlayer(base, bot, newX, newY);
+            let flag = flag | BotCollisions.CheckCollisionsWithBase(base, bot, newX, newY);
         }
 
         let currentBot = map.getBotsList();
@@ -72,6 +72,21 @@ class BotCollisions
             if ( (newX < (anotherPlayer.getX() + anotherPlayer.getSize()) ) & ( (newX + bot.getSize()) > anotherPlayer.getX() ))
             {
                 if ( (newY < (anotherPlayer.getY() + anotherPlayer.getSize()) ) & ( (newY + bot.getSize()) > anotherPlayer.getY() ))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    function bool CheckCollisionsWithBase(Base anotherBase, Bot bot, int newX, int newY)
+    {
+        if (~(anotherBase = bot))
+        {
+            if ( (newX < (anotherBase.getX() + anotherBase.getSize()) ) & ( (newX + bot.getSize()) > anotherBase.getX() ))
+            {
+                if ( (newY < (anotherBase.getY() + anotherBase.getSize()) ) & ( (newY + bot.getSize()) > anotherBase.getY() ))
                 {
                     return true;
                 }

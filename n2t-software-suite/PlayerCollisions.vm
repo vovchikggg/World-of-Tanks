@@ -37,7 +37,7 @@ push local 5
 push argument 1
 push argument 2
 push argument 3
-call PlayerCollisions.CheckCollisionsWithPlayer 4
+call PlayerCollisions.CheckCollisionsWithBase 4
 or
 pop local 0
 label IF_FALSE1
@@ -114,6 +114,58 @@ label WHILE_END1
 push local 0
 return
 function PlayerCollisions.CheckCollisionsWithPlayer 0
+push argument 0
+push argument 1
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push argument 0
+call Player.getX 1
+push argument 0
+call Player.getSize 1
+add
+lt
+push argument 2
+push argument 1
+call Player.getSize 1
+add
+push argument 0
+call Player.getX 1
+gt
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 3
+push argument 0
+call Player.getY 1
+push argument 0
+call Player.getSize 1
+add
+lt
+push argument 3
+push argument 1
+call Player.getSize 1
+add
+push argument 0
+call Player.getY 1
+gt
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+return
+label IF_FALSE2
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+return
+function PlayerCollisions.CheckCollisionsWithBase 0
 push argument 0
 push argument 1
 eq
