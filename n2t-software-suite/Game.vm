@@ -131,13 +131,16 @@ pop temp 0
 label IF_FALSE3
 push constant 0
 return
-function Game.run 4
+function Game.run 5
 push argument 0
 pop pointer 0
 push constant 0
 pop local 3
 push constant 0
 pop local 1
+push this 1
+call Objects.getBase 1
+pop local 4
 label WHILE_EXP0
 push local 1
 not
@@ -176,6 +179,11 @@ label IF_FALSE1
 push local 0
 push constant 81
 eq
+push local 4
+call Base.getAlive 1
+push constant 0
+eq
+or
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
