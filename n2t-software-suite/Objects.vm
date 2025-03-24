@@ -766,13 +766,17 @@ not
 not
 if-goto WHILE_END0
 push local 0
-call BotList.getData 1
+call BotsList.getData 1
 pop local 1
+push local 1
+push constant 4
+call Bot.setDirection 2
+pop temp 0
 push local 1
 call Bot.moveBot 1
 pop temp 0
 push local 0
-call BotList.getNext 1
+call BotsList.getNext 1
 pop local 0
 goto WHILE_EXP0
 label WHILE_END0

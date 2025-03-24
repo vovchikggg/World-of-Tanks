@@ -90,6 +90,8 @@ class Game {
                 do exitGame.setExitGame(true);
             }
 
+
+
             //( (time - ((time / 1000) * 1000)) = 0 )
             if (key = 32) // Space - пуля
             {
@@ -107,6 +109,10 @@ class Game {
             do map.clearBullets();
             do map.moveBullets();
             do map.drowAllObjects();
+
+            //
+            do map.moveBots();
+            //
 
             let time = time + 1;
         }

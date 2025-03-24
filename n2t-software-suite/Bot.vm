@@ -51,6 +51,13 @@ push argument 0
 pop pointer 0
 push this 5
 return
+function Bot.setDirection 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 5
+push constant 0
+return
 function Bot.getAlive 0
 push argument 0
 pop pointer 0
@@ -146,6 +153,9 @@ return
 function Bot.moveBot 0
 push argument 0
 pop pointer 0
+push pointer 0
+call Bot.moveRight 1
+pop temp 0
 push constant 0
 return
 function Bot.dispose 0

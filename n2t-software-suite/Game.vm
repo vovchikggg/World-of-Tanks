@@ -227,6 +227,9 @@ pop temp 0
 push this 1
 call Objects.drowAllObjects 1
 pop temp 0
+push this 1
+call Objects.moveBots 1
+pop temp 0
 push local 3
 push constant 1
 add

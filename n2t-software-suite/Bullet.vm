@@ -1,29 +1,28 @@
-function Bullet.new 2
+function Bullet.new 4
 push constant 6
 call Memory.alloc 1
 pop pointer 0
 push argument 0
-call Player.getX 1
-push argument 0
-call Player.getSize 1
+pop local 2
+push argument 1
+pop local 3
+push local 2
+push constant 32
 push constant 2
 call Math.divide 2
 add
 push constant 5
 sub
 pop local 0
-push argument 0
-call Player.getY 1
-push argument 0
-call Player.getSize 1
+push local 3
+push constant 32
 push constant 2
 call Math.divide 2
 add
 push constant 5
 sub
 pop local 1
-push argument 0
-call Player.getDirection 1
+push argument 2
 pop this 2
 push constant 5
 pop this 3
@@ -36,8 +35,7 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push argument 0
-call Player.getY 1
+push local 3
 push constant 20
 sub
 push constant 0
@@ -50,8 +48,7 @@ pop this 4
 label IF_FALSE1
 push local 0
 pop this 0
-push argument 0
-call Player.getY 1
+push local 3
 push constant 20
 sub
 pop this 1
@@ -62,10 +59,8 @@ eq
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push argument 0
-call Player.getY 1
-push argument 0
-call Player.getSize 1
+push local 3
+push constant 32
 add
 push this 3
 add
@@ -81,10 +76,8 @@ pop this 4
 label IF_FALSE3
 push local 0
 pop this 0
-push argument 0
-call Player.getY 1
-push argument 0
-call Player.getSize 1
+push local 3
+push constant 32
 add
 push constant 20
 add
@@ -96,8 +89,7 @@ eq
 if-goto IF_TRUE4
 goto IF_FALSE4
 label IF_TRUE4
-push argument 0
-call Player.getX 1
+push local 2
 push constant 20
 sub
 push constant 0
@@ -108,8 +100,7 @@ label IF_TRUE5
 push constant 0
 pop this 4
 label IF_FALSE5
-push argument 0
-call Player.getX 1
+push local 2
 push constant 20
 sub
 pop this 0
@@ -122,10 +113,8 @@ eq
 if-goto IF_TRUE6
 goto IF_FALSE6
 label IF_TRUE6
-push argument 0
-call Player.getX 1
-push argument 0
-call Player.getSize 1
+push local 2
+push constant 32
 add
 push this 3
 add
@@ -139,10 +128,8 @@ label IF_TRUE7
 push constant 0
 pop this 4
 label IF_FALSE7
-push argument 0
-call Player.getX 1
-push argument 0
-call Player.getSize 1
+push local 2
+push constant 32
 add
 push constant 20
 add

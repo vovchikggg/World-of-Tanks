@@ -7,46 +7,51 @@ class Bullet
     field bool alive;
     field Objects map;
 
-    constructor Bullet new(Player player)
+    constructor Bullet new(int _x, int _y, int _direction)
     {
+        // player.getSize() - одинаковые у player и bot
         var int x_bullet_Up_Down;
-        var int y_bullet_Left_Right;
-        let x_bullet_Up_Down = player.getX() + (player.getSize() / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
-        let y_bullet_Left_Right = player.getY() + (player.getSize() / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
-        let direction = player.getDirection();
+        var int y_bullet_Left_Right; //32 - размер игрока и врага
+        var int xObject;
+        var int yObject;
+        let xObject = _x;
+        let yObject = _y;
+        let x_bullet_Up_Down = xObject + (32 / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
+        let y_bullet_Left_Right = yObject + (32 / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
+        let direction = _direction;
         let size = 5;
         let alive = true;
         
         if (direction = 1){ //Up
-            if (player.getY() - 20 < 0)
+            if (yObject - 20 < 0)
             {
                 let alive = false;
             }
             let x = x_bullet_Up_Down;
-            let y = player.getY() - 20;
+            let y = yObject - 20;
         }
         if (direction = 2){ //Down
-            if (player.getY() + player.getSize() + size + 20 > 256)
+            if (yObject + 32 + size + 20 > 256)
             {
                 let alive = false;
             }
             let x = x_bullet_Up_Down;
-            let y = player.getY() + player.getSize() + 20;
+            let y = yObject + 32 + 20;
         }
         if (direction = 3){ //Left
-            if (player.getX() - 20 < 0)
+            if (xObject - 20 < 0)
             {
                 let alive = false;
             }
-            let x = player.getX() - 20;
+            let x = xObject - 20;
             let y = y_bullet_Left_Right;
         }
         if (direction = 4){ //Right
-            if (player.getX() + player.getSize() + size + 20 > 512)
+            if (xObject + 32 + size + 20 > 512)
             {
                 let alive = false;
             }
-            let x = player.getX() + player.getSize() + 20;
+            let x = xObject + 32 + 20;
             let y = y_bullet_Left_Right;
         }
 
