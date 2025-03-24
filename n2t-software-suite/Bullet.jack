@@ -20,7 +20,7 @@ class Bullet
             {
                 let alive = false;
             }
-            do Output.printString("upper");
+            //do Output.printString("upper");
             //do Output.printInt(x);
             let x = x + 8;
             let y = y - 5;
