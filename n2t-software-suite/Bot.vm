@@ -143,6 +143,11 @@ pop this 0
 label IF_FALSE0
 push constant 0
 return
+function Bot.moveBot 0
+push argument 0
+pop pointer 0
+push constant 0
+return
 function Bot.dispose 0
 push argument 0
 pop pointer 0

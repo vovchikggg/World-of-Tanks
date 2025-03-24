@@ -99,8 +99,9 @@ class Bot
         return;
     }
 
-    method moveBot()
+    method void moveBot()
     {
+        return;
     }
 
     method void dispose()

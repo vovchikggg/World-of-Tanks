@@ -200,6 +200,14 @@ return
 function Objects.clearAllObjects 6
 push argument 0
 pop pointer 0
+push this 0
+push constant 0
+call Player.setAlive 2
+pop temp 0
+push this 1
+push constant 0
+call Base.setAlive 2
+pop temp 0
 push this 2
 pop local 0
 label WHILE_EXP0
@@ -748,7 +756,7 @@ return
 function Objects.moveBots 2
 push argument 0
 pop pointer 0
-push this 4
+push this 2
 pop local 0
 label WHILE_EXP0
 push local 0
@@ -758,13 +766,13 @@ not
 not
 if-goto WHILE_END0
 push local 0
-call BulletsList.getData 1
+call BotList.getData 1
 pop local 1
 push local 1
-call Bullet.moveBullet 1
+call Bot.moveBot 1
 pop temp 0
 push local 0
-call BulletsList.getNext 1
+call BotList.getNext 1
 pop local 0
 goto WHILE_EXP0
 label WHILE_END0
@@ -773,7 +781,7 @@ return
 function Objects.clearBots 2
 push argument 0
 pop pointer 0
-push this 4
+push this 2
 pop local 0
 label WHILE_EXP0
 push local 0
@@ -783,13 +791,10 @@ not
 not
 if-goto WHILE_END0
 push local 0
-call BulletsList.getData 1
+call BotsList.getData 1
 pop local 1
-push local 1
-call Drower.clearBullet 1
-pop temp 0
 push local 0
-call BulletsList.getNext 1
+call BotsList.getNext 1
 pop local 0
 goto WHILE_EXP0
 label WHILE_END0

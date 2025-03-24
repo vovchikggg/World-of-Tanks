@@ -25,7 +25,7 @@ class Level
         do secondLevel.addNewBrick(Brick.new(200, 50));
         do secondLevel.addNewBrick(Brick.new(250, 50));
         do secondLevel.addNewBot(Bot.new(100, 100));
-        do secondLevel.setBase(Bot.new(100, 100));
+        do secondLevel.setBase(Bot.new(224, 224));
 
         // 3 Level
 

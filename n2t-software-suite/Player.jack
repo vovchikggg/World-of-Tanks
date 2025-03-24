@@ -4,6 +4,7 @@ class Player
     field int size;
     field int direction;
     field Objects map;
+    field bool alive;
     field int timeBetweenAtacks;
 
     constructor Player new(int _x, int _y, int _size){
@@ -11,9 +12,20 @@ class Player
         let y = _y;
         let direction = 4;
         let size = _size;
+        let alive = true;
         //let timeBetweenAtacks = 500;
         let timeBetweenAtacks = 25;
         return this;
+    }
+
+    method bool getAlive()
+    {
+        return alive;
+    }
+    method void setAlive(bool _alive)
+    {
+        let alive = _alive;
+        return;
     }
 
     method int getTimeBetweenAtacks()

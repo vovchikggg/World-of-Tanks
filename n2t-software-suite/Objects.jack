@@ -130,7 +130,9 @@ class Objects
         var Brick brick;
         var Bullet bullet;
 
-        //do player.setAlive(false);
+        do player.setAlive(false);
+
+        do base.setAlive(false);
 
         let currentBot = botsList;
         while (~(currentBot = null))
@@ -170,6 +172,8 @@ class Objects
         var Bullet bullet;
 
         do Drower.DrawPlayer(player);
+
+        //do Drower.DrawBase(base);
 
         let currentBot = botsList;
         while (~(currentBot = null))
@@ -390,8 +394,8 @@ class Objects
 
     method void moveBots()
     {
-        var BulletsList currentBot;
-        var Bullet bot;
+        var BotList currentBot;
+        var Bot bot;
         let currentBot = botsList;
         while (~(currentBot = null))
         {
@@ -405,13 +409,13 @@ class Objects
 
     method void clearBots()
     {
-        var BulletsList currentBot;
-        var Bullet bot;
+        var BotsList currentBot;
+        var Bot bot;
         let currentBot = botsList;
         while (~(currentBot = null))
         {
             let bot = currentBot.getData();
-            do Drower.clearBot(bot);
+            //do Drower.clearBot(bot);
 
             let currentBot = currentBot.getNext();
         }

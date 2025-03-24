@@ -93,8 +93,8 @@ call Bot.new 2
 call Objects.addNewBot 2
 pop temp 0
 push this 1
-push constant 100
-push constant 100
+push constant 224
+push constant 224
 call Bot.new 2
 call Objects.setBase 2
 pop temp 0

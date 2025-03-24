@@ -1,5 +1,5 @@
 function Player.new 0
-push constant 6
+push constant 7
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -10,14 +10,29 @@ push constant 4
 pop this 3
 push argument 2
 pop this 2
-push constant 25
+push constant 0
+not
 pop this 5
+push constant 25
+pop this 6
 push pointer 0
+return
+function Player.getAlive 0
+push argument 0
+pop pointer 0
+push this 5
+return
+function Player.setAlive 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 5
+push constant 0
 return
 function Player.getTimeBetweenAtacks 0
 push argument 0
 pop pointer 0
-push this 5
+push this 6
 return
 function Player.setMap 0
 push argument 0
