@@ -18,35 +18,35 @@ class Bullet
         let alive = true;
         
         if (direction = 1){ //Up
-            if (player.getY() - 20 < 0)
+            if (player.getY() - 5 < 0)
             {
                 let alive = false;
             }
             let x = x_bullet_Up_Down;
-            let y = player.getY() - 20;
+            let y = player.getY() - 5;
         }
         if (direction = 2){ //Down
-            if (player.getY() + player.getSize() + size + 20 > 256)
+            if (player.getY() + player.getSize() + size + 5 > 256)
             {
                 let alive = false;
             }
             let x = x_bullet_Up_Down;
-            let y = player.getY() + player.getSize() + 20;
+            let y = player.getY() + player.getSize() + 5;
         }
         if (direction = 3){ //Left
-            if (player.getX() - 20 < 0)
+            if (player.getX() - 5 < 0)
             {
                 let alive = false;
             }
-            let x = player.getX() - 20;
+            let x = player.getX() - 5;
             let y = y_bullet_Left_Right;
         }
         if (direction = 4){ //Right
-            if (player.getX() + player.getSize() + size + 20 > 512)
+            if (player.getX() + player.getSize() + size + 5 > 512)
             {
                 let alive = false;
             }
-            let x = player.getX() + player.getSize() + 20;
+            let x = player.getX() + player.getSize() + 5;
             let y = y_bullet_Left_Right;
         }
 
