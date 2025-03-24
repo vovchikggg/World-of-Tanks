@@ -274,22 +274,22 @@ goto WHILE_EXP2
 label WHILE_END2
 push constant 0
 return
-function Objects.killObjects 2
+function Objects.killObjects 4
 push argument 0
 pop pointer 0
 push this 3
-pop local 0
+pop local 1
 label WHILE_EXP0
-push local 0
+push local 1
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
-push local 0
-call BulletsList.getData 1
-pop local 1
 push local 1
+call BulletsList.getData 1
+pop local 3
+push local 3
 call Bullet.getAlive 1
 push constant 0
 not
@@ -298,12 +298,111 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push pointer 0
-push local 1
+push local 3
+call Objects.killPlayer 2
+pop temp 0
+push pointer 0
+push local 3
+call Objects.killBot 2
+pop temp 0
+push pointer 0
+push local 3
 call Objects.killBrick 2
 pop temp 0
+push pointer 0
+push local 3
+call Objects.killBullet 2
+pop temp 0
+label IF_FALSE0
+push local 1
+call BulletsList.getNext 1
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Objects.killPlayer 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithPlayer 4
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push constant 0
+call brick.setAlive 1
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Objects.killBot 3
+push argument 0
+pop pointer 0
+push this 1
+pop local 0
+push constant 0
+pop local 2
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+push local 2
+not
+and
+not
+if-goto WHILE_END0
+push local 0
+call BotsList.getData 1
+pop local 1
+push local 1
+call Bot.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithBot 4
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push local 1
+push constant 0
+call Bot.setAlive 2
+pop temp 0
+push constant 0
+not
+pop local 2
+label IF_FALSE1
 label IF_FALSE0
 push local 0
-call BulletsList.getNext 1
+call BotsList.getNext 1
 pop local 0
 goto WHILE_EXP0
 label WHILE_END0
@@ -365,6 +464,67 @@ label IF_FALSE1
 label IF_FALSE0
 push local 0
 call BricksList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Objects.killBullet 3
+push argument 0
+pop pointer 0
+push this 3
+pop local 0
+push constant 0
+pop local 2
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+push local 2
+not
+and
+not
+if-goto WHILE_END0
+push local 0
+call BulletsList.getData 1
+pop argument 1
+push argument 1
+call Bullet.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithBot 4
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push constant 0
+not
+pop local 2
+label IF_FALSE1
+label IF_FALSE0
+push local 0
+call BulletsList.getNext 1
 pop local 0
 goto WHILE_EXP0
 label WHILE_END0

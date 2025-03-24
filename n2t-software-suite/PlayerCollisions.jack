@@ -4,11 +4,11 @@ class PlayerCollisions
     {
         var bool flag;
 
-        //var BotsList currentBot;
+        var BotsList currentBot;
         var BricksList currentBrick;
         var BulletsList currentBullet;
         
-        //var Bot anotherBot;
+        var Bot anotherBot;
         var Brick anotherBrick;
         var Bullet anotherBullet;
 
@@ -16,16 +16,16 @@ class PlayerCollisions
 
         let flag = flag | PlayerCollisions.CheckCollisionsWithPlayer(map.getPlayer(), player, newX, newY);
 
-        //let currentBot = map.getBotsList();
-        //while (~(currentBot = null))
-        //{
-        //    let anotherBot = currentBot.getData();
-        //    if (anotherBot.getAlive() = true)
-        //    {
-        //        let flag = flag | PlayerCollisions.CheckCollisionsWithBot(anotherBot, player, newX, newY);
-        //    }
-        //    let currentBot = currentBot.getNext();
-        //}
+        let currentBot = map.getBotsList();
+        while (~(currentBot = null))
+        {
+            let anotherBot = currentBot.getData();
+            if (anotherBot.getAlive() = true)
+            {
+                let flag = flag | PlayerCollisions.CheckCollisionsWithBot(anotherBot, player, newX, newY);
+            }
+            let currentBot = currentBot.getNext();
+        }
 
         let currentBrick = map.getBricksList();
         while (~(currentBrick = null))
@@ -38,16 +38,16 @@ class PlayerCollisions
             let currentBrick = currentBrick.getNext();
         }
 
-        let currentBullet = map.getBulletsList();
-        while (~(currentBullet = null))
-        {
-            let anotherBullet = currentBullet.getData();
-            if (anotherBullet.getAlive() = true)
-            {
-                let flag = flag | PlayerCollisions.CheckCollisionsWithBullet(anotherBullet, player, newX, newY);
-            }
-            let currentBullet = currentBullet.getNext();
-        }
+        //let currentBullet = map.getBulletsList();
+        //while (~(currentBullet = null))
+        //{
+        //    let anotherBullet = currentBullet.getData();
+        //    if (anotherBullet.getAlive() = true)
+        //    {
+        //        let flag = flag | PlayerCollisions.CheckCollisionsWithBullet(anotherBullet, player, newX, newY);
+        //    }
+        //    let currentBullet = currentBullet.getNext();
+        //}
 
         return flag;
     }
@@ -59,6 +59,21 @@ class PlayerCollisions
             if ( (newX < (anotherPlayer.getX() + anotherPlayer.getSize()) ) & ( (newX + player.getSize()) > anotherPlayer.getX() ))
             {
                 if ( (newY < (anotherPlayer.getY() + anotherPlayer.getSize()) ) & ( (newY + player.getSize()) > anotherPlayer.getY() ))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    function bool CheckCollisionsWithBot(Bot anotherBot, Player player, int newX, int newY)
+    {
+        if (~(anotherBot = player))
+        {
+            if ( (newX < (anotherBot.getX() + anotherBot.getSize()) ) & ( (newX + player.getSize()) > anotherBot.getX() ))
+            {
+                if ( (newY < (anotherBot.getY() + anotherBot.getSize()) ) & ( (newY + player.getSize()) > anotherBot.getY() ))
                 {
                     return true;
                 }

@@ -157,10 +157,10 @@ class Objects
 
     method void killObjects()
     {
-        //var BotsList currentBot;
+        var BotsList currentBot;
         var BulletsList currentBullet;
 
-        //var Bot bot;
+        var Bot bot;
         var Bullet bullet;
 
         let currentBullet = bulletsList;
@@ -169,9 +169,48 @@ class Objects
             let bullet = currentBullet.getData();
             if (bullet.getAlive() = true)
             {
+                do killPlayer(bullet);
+                do killBot(bullet);
                 do killBrick(bullet);
+                do killBullet(bullet);
             }
             let currentBullet = currentBullet.getNext();
+        }
+        return;
+    }
+
+    method void killPlayer(Bullet bullet)
+    {
+
+        if ( BulletCollisions.CheckCollisionsWithPlayer(player, bullet, bullet.getX(), bullet.getY()) = true )
+        {
+            do bullet.setAlive(false);
+            do brick.setAlive(false);
+        }
+
+        return;
+    }
+
+    method void killBot(Bullet bullet)
+    {
+        var BotsList currentBot;
+        var Bot bot;
+        var bool exit;
+        let currentBot = botsList;
+        let exit = false;
+        while ( (~(currentBot = null)) & (~(exit)) )
+        {
+            let bot = currentBot.getData();
+            if (bot.getAlive() = true)
+            {
+                if ( BulletCollisions.CheckCollisionsWithBot(bot, bullet, bullet.getX(), bullet.getY()) = true )
+                {
+                    do bullet.setAlive(false);
+                    do bot.setAlive(false);
+                    let exit = true;
+                }
+            }
+            let currentBot = currentBot.getNext();
         }
         return;
     }
@@ -196,6 +235,30 @@ class Objects
                 }
             }
             let currentBrick = currentBrick.getNext();
+        }
+        return;
+    }
+
+    method void killBullet(Bullet bullet)
+    {
+        var BulletsList currentBullet;
+        var Bullet bullet;
+        var bool exit;
+        let currentBullet = bulletsList;
+        let exit = false;
+        while ( (~(currentBullet = null)) & (~(exit)) )
+        {
+            let bullet = currentBullet.getData();
+            if (bullet.getAlive() = true)
+            {
+                if ( BulletCollisions.CheckCollisionsWithBot(bullet, bullet, bullet.getX(), bullet.getY()) = true )
+                {
+                    do bullet.setAlive(false);
+                    do bullet.setAlive(false);
+                    let exit = true;
+                }
+            }
+            let currentBullet = currentBullet.getNext();
         }
         return;
     }

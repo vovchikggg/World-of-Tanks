@@ -1,4 +1,4 @@
-function PlayerCollisions.Check 7
+function BotCollisions.Check 7
 push constant 0
 pop local 0
 push local 0
@@ -7,7 +7,7 @@ call Objects.getPlayer 1
 push argument 1
 push argument 2
 push argument 3
-call PlayerCollisions.CheckCollisionsWithPlayer 4
+call BotCollisions.CheckCollisionsWithPlayer 4
 or
 pop local 0
 push argument 0
@@ -36,7 +36,7 @@ push local 4
 push argument 1
 push argument 2
 push argument 3
-call PlayerCollisions.CheckCollisionsWithBot 4
+call BotCollisions.CheckCollisionsWithBot 4
 or
 pop local 0
 label IF_FALSE0
@@ -71,7 +71,7 @@ push local 5
 push argument 1
 push argument 2
 push argument 3
-call PlayerCollisions.CheckCollisionsWithBrick 4
+call BotCollisions.CheckCollisionsWithBrick 4
 or
 pop local 0
 label IF_FALSE1
@@ -82,7 +82,7 @@ goto WHILE_EXP1
 label WHILE_END1
 push local 0
 return
-function PlayerCollisions.CheckCollisionsWithPlayer 0
+function BotCollisions.CheckCollisionsWithPlayer 0
 push argument 0
 push argument 1
 eq
@@ -99,7 +99,7 @@ add
 lt
 push argument 2
 push argument 1
-call Player.getSize 1
+call Bot.getSize 1
 add
 push argument 0
 call Player.getX 1
@@ -117,7 +117,7 @@ add
 lt
 push argument 3
 push argument 1
-call Player.getSize 1
+call Bot.getSize 1
 add
 push argument 0
 call Player.getY 1
@@ -134,7 +134,7 @@ label IF_FALSE1
 label IF_FALSE0
 push constant 0
 return
-function PlayerCollisions.CheckCollisionsWithBot 0
+function BotCollisions.CheckCollisionsWithBot 0
 push argument 0
 push argument 1
 eq
@@ -151,7 +151,7 @@ add
 lt
 push argument 2
 push argument 1
-call Player.getSize 1
+call Bot.getSize 1
 add
 push argument 0
 call Bot.getX 1
@@ -169,7 +169,7 @@ add
 lt
 push argument 3
 push argument 1
-call Player.getSize 1
+call Bot.getSize 1
 add
 push argument 0
 call Bot.getY 1
@@ -186,7 +186,7 @@ label IF_FALSE1
 label IF_FALSE0
 push constant 0
 return
-function PlayerCollisions.CheckCollisionsWithBrick 0
+function BotCollisions.CheckCollisionsWithBrick 0
 push argument 0
 push argument 1
 eq
@@ -203,7 +203,7 @@ add
 lt
 push argument 2
 push argument 1
-call Player.getSize 1
+call Bot.getSize 1
 add
 push argument 0
 call Brick.getX 1
@@ -221,7 +221,7 @@ add
 lt
 push argument 3
 push argument 1
-call Player.getSize 1
+call Bot.getSize 1
 add
 push argument 0
 call Brick.getY 1
@@ -238,7 +238,7 @@ label IF_FALSE1
 label IF_FALSE0
 push constant 0
 return
-function PlayerCollisions.CheckCollisionsWithBullet 0
+function BotCollisions.CheckCollisionsWithBullet 0
 push argument 0
 push argument 1
 eq
@@ -255,7 +255,7 @@ add
 lt
 push argument 2
 push argument 1
-call Player.getSize 1
+call Bot.getSize 1
 add
 push argument 0
 call Bullet.getX 1
@@ -273,7 +273,7 @@ add
 lt
 push argument 3
 push argument 1
-call Player.getSize 1
+call Bot.getSize 1
 add
 push argument 0
 call Bullet.getY 1
