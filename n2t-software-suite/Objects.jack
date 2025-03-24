@@ -1,6 +1,7 @@
 class Objects
 {
     field Player player;
+    field Base base;
     field BotsList botsList;
     field BricksList bricksList;
     field BulletsList bulletsList;
@@ -8,6 +9,7 @@ class Objects
     constructor Objects new()
     {
         let player = null;
+        let base = null;
         let botsList = null;
         let bricksList = null;
         let bulletsList = null;
@@ -25,6 +27,8 @@ class Objects
         var Bullet bullet;
 
         do player.setMap(this);
+
+        do base.setMap(this);
 
         let currentBot = botsList;
         while (~(currentBot = null))
@@ -103,6 +107,16 @@ class Objects
         {
             do previous.setPrev(bulletsList);
         }
+        return;
+    }
+
+    method List getBase()
+    {
+        return base;
+    }
+    method void setBase(Base _base)
+    {
+        let base = _base;
         return;
     }
 
@@ -208,7 +222,7 @@ class Objects
             let bullet = currentBullet.getData();
             if (bullet.getAlive() = true)
             {
-                do killPlayer(bullet);
+                //do killPlayer(bullet);
                 do killBot(bullet);
                 do killBrick(bullet);
                 do killBullet(bullet);
@@ -220,13 +234,11 @@ class Objects
 
     method void killPlayer(Bullet bullet)
     {
-
         if ( BulletCollisions.CheckCollisionsWithPlayer(player, bullet, bullet.getX(), bullet.getY()) = true )
         {
             do bullet.setAlive(false);
-            do brick.setAlive(false);
+            //do player.setAlive(false);
         }
-
         return;
     }
 
@@ -304,9 +316,7 @@ class Objects
 
     method void clearDeadBulletsFromList()
     {
-        var BulletsList prevBullet;
         var BulletsList currentBullet;
-        var BulletsList nextBullet;
         
         var Bullet bullet;
 
@@ -364,6 +374,37 @@ class Objects
     }
 
     method void clearBullets()
+    {
+        var BulletsList currentBullet;
+        var Bullet bullet;
+        let currentBullet = bulletsList;
+
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+
+            do Drower.clearBullet(bullet);
+            let currentBullet = currentBullet.getNext();
+        }
+        return;
+    }
+
+    method void moveBots()
+    {
+        var BulletsList currentBullet;
+        var Bullet bullet;
+        let currentBullet = bulletsList;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+            do bullet.moveBullet();
+
+            let currentBullet = currentBullet.getNext();
+        }
+        return;
+    }
+
+    method void clearBots()
     {
         var BulletsList currentBullet;
         var Bullet bullet;
