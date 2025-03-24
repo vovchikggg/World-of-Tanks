@@ -35,8 +35,7 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push argument 0
-call Player.getY 1
+call player.getY 0
 push constant 5
 sub
 push constant 0
@@ -49,8 +48,7 @@ pop this 4
 label IF_FALSE1
 push local 0
 pop this 0
-push argument 0
-call Player.getY 1
+call player.getY 0
 push constant 5
 sub
 pop this 1
@@ -61,8 +59,8 @@ eq
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push local 3
-push constant 32
+call player.getY 0
+call player.getSize 0
 add
 push this 3
 add
@@ -78,8 +76,8 @@ pop this 4
 label IF_FALSE3
 push local 0
 pop this 0
-push local 3
-push constant 32
+call player.getY 0
+call player.getSize 0
 add
 push constant 5
 add
@@ -91,8 +89,7 @@ eq
 if-goto IF_TRUE4
 goto IF_FALSE4
 label IF_TRUE4
-push argument 0
-call Player.getX 1
+call player.getX 0
 push constant 5
 sub
 push constant 0
@@ -103,8 +100,7 @@ label IF_TRUE5
 push constant 0
 pop this 4
 label IF_FALSE5
-push argument 0
-call Player.getX 1
+call player.getX 0
 push constant 5
 sub
 pop this 0
@@ -117,8 +113,8 @@ eq
 if-goto IF_TRUE6
 goto IF_FALSE6
 label IF_TRUE6
-push local 2
-push constant 32
+call player.getX 0
+call player.getSize 0
 add
 push this 3
 add
@@ -132,8 +128,8 @@ label IF_TRUE7
 push constant 0
 pop this 4
 label IF_FALSE7
-push local 2
-push constant 32
+call player.getX 0
+call player.getSize 0
 add
 push constant 5
 add
