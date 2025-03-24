@@ -67,8 +67,10 @@ class Game {
         var boolean exitLevel;
         var Bullet newBullet;
         var int time;
+        var Base base;
         let time = 0;
         let exitLevel = false;
+        let base = map.getBase();
 
         while (~exitLevel){
             let key = Keyboard.keyPressed();
@@ -84,7 +86,7 @@ class Game {
                 let exitLevel = true;
             }
 
-            if (key = 81) // Q - выйти
+            if (key = 81 | (base.getAlive() = false)) // Q - выйти
             {
                 let exitLevel = true;
                 do exitGame.setExitGame(true);
