@@ -1,19 +1,31 @@
 class Game {
     field Player player;  
     field Objects map;
+    field ExitGame exitGame;
+    field int levelNumber;
+    field Level levels;
 
-    constructor Game new(){
-        var Level levels; 
+    constructor Game new(ExitGame _exitGame, int _levelNumber){
+        let levelNumber = _levelNumber;
         let levels = Level.new();
-        let map = levels.getFirstLevel();
-        do map.setMap();
-        do map.drowAllObjects();
-        let player = map.getPlayer();
+
+        if (levelNumber = 1)
+        {
+            let map = levels.getFirstLevel();
+            do map.setMap();
+            do map.drowAllObjects();
+            let player = map.getPlayer();
+            let exitGame = _exitGame;
+        }
         return this;
     }
 
     method void dispose(){
-        do player.dispose();
+        
+        //временное решение
+        //do Screen.setColor(false);
+        //do Screen.drawRectangle(0,0,200,200);
+        //временное решение
         do Memory.deAlloc(this);
         return;
     }
@@ -43,18 +55,27 @@ class Game {
 
     method void run(){
         var char key;
-        var boolean exit;
+        var boolean exitLevel;
         var Bullet newBullet;
         var int time;
         let time = 0;
-        let exit = false;
+        let exitLevel = false;
 
-        while (~exit){
+        while (~exitLevel){
             let key = Keyboard.keyPressed();
+
+
 
             if (key = 81) // Q - выйти
             {
-                let exit = true;
+                let exitLevel = true;
+                do exitGame.setExitGame(true);
+            }
+
+            if (key = 49) // 1 Level (Нажать на 1)
+            {
+                do levels.setLevel(1);
+                let exitLevel = true;
             }
             //( (time - ((time / 1000) * 1000)) = 0 )
             if (key = 32) // Space - пуля

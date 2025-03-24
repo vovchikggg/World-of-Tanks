@@ -1,10 +1,18 @@
-function Game.new 1
-push constant 2
+function Game.new 0
+push constant 5
 call Memory.alloc 1
 pop pointer 0
+push argument 1
+pop this 3
 call Level.new 0
-pop local 0
-push local 0
+pop this 4
+push this 3
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 4
 call Level.getFirstLevel 1
 pop this 1
 push this 1
@@ -16,14 +24,14 @@ pop temp 0
 push this 1
 call Objects.getPlayer 1
 pop this 0
+push argument 0
+pop this 2
+label IF_FALSE0
 push pointer 0
 return
 function Game.dispose 0
 push argument 0
 pop pointer 0
-push this 0
-call Player.dispose 1
-pop temp 0
 push pointer 0
 call Memory.deAlloc 1
 pop temp 0
@@ -113,27 +121,46 @@ label IF_TRUE0
 push constant 0
 not
 pop local 1
+push this 2
+push constant 0
+not
+call ExitGame.setExitGame 2
+pop temp 0
 label IF_FALSE0
 push local 0
-push constant 32
+push constant 49
 eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
+push this 4
+push constant 1
+call Level.setLevel 2
+pop temp 0
+push constant 0
+not
+pop local 1
+label IF_FALSE1
+push local 0
+push constant 32
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push local 3
 push this 0
 call Player.getTimeBetweenAtacks 1
 gt
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
 push this 0
 call Player.Atack 1
 pop temp 0
 push constant 0
 pop local 3
+label IF_FALSE3
 label IF_FALSE2
-label IF_FALSE1
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2

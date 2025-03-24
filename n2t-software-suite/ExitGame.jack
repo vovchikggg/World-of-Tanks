@@ -1,0 +1,22 @@
+class ExitGame {
+    field boolean exitGame;
+
+    constructor ExitGame new(boolean _exitGame)
+    {
+        let exitGame = _exitGame;
+
+        return this;
+    }
+
+    method boolean getExitGame()
+    {
+        return exitGame;
+    }
+
+    method void setExitGame(boolean _exitGame)
+    {
+        let exitGame = _exitGame;
+
+        return;
+    }
+}
