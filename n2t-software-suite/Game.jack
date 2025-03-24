@@ -103,7 +103,11 @@ class Game {
 
             do MoveKeyboard(key);
             //
-            do map.moveBots(map.getBase());
+            if (time > 25)
+            {
+                do map.atackBots();
+                let time = 0;
+            }
             //
             do map.clearDeadBulletsFromList();
             do map.clearBullets();

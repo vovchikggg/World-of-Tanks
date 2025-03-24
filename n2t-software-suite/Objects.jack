@@ -415,6 +415,23 @@ class Objects
         return;
     }
 
+    method void atackBots()
+    {
+        var BotsList currentBot;
+        var Bot bot;
+
+        let currentBot = botsList;
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+
+            do bot.Atack();
+
+            let currentBot = currentBot.getNext();
+        }
+        return;
+    }
+
     method void moveBots(Base base)
     {
         var BotsList currentBot;

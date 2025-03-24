@@ -220,11 +220,18 @@ push pointer 0
 push local 0
 call Game.MoveKeyboard 2
 pop temp 0
+push local 3
+push constant 25
+gt
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
 push this 1
-push this 1
-call Objects.getBase 1
-call Objects.moveBots 2
+call Objects.atackBots 1
 pop temp 0
+push constant 0
+pop local 3
+label IF_FALSE5
 push this 1
 call Objects.clearDeadBulletsFromList 1
 pop temp 0

@@ -831,6 +831,31 @@ goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
+function Objects.atackBots 2
+push argument 0
+pop pointer 0
+push this 2
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BotsList.getData 1
+pop local 1
+push local 1
+call Bot.Atack 1
+pop temp 0
+push local 0
+call BotsList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
 function Objects.moveBots 6
 push argument 0
 pop pointer 0

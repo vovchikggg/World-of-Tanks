@@ -6,6 +6,7 @@ class Bot
     field bool alive;
     field Objects map;
     field int direction;
+    field int timeBetweenAtacks;
 
     constructor Bot new(int _x, int _y)
     {
@@ -14,7 +15,13 @@ class Bot
         let direction = 1;
         let size = 32;
         let alive = true;
+        let timeBetweenAtacks = 25;
         return this;
+    }
+
+    method int getTimeBetweenAtacks()
+    {
+        return timeBetweenAtacks;
     }
 
     method void setMap(Objects _map)
@@ -72,6 +79,18 @@ class Bot
     method void setSize(int _size)
     {
         let size = _size;
+        return;
+    }
+
+    method void Atack()
+    {
+        var Bullet newBullet;
+        let newBullet = Bullet.new(x, y, direction);
+        if (newBullet.getAlive() = true)
+        {
+            do map.addNewBullet(newBullet);
+            do newBullet.setMap(map);
+        }
         return;
     }
 
@@ -140,6 +159,8 @@ class Bot
         {
             do moveRight();
         }
+
+        do Sys.wait(5);
         return;
     }
 
