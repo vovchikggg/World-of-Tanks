@@ -20,10 +20,14 @@ class Level
         do firstLevel.addNewBrick(Brick.new(224+64, 224));
         do firstLevel.addNewBrick(Brick.new(224+64, 224+16));
 
-        do firstLevel.addNewBrick(Brick.new(100, 50));
-        do firstLevel.addNewBrick(Brick.new(150, 50));
-        do firstLevel.addNewBot(Bot.new(100, 100));
-        do firstLevel.addNewBot(Bot.new(100, 100));
+        do firstLevel.addNewBrick(Brick.new(256, 100));
+        do firstLevel.addNewBrick(Brick.new(256, 116));
+        do firstLevel.addNewBrick(Brick.new(256, 84));
+        do firstLevel.addNewBrick(Brick.new(256, 132));
+        do firstLevel.addNewBrick(Brick.new(256, 148));
+
+        do firstLevel.addNewBot(Bot.new(100, 50));
+        do firstLevel.addNewBot(Bot.new(512-100, 50));
 
         // 2 Level
         let secondLevel = Objects.new();
