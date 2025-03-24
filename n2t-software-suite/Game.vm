@@ -216,13 +216,13 @@ push this 1
 call Objects.clearDeadBulletsFromList 1
 pop temp 0
 push this 1
-call Objects.killObjects 1
-pop temp 0
-push this 1
 call Objects.clearBullets 1
 pop temp 0
 push this 1
 call Objects.moveBullets 1
+pop temp 0
+push this 1
+call Objects.killObjects 1
 pop temp 0
 push this 1
 call Objects.drowAllObjects 1

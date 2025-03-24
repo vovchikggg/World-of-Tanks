@@ -10,7 +10,7 @@ class Brick
     {
         let x = _x;
         let y = _y;
-        let size = 16;
+        let size = 32;
         let alive = true;
         return this;
     }

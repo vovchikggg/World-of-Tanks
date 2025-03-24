@@ -287,9 +287,19 @@ label IF_TRUE0
 push this 0
 call Drower.DrawPlayer 1
 pop temp 0
+label IF_FALSE0
+push this 1
+call Base.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push this 1
 call Drower.DrawBase 1
 pop temp 0
+label IF_FALSE1
 push this 2
 pop local 0
 label WHILE_EXP0
@@ -408,6 +418,10 @@ call Objects.killPlayer 2
 pop temp 0
 push pointer 0
 push local 3
+call Objects.killBase 2
+pop temp 0
+push pointer 0
+push local 3
 call Objects.killBot 2
 pop temp 0
 push pointer 0
@@ -458,6 +472,43 @@ push this 0
 push constant 0
 call Player.setAlive 2
 pop temp 0
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+return
+function Objects.killBase 0
+push argument 0
+pop pointer 0
+push this 1
+call Base.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithBase 4
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push this 1
+push constant 0
+call Base.setAlive 2
+pop temp 0
+label IF_FALSE1
 label IF_FALSE0
 push constant 0
 return

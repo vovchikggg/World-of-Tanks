@@ -90,7 +90,6 @@ class Game {
                 do exitGame.setExitGame(true);
             }
 
-            //( (time - ((time / 1000) * 1000)) = 0 )
             if (key = 32) // Space - пуля
             {
                 if (time > player.getTimeBetweenAtacks())
@@ -103,9 +102,9 @@ class Game {
             do MoveKeyboard(key);
 
             do map.clearDeadBulletsFromList();
-            do map.killObjects();
             do map.clearBullets();
             do map.moveBullets();
+            do map.killObjects();
             do map.drowAllObjects();
 
             let time = time + 1;
