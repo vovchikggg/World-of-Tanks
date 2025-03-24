@@ -42,15 +42,50 @@ or
 pop local 0
 label IF_FALSE1
 push argument 0
-call Objects.getBricksList 1
-pop local 2
+call Objects.getBotsList 1
+pop local 1
 label WHILE_EXP0
-push local 2
+push local 1
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
+push local 1
+call BotsList.getData 1
+pop local 6
+push local 6
+call Bot.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 0
+push local 6
+push argument 1
+push argument 2
+push argument 3
+call BotCollisions.CheckCollisionsWithBot 4
+or
+pop local 0
+label IF_FALSE2
+push local 1
+call BotsList.getNext 1
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push argument 0
+call Objects.getBricksList 1
+pop local 2
+label WHILE_EXP1
+push local 2
+push constant 0
+eq
+not
+not
+if-goto WHILE_END1
 push local 2
 call BricksList.getData 1
 pop local 7
@@ -59,9 +94,9 @@ call Brick.getAlive 1
 push constant 0
 not
 eq
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
 push local 0
 push local 7
 push argument 1
@@ -70,12 +105,12 @@ push argument 3
 call BotCollisions.CheckCollisionsWithBrick 4
 or
 pop local 0
-label IF_FALSE2
+label IF_FALSE3
 push local 2
 call BricksList.getNext 1
 pop local 2
-goto WHILE_EXP0
-label WHILE_END0
+goto WHILE_EXP1
+label WHILE_END1
 push local 0
 return
 function BotCollisions.CheckCollisionsWithPlayer 0
