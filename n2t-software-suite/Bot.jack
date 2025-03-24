@@ -14,16 +14,7 @@ class Bot
         let direction = 1;
         let size = 32;
         let alive = true;
-
-        //do map.addNewBot(this);
-
         return this;
-    }
-
-    method void addNewBotToList()
-    {
-        do map.addNewBot(this);
-        return;
     }
 
     method void setMap(Objects _map)

@@ -15,15 +15,6 @@ not
 pop this 3
 push pointer 0
 return
-function Bot.addNewBotToList 0
-push argument 0
-pop pointer 0
-push this 4
-push pointer 0
-call Objects.addNewBot 2
-pop temp 0
-push constant 0
-return
 function Bot.setMap 0
 push argument 0
 pop pointer 0

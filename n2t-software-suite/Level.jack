@@ -1,20 +1,19 @@
 class Level
 {
     field Objects firstLevel;
+    field int levelNumber;
 
     constructor Level new()
     {
+        // 1 Level
         let firstLevel = Objects.new();
-
         do firstLevel.setPlayer(Player.new(180, 180, 30));
-
-        //do firstLevel.BricksFirstLevel(firstLevel);
-
         do firstLevel.addNewBrick(Brick.new(50, 50));
         do firstLevel.addNewBrick(Brick.new(100, 50));
         do firstLevel.addNewBrick(Brick.new(150, 50));
-
         do firstLevel.addNewBot(Bot.new(100, 100));
+
+        // 2 Level
 
         return this;
     }
@@ -35,5 +34,16 @@ class Level
     {
         do Memory.deAAlloc(this);
         return;
+    }
+
+    method void setLevel(int _levelNumber)
+    {
+        let levelNumber = _levelNumber;
+        return;
+    }
+
+    method int getLevel()
+    {
+        return levelNumber;
     }
 }
