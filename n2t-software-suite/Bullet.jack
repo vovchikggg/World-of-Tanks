@@ -22,7 +22,7 @@ class Bullet
         let y_bullet_Left_Right = yObject + (32 / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
         let direction = _direction;
         //let size = 5;
-        let size = 10;
+        let size = 5;
         let alive = true;
         
         if (direction = 1){ //Up

@@ -26,7 +26,7 @@ sub
 pop local 2
 push argument 2
 pop this 2
-push constant 10
+push constant 5
 pop this 3
 push constant 0
 not
