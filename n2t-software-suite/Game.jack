@@ -23,8 +23,8 @@ class Game {
     method void dispose(){
         
         //временное решение
-        //do Screen.setColor(false);
-        //do Screen.drawRectangle(0,0,200,200);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0,0,511,255);
         //временное решение
         do Memory.deAlloc(this);
         return;
