@@ -150,20 +150,6 @@ pop this 0
 push local 1
 pop this 1
 label IF_FALSE6
-push argument 1
-pop this 5
-push this 4
-push constant 0
-not
-eq
-if-goto IF_TRUE8
-goto IF_FALSE8
-label IF_TRUE8
-push this 5
-push pointer 0
-call Objects.addNewBullet 2
-pop temp 0
-label IF_FALSE8
 push pointer 0
 return
 function Bullet.setMap 0

@@ -7,7 +7,7 @@ class Bullet
     field bool alive;
     field Objects map;
 
-    constructor Bullet new(Player player, Objects _map)
+    constructor Bullet new(Player player)
     {
         var int x_bullet_Up_Down;
         var int y_bullet_Left_Right;
@@ -48,11 +48,6 @@ class Bullet
             }
             let x = player.getX() + player.getSize() + 20;
             let y = y_bullet_Left_Right;
-        }
-        let map = _map;
-        if (alive = true)
-        {
-            do map.addNewBullet(this);
         }
 
         return this;

@@ -33,7 +33,6 @@ class Objects
             if (bot.getAlive() = true)
             {
                 do bot.setMap(this);
-                do bot.addNewBotToList();
             }
             let currentBot = currentBot.getNext();
         }
@@ -45,7 +44,6 @@ class Objects
             if (brick.getAlive() = true)
             {
                 do brick.setMap(this);
-                do brick.addNewBrickToList();
             }
             let currentBrick = currentBrick.getNext();
         }
@@ -74,14 +72,14 @@ class Objects
         return;
     }
 
-    //method BotsList getBotsList()
-    //{
-    //    return botsList;
-    //}
-    //method void addNewBot(Bot _bot) {
-    //    let botsList = BotsList.new(_bot, botsList);
-    //    return;
-    //}
+    method BotsList getBotsList()
+    {
+        return botsList;
+    }
+    method void addNewBot(Bot _bot) {
+        let botsList = BotsList.new(_bot, botsList);
+        return;
+    }
 
     method BricksList getBricksList()
     {
@@ -89,12 +87,6 @@ class Objects
     }
     method void addNewBrick(Brick _brick) {
         let bricksList = BricksList.new(_brick, bricksList);
-        return;
-    }
-
-    method void addNewBot(Bot _bot)
-    {
-        let botsList = BotsList.new(_bot, botsList);
         return;
     }
 
@@ -200,7 +192,6 @@ class Objects
                     do bullet.setAlive(false);
                     do brick.setAlive(false);
                     let exit = true;
-                    do Output.printString("kill");
                 }
             }
             let currentBrick = currentBrick.getNext();
@@ -208,7 +199,7 @@ class Objects
         return;
     }
 
-    method void ClearDeadBulletsFromList()
+    method void clearDeadBulletsFromList()
     {
         var BulletsList prevBullet;
         var BulletsList currentBullet;
