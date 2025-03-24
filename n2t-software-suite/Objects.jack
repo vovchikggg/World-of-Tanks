@@ -225,7 +225,7 @@ class Objects
             let bullet = currentBullet.getData();
             if (bullet.getAlive() = true)
             {
-                //do killPlayer(bullet);
+                do killPlayer(bullet);
                 do killBot(bullet);
                 do killBrick(bullet);
                 do killBullet(bullet);
@@ -240,7 +240,7 @@ class Objects
         if ( BulletCollisions.CheckCollisionsWithPlayer(player, bullet, bullet.getX(), bullet.getY()) = true )
         {
             do bullet.setAlive(false);
-            //do player.setAlive(false);
+            do player.setAlive(false);
         }
         return;
     }
