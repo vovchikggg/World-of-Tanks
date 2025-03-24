@@ -11,11 +11,13 @@ class Bullet
     {
         // player.getSize() - одинаковые у player и bot
         var int x_bullet_Up_Down;
+        var int sizeObject;
         var int y_bullet_Left_Right; //32 - размер игрока и врага
         var int xObject;
         var int yObject;
         let xObject = _x;
         let yObject = _y;
+        let sizeObject = 32;
         let x_bullet_Up_Down = xObject + (32 / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
         let y_bullet_Left_Right = yObject + (32 / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
         let direction = _direction;
@@ -23,35 +25,35 @@ class Bullet
         let alive = true;
         
         if (direction = 1){ //Up
-            if (player.getY() - 5 < 0)
+            if (yObject - 5 < 0)
             {
                 let alive = false;
             }
             let x = x_bullet_Up_Down;
-            let y = player.getY() - 5;
+            let y = yObject - 5;
         }
         if (direction = 2){ //Down
-            if (player.getY() + player.getSize() + size + 5 > 256)
+            if (yObject + sizeObject + size + 5 > 256)
             {
                 let alive = false;
             }
             let x = x_bullet_Up_Down;
-            let y = player.getY() + player.getSize() + 5;
+            let y = yObject + sizeObject + 5;
         }
         if (direction = 3){ //Left
-            if (player.getX() - 5 < 0)
+            if (xObject - 5 < 0)
             {
                 let alive = false;
             }
-            let x = player.getX() - 5;
+            let x = xObject - 5;
             let y = y_bullet_Left_Right;
         }
         if (direction = 4){ //Right
-            if (player.getX() + player.getSize() + size + 5 > 512)
+            if (xObject + sizeObject + size + 5 > 512)
             {
                 let alive = false;
             }
-            let x = player.getX() + player.getSize() + 5;
+            let x = xObject + sizeObject + 5;
             let y = y_bullet_Left_Right;
         }
 
