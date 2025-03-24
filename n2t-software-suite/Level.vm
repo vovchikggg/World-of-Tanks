@@ -1,5 +1,5 @@
 function Level.new 0
-push constant 2
+push constant 3
 call Memory.alloc 1
 pop pointer 0
 call Objects.new 0
@@ -35,12 +35,62 @@ push constant 100
 call Bot.new 2
 call Objects.addNewBot 2
 pop temp 0
+call Objects.new 0
+pop this 1
+push this 1
+push constant 180
+push constant 180
+push constant 30
+call Player.new 3
+call Objects.setPlayer 2
+pop temp 0
+push this 1
+push constant 50
+push constant 50
+call Brick.new 2
+call Objects.addNewBrick 2
+pop temp 0
+push this 1
+push constant 100
+push constant 50
+call Brick.new 2
+call Objects.addNewBrick 2
+pop temp 0
+push this 1
+push constant 150
+push constant 50
+call Brick.new 2
+call Objects.addNewBrick 2
+pop temp 0
+push this 1
+push constant 200
+push constant 50
+call Brick.new 2
+call Objects.addNewBrick 2
+pop temp 0
+push this 1
+push constant 250
+push constant 50
+call Brick.new 2
+call Objects.addNewBrick 2
+pop temp 0
+push this 1
+push constant 100
+push constant 100
+call Bot.new 2
+call Objects.addNewBot 2
+pop temp 0
 push pointer 0
 return
 function Level.getFirstLevel 0
 push argument 0
 pop pointer 0
 push this 0
+return
+function Level.getSecondLevel 0
+push argument 0
+pop pointer 0
+push this 1
 return
 function Level.dispose 0
 push argument 0
@@ -49,16 +99,4 @@ push pointer 0
 call Memory.deAAlloc 1
 pop temp 0
 push constant 0
-return
-function Level.setLevel 0
-push argument 0
-pop pointer 0
-push argument 1
-pop this 1
-push constant 0
-return
-function Level.getLevel 0
-push argument 0
-pop pointer 0
-push this 1
 return

@@ -1,36 +1,42 @@
-function Main.main 4
+function Main.main 6
 push constant 0
 call ExitGame.new 1
-pop local 0
-push local 0
-call ExitGame.getExitGame 1
 pop local 2
-push constant 1
-pop local 3
-label WHILE_EXP0
 push local 2
+call ExitGame.getExitGame 1
+pop local 4
+call CurrentLevel.new 0
+pop local 1
+push constant 1
+pop local 5
+label WHILE_EXP0
+push local 4
 not
 not
 if-goto WHILE_END0
-push local 3
+call Level.new 0
+pop local 0
+push local 5
 push constant 1
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push local 2
 push local 0
-push local 3
-call Game.new 2
-pop local 1
+push local 5
 push local 1
+call Game.new 4
+pop local 3
+push local 3
 call Game.run 1
 pop temp 0
-push local 1
+push local 3
 call Game.dispose 1
 pop temp 0
-push local 0
+push local 2
 call ExitGame.getExitGame 1
-pop local 2
+pop local 4
 label IF_FALSE0
 goto WHILE_EXP0
 label WHILE_END0

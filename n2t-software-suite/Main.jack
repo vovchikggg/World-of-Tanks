@@ -1,20 +1,25 @@
 class Main {
 
     function void main() {
+        var Level level;
+        var CurrentLevel currentLevel;
         var ExitGame exitGame;
         var Game game;
         var boolean exit;
         var int levelNumber;
         let exitGame = ExitGame.new(false);
         let exit = exitGame.getExitGame();
+        let currentLevel = CurrentLevel.new();
 
         let levelNumber = 1;
 
         while (~(exit))
         {
+            let level = Level.new();
             if (levelNumber = 1)
             {
-                let game = Game.new(exitGame, levelNumber);
+                let game = Game.new(exitGame, level, levelNumber, currentLevel);
+                //let game = Game.new(exitGame, levelNumber);
                 do game.run();
                 do game.dispose();
                 let exit = exitGame.getExitGame();

@@ -1,6 +1,7 @@
 class Level
 {
     field Objects firstLevel;
+    field Objects secondLevel;
     field int levelNumber;
 
     constructor Level new()
@@ -14,6 +15,16 @@ class Level
         do firstLevel.addNewBot(Bot.new(100, 100));
 
         // 2 Level
+        let secondLevel = Objects.new();
+        do secondLevel.setPlayer(Player.new(180, 180, 30));
+        do secondLevel.addNewBrick(Brick.new(50, 50));
+        do secondLevel.addNewBrick(Brick.new(100, 50));
+        do secondLevel.addNewBrick(Brick.new(150, 50));
+        do secondLevel.addNewBrick(Brick.new(200, 50));
+        do secondLevel.addNewBrick(Brick.new(250, 50));
+        do secondLevel.addNewBot(Bot.new(100, 100));
+
+        // 3 Level
 
         return this;
     }
@@ -30,20 +41,14 @@ class Level
         return firstLevel;
     }
 
+    method List getSecondLevel()
+    {
+        return secondLevel;
+    }
+
     method void dispose()
     {
         do Memory.deAAlloc(this);
         return;
-    }
-
-    method void setLevel(int _levelNumber)
-    {
-        let levelNumber = _levelNumber;
-        return;
-    }
-
-    method int getLevel()
-    {
-        return levelNumber;
     }
 }

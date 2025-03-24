@@ -1,0 +1,20 @@
+class CurrentLevel {
+    field int levelNumber;
+
+    constructor CurrentLevel new()
+    {
+        let levelNumber = 1;
+        return this;
+    }
+
+    method void setLevel(int _levelNumber)
+    {
+        let levelNumber = _levelNumber;
+        return;
+    }
+
+    method int getLevel()
+    {
+        return levelNumber;
+    }
+}

@@ -4,11 +4,29 @@ class Game {
     field ExitGame exitGame;
     field int levelNumber;
     field Level levels;
+    field CurrentLevel currentLevel;
 
-    constructor Game new(ExitGame _exitGame, int _levelNumber){
+    //constructor Game new(ExitGame _exitGame, int _levelNumber){
+    //    let levelNumber = _levelNumber;
+    //    let levels = Level.new();
+
+    //    if (levelNumber = 1)
+    //    {
+    //        let map = levels.getFirstLevel();
+    //        do map.setMap();
+    //        do map.drowAllObjects();
+    //        let player = map.getPlayer();
+    //        let exitGame = _exitGame;
+    //    }
+    //    return this;
+    //}
+
+    constructor Game new(ExitGame _exitGame, Level _levels, int _levelNumber, CurrentLevel _currentLevel){
+        //let levelNumber = _levels.getLevel();
+        //let levels = _levels;
+        let levels = _levels;
         let levelNumber = _levelNumber;
-        let levels = Level.new();
-
+        let currentLevel = _currentLevel;
         if (levelNumber = 1)
         {
             let map = levels.getFirstLevel();
@@ -74,7 +92,7 @@ class Game {
 
             if (key = 49) // 1 Level (Нажать на 1)
             {
-                do levels.setLevel(1);
+                do currentLevel.setLevel(1);
                 let exitLevel = true;
             }
             //( (time - ((time / 1000) * 1000)) = 0 )
@@ -91,8 +109,8 @@ class Game {
 
             do map.clearDeadBulletsFromList();
             do map.killObjects();
-            //do map.clearBullets();
-            //do map.moveBullets();
+            do map.clearBullets();
+            do map.moveBullets();
             do map.drowAllObjects();
 
             let time = time + 1;
