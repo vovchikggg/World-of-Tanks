@@ -7,13 +7,18 @@ class Bullet
     field bool alive;
     field Objects map;
 
-    constructor Bullet new(Player player)
+    constructor Bullet new(int _x, int _y, int _direction)
     {
+        // player.getSize() - одинаковые у player и bot
         var int x_bullet_Up_Down;
-        var int y_bullet_Left_Right;
-        let x_bullet_Up_Down = player.getX() + (player.getSize() / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
-        let y_bullet_Left_Right = player.getY() + (player.getSize() / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
-        let direction = player.getDirection();
+        var int y_bullet_Left_Right; //32 - размер игрока и врага
+        var int xObject;
+        var int yObject;
+        let xObject = _x;
+        let yObject = _y;
+        let x_bullet_Up_Down = xObject + (32 / 2) - 5; // координата player.X + размер / 2 - половина от размера пули
+        let y_bullet_Left_Right = yObject + (32 / 2) - 5; // координата player.Y + размер / 2 - половина от размера пули
+        let direction = _direction;
         let size = 5;
         let alive = true;
         

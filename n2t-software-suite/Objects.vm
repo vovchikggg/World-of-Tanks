@@ -831,11 +831,17 @@ goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
-function Objects.moveBots 2
+function Objects.moveBots 6
 push argument 0
 pop pointer 0
 push this 2
 pop local 0
+push argument 1
+call Base.getX 1
+pop local 4
+push argument 1
+call Base.getY 1
+pop local 5
 label WHILE_EXP0
 push local 0
 push constant 0
@@ -844,13 +850,72 @@ not
 not
 if-goto WHILE_END0
 push local 0
-call BotList.getData 1
+call BotsList.getData 1
 pop local 1
+push local 1
+call Bot.getX 1
+pop local 2
+push local 1
+call Bot.getY 1
+pop local 3
+push local 4
+push local 2
+sub
+push constant 0
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 5
+push local 3
+sub
+push local 4
+push local 2
+sub
+gt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 1
+push constant 2
+call Bot.setDirection 2
+pop temp 0
+goto IF_END1
+label IF_FALSE1
+push local 1
+push constant 4
+call Bot.setDirection 2
+pop temp 0
+label IF_END1
+goto IF_END0
+label IF_FALSE0
+push local 5
+push local 3
+sub
+push local 2
+push local 4
+sub
+gt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 1
+push constant 2
+call Bot.setDirection 2
+pop temp 0
+goto IF_END2
+label IF_FALSE2
+push local 1
+push constant 3
+call Bot.setDirection 2
+pop temp 0
+label IF_END2
+label IF_END0
 push local 1
 call Bot.moveBot 1
 pop temp 0
 push local 0
-call BotList.getNext 1
+call BotsList.getNext 1
 pop local 0
 goto WHILE_EXP0
 label WHILE_END0

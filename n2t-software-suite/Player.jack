@@ -151,7 +151,7 @@ class Player
     method void Atack()
     {
         var Bullet newBullet;
-        let newBullet = Bullet.new(this);
+        let newBullet = Bullet.new(x, y, direction);
         if (newBullet.getAlive() = true)
         {
             do map.addNewBullet(newBullet);

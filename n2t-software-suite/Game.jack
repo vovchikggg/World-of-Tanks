@@ -102,7 +102,9 @@ class Game {
             }
 
             do MoveKeyboard(key);
-
+            //
+            do map.moveBots(map.getBase());
+            //
             do map.clearDeadBulletsFromList();
             do map.clearBullets();
             do map.moveBullets();

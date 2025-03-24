@@ -20,7 +20,7 @@ class Base
         return;
     }
 
-    method bool getX()
+    method int getX()
     {
         return x;
     }
@@ -30,7 +30,7 @@ class Base
         return;
     }
 
-    method bool getY()
+    method int getY()
     {
         return y;
     }

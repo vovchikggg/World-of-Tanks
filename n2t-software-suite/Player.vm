@@ -236,8 +236,10 @@ return
 function Player.Atack 1
 push argument 0
 pop pointer 0
-push pointer 0
-call Bullet.new 1
+push this 0
+push this 1
+push this 3
+call Bullet.new 3
 pop local 0
 push local 0
 call Bullet.getAlive 1

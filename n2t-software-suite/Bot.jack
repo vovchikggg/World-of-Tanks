@@ -49,6 +49,12 @@ class Bot
         return direction;
     }
 
+    method void setDirection(int _direction)
+    {
+        let direction = _direction;
+        return;
+    }
+
     method bool getAlive()
     {
         return alive;
@@ -101,6 +107,25 @@ class Bot
 
     method void moveBot()
     {
+        if (direction = 1)
+        {
+            do moveUp();
+        }
+
+        if (direction = 2)
+        {
+            do moveDown();
+        }
+        
+        if (direction = 3)
+        {
+            do moveLeft();
+        }
+
+        if (direction = 4)
+        {
+            do moveRight();
+        }
         return;
     }
 

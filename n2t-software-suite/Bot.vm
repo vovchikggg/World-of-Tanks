@@ -51,6 +51,13 @@ push argument 0
 pop pointer 0
 push this 5
 return
+function Bot.setDirection 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 5
+push constant 0
+return
 function Bot.getAlive 0
 push argument 0
 pop pointer 0
@@ -146,6 +153,46 @@ return
 function Bot.moveBot 0
 push argument 0
 pop pointer 0
+push this 5
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+call Bot.moveUp 1
+pop temp 0
+label IF_FALSE0
+push this 5
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+call Bot.moveDown 1
+pop temp 0
+label IF_FALSE1
+push this 5
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push pointer 0
+call Bot.moveLeft 1
+pop temp 0
+label IF_FALSE2
+push this 5
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push pointer 0
+call Bot.moveRight 1
+pop temp 0
+label IF_FALSE3
 push constant 0
 return
 function Bot.dispose 0
