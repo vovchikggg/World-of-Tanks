@@ -166,6 +166,9 @@ push local 0
 call Game.MoveKeyboard 2
 pop temp 0
 push this 1
+call Objects.ClearDeadBulletsFromList 1
+pop temp 0
+push this 1
 call Objects.killObjects 1
 pop temp 0
 push this 1

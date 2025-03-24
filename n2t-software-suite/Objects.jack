@@ -104,7 +104,13 @@ class Objects
     }
 
     method void addNewBullet(Bullet _bullet) {
+        var BulletsList previous;
+        let previous = bulletsList;
         let bulletsList = BulletsList.new(_bullet, bulletsList);
+        if (~(previous = null))
+        {
+            do previous.setPrev(bulletsList);
+        }
         return;
     }
 
@@ -198,6 +204,52 @@ class Objects
                 }
             }
             let currentBrick = currentBrick.getNext();
+        }
+        return;
+    }
+
+    method void ClearDeadBulletsFromList()
+    {
+        var BulletsList prevBullet;
+        var BulletsList currentBullet;
+        var BulletsList nextBullet;
+        
+        var Bullet bullet;
+
+        let currentBullet = bulletsList;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+            if (bullet.getAlive() = false)
+            {
+                do clearBullet(currentBullet);
+            }
+            let currentBullet = currentBullet.getNext();
+        }
+        return;
+    }
+
+    method void clearBullet(BulletsList currentBullet)
+    {
+        var BulletsList prevBullet;
+        var BulletsList nextBullet;
+        let prevBullet = currentBullet.getPrev();
+        let nextBullet = currentBullet.getNext();
+        if (~(prevBullet = null))
+        {
+            do prevBullet.setNext(nextBullet);
+            if (~(nextBullet = null))
+            {
+                do nextBullet.setPrev(prevBullet);
+            }
+        }
+        else
+        {
+            let bulletsList = bulletsList.getNext();
+            if (~(bulletsList = null))
+            {
+                do bulletsList.setPrev(null);
+            }
         }
         return;
     }

@@ -2,11 +2,12 @@ class BulletsList
 {
     field Bullet data;
     field BulletsList next;
+    field BulletsList prev;
 
-    constructor BulletsList new(Bullet car, List cdr)
+    constructor BulletsList new(Bullet _data, List _next)
     {
-        let data = car;
-        let next = cdr;
+        let data = _data;
+        let next = _next;
         return this;
     }
 
@@ -18,6 +19,21 @@ class BulletsList
     method BulletsList getNext()
     {
         return next;
+    }
+    method void setNext(BulletsList _next)
+    {
+        let next = _next;
+        return;
+    }
+
+    method BulletsList getPrev()
+    {
+        return prev;
+    }
+    method void setPrev(BulletsList _prev)
+    {
+        let prev = _prev;
+        return;
     }
 
     method void dispose(){

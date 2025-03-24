@@ -1,5 +1,5 @@
 function BulletsList.new 0
-push constant 2
+push constant 3
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -17,6 +17,25 @@ function BulletsList.getNext 0
 push argument 0
 pop pointer 0
 push this 1
+return
+function BulletsList.setNext 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function BulletsList.getPrev 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function BulletsList.setPrev 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 2
+push constant 0
 return
 function BulletsList.dispose 0
 push argument 0

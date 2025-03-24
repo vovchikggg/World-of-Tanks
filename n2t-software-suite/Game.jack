@@ -89,6 +89,7 @@ class Game {
 
             do MoveKeyboard(key);
 
+            do map.ClearDeadBulletsFromList();
             do map.killObjects();
             do map.clearBullets();
             do map.moveBullets();
