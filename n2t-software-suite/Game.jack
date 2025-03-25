@@ -66,9 +66,11 @@ class Game {
         var char key;
         var boolean exitLevel;
         var Bullet newBullet;
-        var int time;
+        var int playerTime;
+        var int botsTime;
         var Base base;
-        let time = 0;
+        let playerTime = 0;
+        let botsTime = 0;
         let exitLevel = false;
         let base = map.getBase();
 
@@ -94,19 +96,19 @@ class Game {
 
             if (key = 32) // Space - пуля
             {
-                if (time > player.getTimeBetweenAtacks())
+                if (playerTime > player.getTimeBetweenAtacks())
                 {
                     do player.Atack();
-                    let time = 0;
+                    let playerTime = 0;
                 }
             }
 
             do MoveKeyboard(key);
             //
-            if (time > 25)
+            if (botsTime > 25)
             {
                 do map.atackBots();
-                let time = 0;
+                let botsTime = 0;
             }
             //
 
@@ -117,7 +119,8 @@ class Game {
             do map.killObjects();
             do map.drowAllObjects();
 
-            let time = time + 1;
+            let playerTime = playerTime + 1;
+            let botsTime = botsTime + 1;
         }
         return;
     }

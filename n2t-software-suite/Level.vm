@@ -265,12 +265,6 @@ call Brick.new 2
 call Objects.addNewBrick 2
 pop temp 0
 push this 1
-push constant 100
-push constant 100
-call Bot.new 2
-call Objects.addNewBot 2
-pop temp 0
-push this 1
 push constant 224
 push constant 224
 call Base.new 2

@@ -131,16 +131,18 @@ pop temp 0
 label IF_FALSE3
 push constant 0
 return
-function Game.run 5
+function Game.run 6
 push argument 0
 pop pointer 0
 push constant 0
 pop local 3
 push constant 0
+pop local 4
+push constant 0
 pop local 1
 push this 1
 call Objects.getBase 1
-pop local 4
+pop local 5
 label WHILE_EXP0
 push local 1
 not
@@ -179,7 +181,7 @@ label IF_FALSE1
 push local 0
 push constant 81
 eq
-push local 4
+push local 5
 call Base.getAlive 1
 push constant 0
 eq
@@ -220,7 +222,7 @@ push pointer 0
 push local 0
 call Game.MoveKeyboard 2
 pop temp 0
-push local 3
+push local 4
 push constant 25
 gt
 if-goto IF_TRUE5
@@ -230,10 +232,10 @@ push this 1
 call Objects.atackBots 1
 pop temp 0
 push constant 0
-pop local 3
+pop local 4
 label IF_FALSE5
 push this 1
-push local 4
+push local 5
 call Objects.moveBots 2
 pop temp 0
 push this 1
@@ -255,6 +257,10 @@ push local 3
 push constant 1
 add
 pop local 3
+push local 4
+push constant 1
+add
+pop local 4
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
