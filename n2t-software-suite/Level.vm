@@ -105,6 +105,12 @@ call Objects.addNewBrick 2
 pop temp 0
 push this 0
 push constant 100
+push constant 50
+call Bot.new 2
+call Objects.addNewBot 2
+pop temp 0
+push this 0
+push constant 100
 push constant 32
 sub
 push constant 50

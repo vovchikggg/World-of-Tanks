@@ -13,7 +13,7 @@ pop this 2
 push constant 0
 not
 pop this 5
-push constant 1
+push constant 25
 pop this 6
 push pointer 0
 return

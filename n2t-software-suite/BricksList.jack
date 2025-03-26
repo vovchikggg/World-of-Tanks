@@ -2,11 +2,12 @@ class BricksList
 {
     field Brick data;
     field BricksList next;
+    field BricksList prev;
 
-    constructor BricksList new(Brick car, List cdr)
+    constructor BricksList new(Brick _data, BricksList _next)
     {
-        let data = car;
-        let next = cdr;
+        let data = _data;
+        let next = _next;
         return this;
     }
 
@@ -19,23 +20,19 @@ class BricksList
     {
         return next;
     }
-
-    method void setMap(Objects map)
+    method void setNext(BricksList _next)
     {
-        var BricksList currentBrick;
-        var Brick brick;
+        let next = _next;
+        return;
+    }
 
-        let currentBrick = this;
-        while (~(currentBrick = null))
-        {
-            let brick = currentBrick.getData();
-            if (brick.getAlive() = true)
-            {
-                do brick.setMap(map);
-            }
-            let currentBrick = currentBrick.getNext();
-        }
-
+    method BricksList getPrev()
+    {
+        return prev;
+    }
+    method void setPrev(BricksList _prev)
+    {
+        let prev = _prev;
         return;
     }
 
