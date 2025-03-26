@@ -1,5 +1,5 @@
 function BotsList.new 0
-push constant 3
+push constant 4
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -18,6 +18,25 @@ push argument 0
 pop pointer 0
 push this 1
 return
+function BotsList.setNext 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function BotsList.getPrev 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function BotsList.setPrev 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 2
+push constant 0
+return
 function BotsList.setMap 2
 push argument 0
 pop pointer 0
@@ -33,7 +52,7 @@ push constant 0
 return
 label IF_FALSE0
 push argument 1
-pop this 2
+pop this 3
 label WHILE_EXP0
 push local 0
 push constant 0
@@ -53,7 +72,7 @@ if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
 push local 1
-push this 2
+push this 3
 call Bot.setMap 2
 pop temp 0
 label IF_FALSE1
@@ -173,7 +192,7 @@ label IF_TRUE0
 push constant 0
 return
 label IF_FALSE0
-push this 2
+push this 3
 call Objects.getBase 1
 pop local 2
 push local 2

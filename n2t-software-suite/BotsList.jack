@@ -2,12 +2,13 @@ class BotsList
 {
     field Bots data;
     field BotsList next;
+    field BricksList prev;
     field Objects map;
 
-    constructor BotsList new(Bot car, List cdr)
+    constructor BotsList new(Bot _data, List _next)
     {
-        let data = car;
-        let next = cdr;
+        let data = _data;
+        let next = _next;
         return this;
     }
 
@@ -19,6 +20,21 @@ class BotsList
     method BotsList getNext()
     {
         return next;
+    }
+    method void setNext(BotsList _next)
+    {
+        let next = _next;
+        return;
+    }
+
+    method BotsList getPrev()
+    {
+        return prev;
+    }
+    method void setPrev(BotsList _prev)
+    {
+        let prev = _prev;
+        return;
     }
 
     method void setMap(Objects _map)

@@ -5,6 +5,7 @@ class Game {
     field BotsList botsList;
     field BricksList bricksList;
     field BulletsList bulletsList;
+
     field ExitGame exitGame;
     field int levelNumber;
     field Level level;
