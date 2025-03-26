@@ -81,6 +81,55 @@ class BricksList
         return;
     }
 
+    method void removeDeadBricksFromList()
+    {
+        var BricksList currentBrick;
+        var Brick brick;
+
+        let currentBrick = this;
+        while (~(currentBrick = null))
+        {
+            let brick = currentBrick.getData();
+            if (brick.getAlive() = false)
+            {
+                do removeDeadBrick(currentBrick);
+            }
+            let currentBrick = currentBrick.getNext();
+        }
+
+        return;
+    }
+
+    method void removeDeadBrick(BricksList currentBrick)
+    {
+        var BricksList bricksList;
+        var BricksList prevBrick;
+        var BricksList nextBrick;
+
+        let bricksList = this;
+        let prevBrick = currentBrick.getPrev();
+        let nextBrick = currentBrick.getNext();
+
+        if (~(prevBrick = null))
+        {
+            do prevBrick.setNext(nextBrick);
+            if (~(nextBrick = null))
+            {
+                do nextBrick.setPrev(prevBrick);
+            }
+        }
+        else
+        {
+            let bricksList = bricksList.getNext();
+            if (~(bricksList = null))
+            {
+                do bricksList.setPrev(null);
+            }
+        }
+
+        return;
+    }
+
     method void dispose(){
         do Memory.deAlloc(this);
         return;

@@ -141,6 +141,14 @@ push this 0
 push constant 512
 push constant 100
 sub
+push constant 50
+call Bot.new 2
+call Objects.addNewBot 2
+pop temp 0
+push this 0
+push constant 512
+push constant 100
+sub
 push constant 45
 add
 push constant 50
@@ -201,6 +209,18 @@ push constant 32
 add
 push constant 50
 push constant 50
+add
+call Brick.new 2
+call Objects.addNewBrick 2
+pop temp 0
+push this 0
+push constant 100
+push constant 20
+add
+push constant 64
+add
+push constant 50
+push constant 80
 add
 call Brick.new 2
 call Objects.addNewBrick 2

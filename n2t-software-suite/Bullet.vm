@@ -295,7 +295,7 @@ label IF_TRUE2
 push this 1
 push this 3
 add
-push constant 255
+push constant 254
 lt
 if-goto IF_TRUE3
 goto IF_FALSE3
@@ -339,7 +339,7 @@ label IF_TRUE6
 push this 0
 push this 3
 add
-push constant 511
+push constant 510
 lt
 if-goto IF_TRUE7
 goto IF_FALSE7

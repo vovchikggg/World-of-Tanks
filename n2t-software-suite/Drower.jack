@@ -518,7 +518,7 @@ class Drower {
         let y = bullet.getY();
         let size = bullet.getSize();
 
-        if ((x > 0) & (x < 256) & (x + size > 0) & (x + size < 256))
+        if ((x > 0) & (x < 512) & (x + size > 0) & (x + size < 512))
         {
             if ((y > 0) & (y < 256) & (y + size > 0) & (y + size < 256))
             {
@@ -570,7 +570,7 @@ class Drower {
         let y = bullet.getY();
         let size = bullet.getSize();
         do Screen.setColor(false);
-        if ((x > 0) & (x < 256) & (x + size > 0) & (x + size < 256))
+        if ((x > 0) & (x < 512) & (x + size > 0) & (x + size < 512))
         {
             if ((y > 0) & (y < 256) & (y + size > 0) & (y + size < 256))
             {
