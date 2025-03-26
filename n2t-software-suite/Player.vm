@@ -13,7 +13,7 @@ pop this 2
 push constant 0
 not
 pop this 5
-push constant 25
+push constant 1
 pop this 6
 push pointer 0
 return
@@ -253,10 +253,55 @@ push this 4
 push local 0
 call Objects.addNewBullet 2
 pop temp 0
-push local 0
-push this 4
-call Bullet.setMap 2
+label IF_FALSE0
+push constant 0
+return
+function Player.drowPlayer 0
+push argument 0
+pop pointer 0
+push this 5
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+call Drower.DrawPlayer 1
 pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Player.killPlayerWithBullet 0
+push argument 0
+pop pointer 0
+push this 5
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithPlayer 4
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+pop this 5
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+label IF_FALSE1
 label IF_FALSE0
 push constant 0
 return

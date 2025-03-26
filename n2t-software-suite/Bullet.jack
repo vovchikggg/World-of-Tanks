@@ -5,7 +5,6 @@ class Bullet
     field int direction;
     field int size;
     field bool alive;
-    field Objects map;
 
     constructor Bullet new(int _x, int _y, int _direction)
     {
@@ -59,12 +58,6 @@ class Bullet
         }
 
         return this;
-    }
-
-    method void setMap(Objects _map)
-    {
-        let map = _map;
-        return;
     }
 
     method int getX()

@@ -37,6 +37,151 @@ push argument 1
 pop this 2
 push constant 0
 return
+function BulletsList.drowBullets 2
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BulletsList.getData 1
+pop local 1
+push local 1
+call Bullet.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+call Drower.DrawBullet 1
+pop temp 0
+label IF_FALSE0
+push local 0
+call BulletsList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BulletsList.killBulletsWithBullet 3
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 0
+push constant 0
+pop local 2
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+push local 2
+not
+and
+not
+if-goto WHILE_END0
+push local 0
+call BulletsList.getData 1
+pop argument 1
+push argument 1
+call Bullet.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 1
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithBot 4
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push constant 0
+not
+pop local 2
+label IF_FALSE1
+label IF_FALSE0
+push local 0
+call BulletsList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BulletsList.moveBullets 2
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BulletsList.getData 1
+pop local 1
+push local 1
+call Bullet.moveBullet 1
+pop temp 0
+push local 0
+call BulletsList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BulletsList.clearBullets 2
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BulletsList.getData 1
+pop local 1
+push local 1
+call Drower.clearBullet 1
+pop temp 0
+push local 0
+call BulletsList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
 function BulletsList.dispose 0
 push argument 0
 pop pointer 0

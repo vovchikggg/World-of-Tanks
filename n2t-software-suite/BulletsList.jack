@@ -36,6 +36,84 @@ class BulletsList
         return;
     }
 
+    method void drowBullets()
+    {
+        var BulletsList currentBullet;
+        var Bullet bullet;
+
+        let currentBullet = this;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+            if (bullet.getAlive() = true)
+            {
+               do Drower.DrawBullet(bullet);
+            }
+            let currentBullet = currentBullet.getNext();
+        }
+
+        return;
+    }
+
+    method void killBulletsWithBullet(Bullet bullet)
+    {
+        var BulletsList currentBullet;
+        var Bullet bullet;
+        var bool exit;
+
+        let currentBullet = this;
+        let exit = false;
+        while ( (~(currentBullet = null)) & (~(exit)) )
+        {
+            let bullet = currentBullet.getData();
+            if (bullet.getAlive() = true)
+            {
+                if ( BulletCollisions.CheckCollisionsWithBot(bullet, bullet, bullet.getX(), bullet.getY()) = true )
+                {
+                    do bullet.setAlive(false);
+                    do bullet.setAlive(false);
+                    let exit = true;
+                }
+            }
+            let currentBullet = currentBullet.getNext();
+        }
+
+        return;
+    }
+
+    method void moveBullets()
+    {
+        var BulletsList currentBullet;
+        var Bullet bullet;
+
+        let currentBullet = this;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+            do bullet.moveBullet();
+
+            let currentBullet = currentBullet.getNext();
+        }
+
+        return;
+    }
+
+    method void clearBullets()
+    {
+        var BulletsList currentBullet;
+        var Bullet bullet;
+
+        let currentBullet = this;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+
+            do Drower.clearBullet(bullet);
+            let currentBullet = currentBullet.getNext();
+        }
+        return;
+    }
+
     method void dispose(){
         do Memory.deAlloc(this);
         return;

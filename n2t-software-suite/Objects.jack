@@ -16,56 +16,6 @@ class Objects
         return this;
     }
 
-    method void setMap()
-    {
-        var BotsList currentBot;
-        var BricksList currentBrick;
-        var BulletsList currentBullet;
-
-        var Bot bot;
-        var Brick brick;
-        var Bullet bullet;
-
-        do player.setMap(this);
-
-        do base.setMap(this);
-
-        let currentBot = botsList;
-        while (~(currentBot = null))
-        {
-            let bot = currentBot.getData();
-            if (bot.getAlive() = true)
-            {
-                do bot.setMap(this);
-            }
-            let currentBot = currentBot.getNext();
-        }
-
-        let currentBrick = bricksList;
-        while (~(currentBrick = null))
-        {
-            let brick = currentBrick.getData();
-            if (brick.getAlive() = true)
-            {
-                do brick.setMap(this);
-            }
-            let currentBrick = currentBrick.getNext();
-        }
-
-        let currentBullet = bulletsList;
-        while (~(currentBullet = null))
-        {
-            let bullet = currentBullet.getData();
-            if (bullet.getAlive() = true)
-            {
-                do bullet.setMap(this);
-            }
-            let currentBullet = currentBullet.getNext();
-        }
-
-        return;
-    }
-
     method List getPlayer()
     {
         return player;
@@ -120,109 +70,73 @@ class Objects
         return;
     }
 
-    method void clearAllObjects()
+    method void setMap()
     {
-        var BotsList currentBot;
-        var BricksList currentBrick;
-        var BulletsList currentBullet;
-
-        var Bot bot;
-        var Brick brick;
-        var Bullet bullet;
-
-        do player.setAlive(false);
-
-        do base.setAlive(false);
-
-        let currentBot = botsList;
-        while (~(currentBot = null))
-        {
-            let bot = currentBot.getData();
-            do bot.setAlive(false);
-            let currentBot = currentBot.getNext();
-        }
-
-        let currentBrick = bricksList;
-        while (~(currentBrick = null))
-        {
-            let brick = currentBrick.getData();
-            do brick.setAlive(false);
-            let currentBrick = currentBrick.getNext();
-        }
-
-        let currentBullet = bulletsList;
-        while (~(currentBullet = null))
-        {
-            let bullet = currentBullet.getData();
-            do bullet.setAlive(false);
-            let currentBullet = currentBullet.getNext();
-        }
+        do player.setMap(this);
+        do base.setMap(this);
+        do botsList.setMap(this);
+        do bricksList.setMap(this);
 
         return;
     }
+
+    //НУЖНО СДЕЛАТЬ
+
+    //method void disposeAllObjects()
+    //{
+    //    var BotsList currentBot;
+    //    var BricksList currentBrick;
+    //    var BulletsList currentBullet;
+
+    //    var Bot bot;
+    //    var Brick brick;
+    //    var Bullet bullet;
+
+    //    do player.setAlive(false);
+
+    //    do base.setAlive(false);
+
+    //    let currentBot = botsList;
+    //    while (~(currentBot = null))
+    //    {
+    //        let bot = currentBot.getData();
+    //        do bot.setAlive(false);
+    //        let currentBot = currentBot.getNext();
+    //    }
+
+    //    let currentBrick = bricksList;
+    //    while (~(currentBrick = null))
+    //    {
+    //        let brick = currentBrick.getData();
+    //        do brick.setAlive(false);
+    //        let currentBrick = currentBrick.getNext();
+    //    }
+
+    //    let currentBullet = bulletsList;
+    //    while (~(currentBullet = null))
+    //    {
+    //        let bullet = currentBullet.getData();
+    //        do bullet.setAlive(false);
+    //        let currentBullet = currentBullet.getNext();
+    //    }
+
+    //    return;
+    //}
 
     method void drowAllObjects()
     {
-        var BotsList currentBot;
-        var BricksList currentBrick;
-        var BulletsList currentBullet;
-
-        var Bot bot;
-        var Brick brick;
-        var Bullet bullet;
-
-        if (player.getAlive() = true)
-        {
-            do Drower.DrawPlayer(player);
-        }
-
-        if (base.getAlive() = true)
-        {
-            do Drower.DrawBase(base);
-        }
-
-        let currentBot = botsList;
-        while (~(currentBot = null))
-        {
-            let bot = currentBot.getData();
-            if (bot.getAlive() = true)
-            {
-                do Drower.DrawBot(bot);
-            }
-            let currentBot = currentBot.getNext();
-        }
-
-        let currentBrick = bricksList;
-        while (~(currentBrick = null))
-        {
-            let brick = currentBrick.getData();
-            if (brick.getAlive() = true)
-            {
-                do Drower.DrawBrick(brick);
-            }
-            let currentBrick = currentBrick.getNext();
-        }
-
-        let currentBullet = bulletsList;
-        while (~(currentBullet = null))
-        {
-            let bullet = currentBullet.getData();
-            if (bullet.getAlive() = true)
-            {
-               do Drower.DrawBullet(bullet);
-            }
-            let currentBullet = currentBullet.getNext();
-        }
+        do player.drowPlayer();
+        do base.drowBase();
+        do botsList.drowBots();
+        do bricksList.drowBricks();
+        do bulletsList.drowBullets();
 
         return;
     }
 
-    method void killObjects()
+    method void killObjectsWithBullet()
     {
-        var BotsList currentBot;
         var BulletsList currentBullet;
-
-        var Bot bot;
         var Bullet bullet;
 
         let currentBullet = bulletsList;
@@ -231,116 +145,18 @@ class Objects
             let bullet = currentBullet.getData();
             if (bullet.getAlive() = true)
             {
-                do killPlayer(bullet);
-                do killBase(bullet);
-                do killBot(bullet);
-                do killBrick(bullet);
-                do killBullet(bullet);
+                do player.killPlayerWithBullet(bullet);
+                do base.killBaseWithBullet(bullet);
+                do botsList.killBotsWithBullet(bullet);
+                do bricksList.killBricksWithBullet(bullet);
+                do bulletsList.killBulletsWithBullet(bullet);
             }
             let currentBullet = currentBullet.getNext();
         }
         return;
     }
 
-    method void killPlayer(Bullet bullet)
-    {
-        if (player.getAlive() = true)
-        {
-            if ( BulletCollisions.CheckCollisionsWithPlayer(player, bullet, bullet.getX(), bullet.getY()) = true )
-            {
-                do bullet.setAlive(false);
-                do player.setAlive(false);
-            }
-        }
-        return;
-    }
-
-    method void killBase(Bullet bullet)
-    {
-        if (base.getAlive() = true)
-        {
-            if ( BulletCollisions.CheckCollisionsWithBase(base, bullet, bullet.getX(), bullet.getY()) = true )
-            {
-                do bullet.setAlive(false);
-                do base.setAlive(false);
-            }
-        }
-        return;
-    }
-
-    method void killBot(Bullet bullet)
-    {
-        var BotsList currentBot;
-        var Bot bot;
-        var bool exit;
-        let currentBot = botsList;
-        let exit = false;
-        while ( (~(currentBot = null)) & (~(exit)) )
-        {
-            let bot = currentBot.getData();
-            if (bot.getAlive() = true)
-            {
-                if ( BulletCollisions.CheckCollisionsWithBot(bot, bullet, bullet.getX(), bullet.getY()) = true )
-                {
-                    do bullet.setAlive(false);
-                    do bot.setAlive(false);
-                    let exit = true;
-                }
-            }
-            let currentBot = currentBot.getNext();
-        }
-        return;
-    }
-
-    method void killBrick(Bullet bullet)
-    {
-        var BricksList currentBrick;
-        var Brick brick;
-        var bool exit;
-        let currentBrick = bricksList;
-        let exit = false;
-        while ( (~(currentBrick = null)) & (~(exit)) )
-        {
-            let brick = currentBrick.getData();
-            if (brick.getAlive() = true)
-            {
-                if ( BulletCollisions.CheckCollisionsWithBrick(brick, bullet, bullet.getX(), bullet.getY()) = true )
-                {
-                    do bullet.setAlive(false);
-                    do brick.setAlive(false);
-                    let exit = true;
-                }
-            }
-            let currentBrick = currentBrick.getNext();
-        }
-        return;
-    }
-
-    method void killBullet(Bullet bullet)
-    {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-        var bool exit;
-        let currentBullet = bulletsList;
-        let exit = false;
-        while ( (~(currentBullet = null)) & (~(exit)) )
-        {
-            let bullet = currentBullet.getData();
-            if (bullet.getAlive() = true)
-            {
-                if ( BulletCollisions.CheckCollisionsWithBot(bullet, bullet, bullet.getX(), bullet.getY()) = true )
-                {
-                    do bullet.setAlive(false);
-                    do bullet.setAlive(false);
-                    let exit = true;
-                }
-            }
-            let currentBullet = currentBullet.getNext();
-        }
-        return;
-    }
-
-    method void clearDeadBulletsFromList()
+    method void removeDeadBulletsFromList()
     {
         var BulletsList currentBullet;
         
@@ -352,14 +168,14 @@ class Objects
             let bullet = currentBullet.getData();
             if (bullet.getAlive() = false)
             {
-                do clearBullet(currentBullet);
+                do removeDeadBullet(currentBullet);
             }
             let currentBullet = currentBullet.getNext();
         }
         return;
     }
 
-    method void clearBullet(BulletsList currentBullet)
+    method void removeDeadBullet(BulletsList currentBullet)
     {
         var BulletsList prevBullet;
         var BulletsList nextBullet;
@@ -380,113 +196,6 @@ class Objects
             {
                 do bulletsList.setPrev(null);
             }
-        }
-        return;
-    }
-
-    method void moveBullets()
-    {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-        let currentBullet = bulletsList;
-        while (~(currentBullet = null))
-        {
-            let bullet = currentBullet.getData();
-            do bullet.moveBullet();
-
-            let currentBullet = currentBullet.getNext();
-        }
-        return;
-    }
-
-    method void clearBullets()
-    {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-        let currentBullet = bulletsList;
-
-        while (~(currentBullet = null))
-        {
-            let bullet = currentBullet.getData();
-
-            do Drower.clearBullet(bullet);
-            let currentBullet = currentBullet.getNext();
-        }
-        return;
-    }
-
-    method void botsAtack()
-    {
-        var BotsList currentBot;
-        var Bot bot;
-
-        let currentBot = botsList;
-        while (~(currentBot = null))
-        {
-            let bot = currentBot.getData();
-            if (bot.getAlive() = true)
-            {
-                do bot.Atack();
-            }
-            let currentBot = currentBot.getNext();
-        }
-        return;
-    }
-
-    method void moveBots()
-    {
-        var BotsList currentBot;
-        var Bot bot;
-        var int xBot;
-        var int yBot;
-        var int xBase;
-        var int yBase;
-
-        let currentBot = botsList;
-        let xBase = base.getX();
-        let yBase = base.getY();
-        while (~(currentBot = null))
-        {
-            let bot = currentBot.getData();
-            if (bot.getAlive() = true)
-            {
-                let xBot = bot.getX();
-                let yBot = bot.getY();
-
-                //игрок будет идти пока разница по модулю не больше 10 пикселей
-                if ((yBase - yBot) < 75)
-                {
-                    do bot.setDirection(2); //down
-                }
-                else
-                {
-                    if ((xBase - xBot) > 0) // Значит бот слева от базы
-                    {
-                        if ((yBase - yBot - 60) > (xBase - xBot - 0)) //dist по y до базы > dist по x до базы
-                        {
-                            do bot.setDirection(2); //down
-                        }
-                        else
-                        {
-                            do bot.setDirection(4); //right
-                        }
-                    }
-                    else // Справа от базы
-                    {
-                        if ((yBase - yBot - 10) > (xBot - xBase - 0)) //dist по y до базы > dist по x до базы
-                        {
-                            do bot.setDirection(2); //down
-                        }
-                        else
-                        {
-                            do bot.setDirection(3); //left
-                        }
-                    }
-                }
-
-                do bot.moveBot();
-            }
-            let currentBot = currentBot.getNext();
         }
         return;
     }

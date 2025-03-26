@@ -20,6 +20,70 @@ class BricksList
         return next;
     }
 
+    method void setMap(Objects map)
+    {
+        var BricksList currentBrick;
+        var Brick brick;
+
+        let currentBrick = this;
+        while (~(currentBrick = null))
+        {
+            let brick = currentBrick.getData();
+            if (brick.getAlive() = true)
+            {
+                do brick.setMap(map);
+            }
+            let currentBrick = currentBrick.getNext();
+        }
+
+        return;
+    }
+
+    method void drowBricks()
+    {
+        var BricksList currentBrick;
+        var Brick brick;
+
+        let currentBrick = this;
+        while (~(currentBrick = null))
+        {
+            let brick = currentBrick.getData();
+            if (brick.getAlive() = true)
+            {
+                do Drower.DrawBrick(brick);
+            }
+            let currentBrick = currentBrick.getNext();
+        }
+
+        return;
+    }
+
+    method void killBricksWithBullet(Bullet bullet)
+    {
+        var BricksList currentBrick;
+        var Brick brick;
+        var bool exit;
+
+        let currentBrick = this;
+        let exit = false;
+        while ( (~(currentBrick = null)) & (~(exit)) )
+        {
+            let brick = currentBrick.getData();
+            if (brick.getAlive() = true)
+            {
+                if ( BulletCollisions.CheckCollisionsWithBrick(brick, bullet, bullet.getX(), bullet.getY()) = true )
+                {
+                    do brick.setAlive(false);
+                    do bullet.setAlive(false);
+                    let exit = true;
+                }
+            }
+            let currentBrick = currentBrick.getNext();
+        }
+
+        return;
+    }
+
     method void dispose(){
         do Memory.deAlloc(this);
         return;

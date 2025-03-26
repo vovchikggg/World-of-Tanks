@@ -60,6 +60,28 @@ class Base
         return;
     }
 
+    method void drowBase()
+    {
+        if (alive = true)
+        {
+            do Drower.DrawBase(this);
+        }
+        return;
+    }
+
+    method void killBaseWithBullet(Bullet bullet)
+    {
+        if (alive = true)
+        {
+            if ( BulletCollisions.CheckCollisionsWithBase(this, bullet, bullet.getX(), bullet.getY()) = true )
+            {
+                let alive = false;
+                do bullet.setAlive(false);
+            }
+        }
+        return;
+    }
+
     method void dispose()
     {
         do Memory.deAAlloc(this);

@@ -21,7 +21,7 @@ class Level
         do firstLevel.addNewBrick(Brick.new(256, 256-192));
         do firstLevel.addNewBrick(Brick.new(256, 256-224));
 
-        do firstLevel.addNewBot(Bot.new(100, 50));
+        //do firstLevel.addNewBot(Bot.new(100, 50));
         do firstLevel.addNewBrick(Brick.new(100-32, 50));
         do firstLevel.addNewBrick(Brick.new(100-12, 50-32));
         do firstLevel.addNewBrick(Brick.new(100+20, 50-32));
