@@ -3070,7 +3070,7 @@ push local 0
 push constant 0
 gt
 push local 0
-push constant 256
+push constant 512
 lt
 and
 push local 0
@@ -3082,7 +3082,7 @@ and
 push local 0
 push local 2
 add
-push constant 256
+push constant 512
 lt
 and
 if-goto IF_TRUE0
@@ -3221,7 +3221,7 @@ push local 0
 push constant 0
 gt
 push local 0
-push constant 256
+push constant 512
 lt
 and
 push local 0
@@ -3233,7 +3233,7 @@ and
 push local 0
 push local 2
 add
-push constant 256
+push constant 512
 lt
 and
 if-goto IF_TRUE0

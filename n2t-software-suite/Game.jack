@@ -114,11 +114,11 @@ class Game {
             let bricksList = map.getBricksList();
             let bulletsList = map.getBulletsList();
 
-            do botsList.moveBots();
-            do map.removeDeadBulletsFromList();
             do bulletsList.clearBullets();
             do bulletsList.moveBullets();
+            do botsList.moveBots();
             do map.killObjectsWithBullet();
+            do map.removeDeadObjects();
             do map.drowAllObjects();
 
             let playerTime = playerTime + 1;
