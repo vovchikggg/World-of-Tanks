@@ -285,9 +285,19 @@ call Objects.getBase 1
 pop local 2
 push local 2
 call Base.getX 1
+push local 2
+call Base.getSize 1
+add
+push constant 2
+call Math.divide 2
 pop local 5
 push local 2
 call Base.getY 1
+push local 2
+call Base.getSize 1
+add
+push constant 2
+call Math.divide 2
 pop local 6
 label WHILE_EXP0
 push local 0
@@ -309,41 +319,60 @@ goto IF_FALSE1
 label IF_TRUE1
 push local 1
 call Bot.getX 1
+push local 1
+call Bot.getSize 1
+add
+push constant 2
+call Math.divide 2
 pop local 3
 push local 1
 call Bot.getY 1
-pop local 4
-push local 6
-push local 4
-sub
-push constant 75
-lt
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
 push local 1
+call Bot.getSize 1
+add
 push constant 2
-call Bot.setDirection 2
-pop temp 0
-goto IF_END2
-label IF_FALSE2
+call Math.divide 2
+pop local 4
 push local 5
 push local 3
 sub
 push constant 0
 gt
-if-goto IF_TRUE3
-goto IF_FALSE3
-label IF_TRUE3
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push local 6
 push local 4
 sub
-push constant 60
-sub
+push constant 50
+add
 push local 5
 push local 3
 sub
-push constant 0
+gt
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push local 1
+push constant 2
+call Bot.setDirection 2
+pop temp 0
+goto IF_END3
+label IF_FALSE3
+push local 1
+push constant 4
+call Bot.setDirection 2
+pop temp 0
+label IF_END3
+goto IF_END2
+label IF_FALSE2
+push local 6
+push local 4
+sub
+push constant 50
+add
+push local 3
+push local 5
 sub
 gt
 if-goto IF_TRUE4
@@ -356,38 +385,10 @@ pop temp 0
 goto IF_END4
 label IF_FALSE4
 push local 1
-push constant 4
-call Bot.setDirection 2
-pop temp 0
-label IF_END4
-goto IF_END3
-label IF_FALSE3
-push local 6
-push local 4
-sub
-push constant 10
-sub
-push local 3
-push local 5
-sub
-push constant 0
-sub
-gt
-if-goto IF_TRUE5
-goto IF_FALSE5
-label IF_TRUE5
-push local 1
-push constant 2
-call Bot.setDirection 2
-pop temp 0
-goto IF_END5
-label IF_FALSE5
-push local 1
 push constant 3
 call Bot.setDirection 2
 pop temp 0
-label IF_END5
-label IF_END3
+label IF_END4
 label IF_END2
 push local 1
 call Bot.moveBot 1
