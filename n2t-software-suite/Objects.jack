@@ -8,11 +8,6 @@ class Objects
 
     constructor Objects new()
     {
-        let player = null;
-        let base = null;
-        let botsList = null;
-        let bricksList = null;
-        let bulletsList = null;
         return this;
     }
 
@@ -415,7 +410,7 @@ class Objects
         return;
     }
 
-    method void atackBots()
+    method void botsAtack()
     {
         var BotsList currentBot;
         var Bot bot;
@@ -424,15 +419,16 @@ class Objects
         while (~(currentBot = null))
         {
             let bot = currentBot.getData();
-
-            do bot.Atack();
-
+            if (bot.getAlive() = true)
+            {
+                do bot.Atack();
+            }
             let currentBot = currentBot.getNext();
         }
         return;
     }
 
-    method void moveBots(Base base)
+    method void moveBots()
     {
         var BotsList currentBot;
         var Bot bot;
@@ -447,62 +443,44 @@ class Objects
         while (~(currentBot = null))
         {
             let bot = currentBot.getData();
-            let xBot = bot.getX();
-            let yBot = bot.getY();
-
-            //            do bot.setDirection(4);
-            //            do bot.moveBot();
-            //            do bot.setDirection(2);
-
-            //do bot.setDirection(3);
-
-            //игрок будет идти пока разница по модулю не больше 10 пикселей
-            if ((yBase - yBot) < 75)
+            if (bot.getAlive() = true)
             {
-                do bot.setDirection(2); //down
-            }
-            else
-            {
-                if ((xBase - xBot) > 0) // Значит бот слева от базы
+                let xBot = bot.getX();
+                let yBot = bot.getY();
+
+                //игрок будет идти пока разница по модулю не больше 10 пикселей
+                if ((yBase - yBot) < 75)
                 {
-                    if ((yBase - yBot - 60) > (xBase - xBot - 0)) //dist по y до базы > dist по x до базы
+                    do bot.setDirection(2); //down
+                }
+                else
+                {
+                    if ((xBase - xBot) > 0) // Значит бот слева от базы
                     {
-                        do bot.setDirection(2); //down
+                        if ((yBase - yBot - 60) > (xBase - xBot - 0)) //dist по y до базы > dist по x до базы
+                        {
+                            do bot.setDirection(2); //down
+                        }
+                        else
+                        {
+                            do bot.setDirection(4); //right
+                        }
                     }
-                    else
+                    else // Справа от базы
                     {
-                        do bot.setDirection(4); //right
+                        if ((yBase - yBot - 10) > (xBot - xBase - 0)) //dist по y до базы > dist по x до базы
+                        {
+                            do bot.setDirection(2); //down
+                        }
+                        else
+                        {
+                            do bot.setDirection(3); //left
+                        }
                     }
                 }
-                else // Справа от базы
-                {
-                    if ((yBase - yBot - 10) > (xBot - xBase - 0)) //dist по y до базы > dist по x до базы
-                    {
-                        do bot.setDirection(2); //down
-                    }
-                    else
-                    {
-                        do bot.setDirection(3); //left
-                    }
-                }
+
+                do bot.moveBot();
             }
-            do bot.moveBot();
-
-            let currentBot = currentBot.getNext();
-        }
-        return;
-    }
-
-    method void clearBots()
-    {
-        var BotsList currentBot;
-        var Bot bot;
-        let currentBot = botsList;
-        while (~(currentBot = null))
-        {
-            let bot = currentBot.getData();
-            //do Drower.clearBot(bot);
-
             let currentBot = currentBot.getNext();
         }
         return;

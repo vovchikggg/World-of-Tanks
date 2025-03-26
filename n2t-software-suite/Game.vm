@@ -53,23 +53,6 @@ pop this 2
 label IF_FALSE1
 push pointer 0
 return
-function Game.dispose 0
-push argument 0
-pop pointer 0
-push constant 0
-call Screen.setColor 1
-pop temp 0
-push constant 0
-push constant 0
-push constant 511
-push constant 255
-call Screen.drawRectangle 4
-pop temp 0
-push pointer 0
-call Memory.deAlloc 1
-pop temp 0
-push constant 0
-return
 function Game.MoveKeyboard 0
 push argument 0
 pop pointer 0
@@ -204,39 +187,56 @@ eq
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
+push this 0
+call Player.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
 push local 3
 push this 0
 call Player.getTimeBetweenAtacks 1
 gt
-if-goto IF_TRUE4
-goto IF_FALSE4
-label IF_TRUE4
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
 push this 0
 call Player.Atack 1
 pop temp 0
 push constant 0
 pop local 3
+label IF_FALSE5
 label IF_FALSE4
 label IF_FALSE3
+push this 0
+call Player.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
 push pointer 0
 push local 0
 call Game.MoveKeyboard 2
 pop temp 0
+label IF_FALSE6
 push local 4
 push constant 25
 gt
-if-goto IF_TRUE5
-goto IF_FALSE5
-label IF_TRUE5
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
 push this 1
-call Objects.atackBots 1
+call Objects.botsAtack 1
 pop temp 0
 push constant 0
 pop local 4
-label IF_FALSE5
+label IF_FALSE7
 push this 1
-push local 5
-call Objects.moveBots 2
+call Objects.moveBots 1
 pop temp 0
 push this 1
 call Objects.clearDeadBulletsFromList 1
@@ -263,5 +263,13 @@ add
 pop local 4
 goto WHILE_EXP0
 label WHILE_END0
+push constant 0
+return
+function Game.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 0
 return

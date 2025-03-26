@@ -13,7 +13,6 @@ class Player
         let direction = 4;
         let size = _size;
         let alive = true;
-        //let timeBetweenAtacks = 500;
         let timeBetweenAtacks = 25;
         return this;
     }

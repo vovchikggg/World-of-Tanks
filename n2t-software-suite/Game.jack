@@ -29,16 +29,6 @@ class Game {
         return this;
     }
 
-    method void dispose(){
-        
-        //временное решение
-        do Screen.setColor(false);
-        do Screen.drawRectangle(0,0,511,255);
-        //временное решение
-        do Memory.deAlloc(this);
-        return;
-    }
-
     method void MoveKeyboard(char key){
         if (key = 131) { // Up
             do player.setDirection(1);
@@ -95,24 +85,29 @@ class Game {
             }
 
             if (key = 32) // Space - пуля
-            {
-                if (playerTime > player.getTimeBetweenAtacks())
+            {   
+                if (player.getAlive() = true)
                 {
-                    do player.Atack();
-                    let playerTime = 0;
+                    if (playerTime > player.getTimeBetweenAtacks())
+                    {
+                        do player.Atack();
+                        let playerTime = 0;
+                    }
                 }
             }
 
-            do MoveKeyboard(key);
-            //
+            if (player.getAlive() = true)
+            {
+                do MoveKeyboard(key);
+            }
+            
             if (botsTime > 25)
             {
-                do map.atackBots();
+                do map.botsAtack();
                 let botsTime = 0;
             }
-            //
 
-            do map.moveBots(base);
+            do map.moveBots();
             do map.clearDeadBulletsFromList();
             do map.clearBullets();
             do map.moveBullets();
@@ -122,6 +117,12 @@ class Game {
             let playerTime = playerTime + 1;
             let botsTime = botsTime + 1;
         }
+        return;
+    }
+
+    method void dispose()
+    {
+        do Memory.deAlloc(this);
         return;
     }
 }
