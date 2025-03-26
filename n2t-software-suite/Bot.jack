@@ -89,7 +89,6 @@ class Bot
         if (newBullet.getAlive() = true)
         {
             do map.addNewBullet(newBullet);
-            do newBullet.setMap(map);
         }
         return;
     }

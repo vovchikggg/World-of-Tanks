@@ -68,6 +68,55 @@ push argument 1
 pop this 3
 push constant 0
 return
+function Base.drowBase 0
+push argument 0
+pop pointer 0
+push this 3
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+call Drower.DrawBase 1
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Base.killBaseWithBullet 0
+push argument 0
+pop pointer 0
+push this 3
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithBase 4
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+pop this 3
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+return
 function Base.dispose 0
 push argument 0
 pop pointer 0

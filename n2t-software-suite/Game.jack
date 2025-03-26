@@ -1,6 +1,10 @@
 class Game {
-    field Player player;  
     field Objects map;
+    field Player player;
+    field Base base;
+    field BotsList botsList;
+    field BricksList bricksList;
+    field BulletsList bulletsList;
     field ExitGame exitGame;
     field int levelNumber;
     field Level level;
@@ -10,22 +14,22 @@ class Game {
         let level = _level;
         let currentLevel = _currentLevel;
         let levelNumber = _currentLevel.getLevel();
+
         if (levelNumber = 1)
         {
             let map = level.getFirstLevel();
-            do map.setMap();
-            do map.drowAllObjects();
-            let player = map.getPlayer();
-            let exitGame = _exitGame;
         }
         if (levelNumber = 2)
         {
             let map = level.getSecondLevel();
-            do map.setMap();
-            do map.drowAllObjects();
-            let player = map.getPlayer();
-            let exitGame = _exitGame;
         }
+
+        let player = map.getPlayer();
+        let base = map.getBase();
+        do map.setMap();
+        do map.drowAllObjects();
+        let exitGame = _exitGame;
+
         return this;
     }
 
@@ -55,14 +59,12 @@ class Game {
     method void run(){
         var char key;
         var boolean exitLevel;
-        var Bullet newBullet;
         var int playerTime;
         var int botsTime;
-        var Base base;
+
         let playerTime = 0;
         let botsTime = 0;
         let exitLevel = false;
-        let base = map.getBase();
 
         while (~exitLevel){
             let key = Keyboard.keyPressed();
@@ -103,15 +105,19 @@ class Game {
             
             if (botsTime > 25)
             {
-                do map.botsAtack();
+                do botsList.botsAtack();
                 let botsTime = 0;
             }
 
-            do map.moveBots();
-            do map.clearDeadBulletsFromList();
-            do map.clearBullets();
-            do map.moveBullets();
-            do map.killObjects();
+            let botsList = map.getBotsList();
+            let bricksList = map.getBricksList();
+            let bulletsList = map.getBulletsList();
+
+            do botsList.moveBots();
+            do map.removeDeadBulletsFromList();
+            do bulletsList.clearBullets();
+            do bulletsList.moveBullets();
+            do map.killObjectsWithBullet();
             do map.drowAllObjects();
 
             let playerTime = playerTime + 1;

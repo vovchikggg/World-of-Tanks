@@ -13,7 +13,7 @@ class Player
         let direction = 4;
         let size = _size;
         let alive = true;
-        let timeBetweenAtacks = 25;
+        let timeBetweenAtacks = 1;
         return this;
     }
 
@@ -154,7 +154,28 @@ class Player
         if (newBullet.getAlive() = true)
         {
             do map.addNewBullet(newBullet);
-            do newBullet.setMap(map);
+        }
+        return;
+    }
+
+    method void drowPlayer()
+    {
+        if (alive = true)
+        {
+            do Drower.DrawPlayer(this);
+        }
+        return;
+    }
+
+    method void killPlayerWithBullet(Bullet bullet)
+    {
+        if (alive = true)
+        {
+            if ( BulletCollisions.CheckCollisionsWithPlayer(this, bullet, bullet.getX(), bullet.getY()) = true )
+            {
+                let alive = false;
+                do bullet.setAlive(false);
+            }
         }
         return;
     }

@@ -18,6 +18,136 @@ push argument 0
 pop pointer 0
 push this 1
 return
+function BricksList.setMap 2
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BricksList.getData 1
+pop local 1
+push local 1
+call Brick.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+push argument 1
+call Brick.setMap 2
+pop temp 0
+label IF_FALSE0
+push local 0
+call BricksList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BricksList.drowBricks 2
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BricksList.getData 1
+pop local 1
+push local 1
+call Brick.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+call Drower.DrawBrick 1
+pop temp 0
+label IF_FALSE0
+push local 0
+call BricksList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function BricksList.killBricksWithBullet 3
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 0
+push constant 0
+pop local 2
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+push local 2
+not
+and
+not
+if-goto WHILE_END0
+push local 0
+call BricksList.getData 1
+pop local 1
+push local 1
+call Brick.getAlive 1
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+push argument 1
+push argument 1
+call Bullet.getX 1
+push argument 1
+call Bullet.getY 1
+call BulletCollisions.CheckCollisionsWithBrick 4
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 1
+push constant 0
+call Brick.setAlive 2
+pop temp 0
+push argument 1
+push constant 0
+call Bullet.setAlive 2
+pop temp 0
+push constant 0
+not
+pop local 2
+label IF_FALSE1
+label IF_FALSE0
+push local 0
+call BricksList.getNext 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
 function BricksList.dispose 0
 push argument 0
 pop pointer 0

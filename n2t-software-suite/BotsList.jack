@@ -2,6 +2,7 @@ class BotsList
 {
     field Bots data;
     field BotsList next;
+    field Objects map;
 
     constructor BotsList new(Bot car, List cdr)
     {
@@ -18,6 +19,163 @@ class BotsList
     method BotsList getNext()
     {
         return next;
+    }
+
+    method void setMap(Objects _map)
+    {
+        var BotsList currentBot;
+        var Bot bot;
+
+        let currentBot = this;
+        if (currentBot = null)
+        {
+            return;
+        }
+        
+        let map = _map;
+
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+            if (bot.getAlive() = true)
+            {
+                do bot.setMap(map);
+            }
+            let currentBot = currentBot.getNext();
+        }
+
+        return;
+    }
+
+    method void drowBots()
+    {
+        var BotsList currentBot;
+        var Bot bot;
+
+        let currentBot = this;
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+            if (bot.getAlive() = true)
+            {
+                do Drower.DrawBot(bot);
+            }
+            let currentBot = currentBot.getNext();
+        }
+
+        return;
+    }
+
+    method void killBotsWithBullet(Bullet bullet)
+    {
+        var BotsList currentBot;
+        var Bot bot;
+        var bool exit;
+
+        let currentBot = this;
+        let exit = false;
+        while ( (~(currentBot = null)) & (~(exit)) )
+        {
+            let bot = currentBot.getData();
+            if (bot.getAlive() = true)
+            {
+                if ( BulletCollisions.CheckCollisionsWithBot(bot, bullet, bullet.getX(), bullet.getY()) = true )
+                {
+                    do bot.setAlive(false);
+                    do bullet.setAlive(false);
+                    let exit = true;
+                }
+            }
+            let currentBot = currentBot.getNext();
+        }
+
+        return;
+    }
+
+    method void moveBots()
+    {
+        var BotsList currentBot;
+        var Bot bot;
+        var Base base;
+
+        var int xBot;
+        var int yBot;
+        var int xBase;
+        var int yBase;
+
+        let currentBot = this;
+        if (currentBot = null)
+        {
+            return;
+        }
+
+        let base = map.getBase();
+        let xBase = base.getX();
+        let yBase = base.getY();
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+            if (bot.getAlive() = true)
+            {
+                let xBot = bot.getX();
+                let yBot = bot.getY();
+
+                //игрок будет идти пока разница по модулю не больше 10 пикселей
+                if ((yBase - yBot) < 75)
+                {
+                    do bot.setDirection(2); //down
+                }
+                else
+                {
+                    if ((xBase - xBot) > 0) // Значит бот слева от базы
+                    {
+                        if ((yBase - yBot - 60) > (xBase - xBot - 0)) //dist по y до базы > dist по x до базы
+                        {
+                            do bot.setDirection(2); //down
+                        }
+                        else
+                        {
+                            do bot.setDirection(4); //right
+                        }
+                    }
+                    else // Справа от базы
+                    {
+                        if ((yBase - yBot - 10) > (xBot - xBase - 0)) //dist по y до базы > dist по x до базы
+                        {
+                            do bot.setDirection(2); //down
+                        }
+                        else
+                        {
+                            do bot.setDirection(3); //left
+                        }
+                    }
+                }
+
+                do bot.moveBot();
+            }
+            let currentBot = currentBot.getNext();
+        }
+
+        return;
+    }
+
+    method void botsAtack()
+    {
+        var BotsList currentBot;
+        var Bot bot;
+
+        let currentBot = this;
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+            if (bot.getAlive() = true)
+            {
+                do bot.Atack();
+            }
+            let currentBot = currentBot.getNext();
+        }
+
+        return;
     }
 
     method void dispose(){

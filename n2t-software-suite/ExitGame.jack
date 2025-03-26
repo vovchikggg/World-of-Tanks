@@ -16,7 +16,6 @@ class ExitGame {
     method void setExitGame(boolean _exitGame)
     {
         let exitGame = _exitGame;
-
         return;
     }
 }
