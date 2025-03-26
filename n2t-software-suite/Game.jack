@@ -5,16 +5,19 @@ class Game {
     field BotsList botsList;
     field BricksList bricksList;
     field BulletsList bulletsList;
-
     field ExitGame exitGame;
     field int levelNumber;
     field Level level;
     field CurrentLevel currentLevel;
+    field boolean exitLevel;
+    field int playerTime;
+    field int botsTime;
 
     constructor Game new(ExitGame _exitGame, Level _level, CurrentLevel _currentLevel){
         let level = _level;
         let currentLevel = _currentLevel;
         let levelNumber = _currentLevel.getLevel();
+        let exitLevel = false;
 
         if (levelNumber = 1)
         {
@@ -57,47 +60,86 @@ class Game {
         return;
     }
 
+    method void LogicKeyGame(char key)
+    {
+        do LogicLevelGame(key);
+        do additionalKeyLogicGame(key);
+
+        return;
+    }
+
+    method void LogicLevelGame(char key)
+    {
+        if (key = 49) // 1 Level (Нажать на 1)
+        {
+            do currentLevel.setLevel(1);
+            let exitLevel = true;
+        }
+
+        if (key = 50) // 2 Level (Нажать на 2)
+        {
+            do currentLevel.setLevel(2);
+            let exitLevel = true;
+        }
+
+        return;
+    }
+
+    method void additionalKeyLogicGame(char key)
+    {
+        if (key = 81 | (base.getAlive() = false)) // Q - выйти
+        {
+            let exitLevel = true;
+            do exitGame.setExitGame(true);
+        }
+
+        if (key = 32) // Space - пуля
+        {   
+            if (player.getAlive() = true)
+            {
+                if (playerTime > player.getTimeBetweenAtacks())
+                {
+                    do player.Atack();
+                    let playerTime = 0;
+                }
+            }
+        }
+
+        return;
+    }
+
+    method void mapWork()
+    {
+        do map.killObjectsWithBullet();
+        do map.removeDeadObjects();
+        do map.drowAllObjects();
+
+        return;
+    }
+
+    method void ListWork()
+    {
+        let botsList = map.getBotsList();
+        let bricksList = map.getBricksList();
+        let bulletsList = map.getBulletsList();
+
+        do bulletsList.clearBullets();
+        do bulletsList.moveBullets();
+        do botsList.moveBots();
+
+        return;
+    }
+
     method void run(){
         var char key;
-        var boolean exitLevel;
-        var int playerTime;
-        var int botsTime;
 
         let playerTime = 0;
         let botsTime = 0;
-        let exitLevel = false;
 
         while (~exitLevel){
             let key = Keyboard.keyPressed();
-            if (key = 49) // 1 Level (Нажать на 1)
-            {
-                do currentLevel.setLevel(1);
-                let exitLevel = true;
-            }
-
-            if (key = 50) // 2 Level (Нажать на 2)
-            {
-                do currentLevel.setLevel(2);
-                let exitLevel = true;
-            }
-
-            if (key = 81 | (base.getAlive() = false)) // Q - выйти
-            {
-                let exitLevel = true;
-                do exitGame.setExitGame(true);
-            }
-
-            if (key = 32) // Space - пуля
-            {   
-                if (player.getAlive() = true)
-                {
-                    if (playerTime > player.getTimeBetweenAtacks())
-                    {
-                        do player.Atack();
-                        let playerTime = 0;
-                    }
-                }
-            }
+            
+            do LogicKeyGame(key);
 
             if (player.getAlive() = true)
             {
@@ -110,16 +152,8 @@ class Game {
                 let botsTime = 0;
             }
 
-            let botsList = map.getBotsList();
-            let bricksList = map.getBricksList();
-            let bulletsList = map.getBulletsList();
-
-            do bulletsList.clearBullets();
-            do bulletsList.moveBullets();
-            do botsList.moveBots();
-            do map.killObjectsWithBullet();
-            do map.removeDeadObjects();
-            do map.drowAllObjects();
+            do ListWork();
+            do mapWork();
 
             let playerTime = playerTime + 1;
             let botsTime = botsTime + 1;
@@ -131,7 +165,6 @@ class Game {
     {
         do Screen.setColor(false);
         do Screen.drawRectangle(0,0,511,255);
-
         do Memory.deAlloc(this);
         return;
     }

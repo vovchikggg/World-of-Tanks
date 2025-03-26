@@ -15,15 +15,10 @@ class Main {
         {
             let level = Level.new();
             let game = Game.new(exitGame, level, currentLevel);
-            //let game = Game.new(exitGame, levelNumber);
             do game.run();
             do game.dispose();
             let exit = exitGame.getExitGame();
         }
-
-        //let game = Game.new();
-        //do game.run();
-        //do game.dispose();
 
         return;
     }
