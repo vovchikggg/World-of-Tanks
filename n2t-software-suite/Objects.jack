@@ -8,6 +8,11 @@ class Objects
 
     constructor Objects new()
     {
+        let player = null;
+        let base = null;
+        let botsList = null;
+        let bricksList = null;
+        let bulletsList = null;
         return this;
     }
 

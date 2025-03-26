@@ -2,6 +2,16 @@ function Objects.new 0
 push constant 5
 call Memory.alloc 1
 pop pointer 0
+push constant 0
+pop this 0
+push constant 0
+pop this 1
+push constant 0
+pop this 2
+push constant 0
+pop this 3
+push constant 0
+pop this 4
 push pointer 0
 return
 function Objects.setMap 6

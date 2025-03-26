@@ -122,6 +122,9 @@ class Game {
 
     method void dispose()
     {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0,0,511,255);
+
         do Memory.deAlloc(this);
         return;
     }
