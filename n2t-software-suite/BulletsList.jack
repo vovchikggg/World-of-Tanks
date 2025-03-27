@@ -144,19 +144,6 @@ class BulletsList
         return;
     }
 
-    method void clearBullets()
-    {
-        let currentBullet = this;
-        while (~(currentBullet = null))
-        {
-            let bullet = currentBullet.getData();
-
-            do Drower.clearBullet(bullet);
-            let currentBullet = currentBullet.getNext();
-        }
-        return;
-    }
-
     method void dispose()
     {
         do data.dispose();

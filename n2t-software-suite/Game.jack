@@ -148,19 +148,12 @@ class Game {
 
         if (~(bulletsList = null))
         {
-            do bulletsList.clearBullets();
             do bulletsList.moveBullets();
         }
         if (~(botsList = null))
         {
             do botsList.moveBots();
         }
-
-        //if (botsList.getNext() = null)
-        //{
-        //    do map.drowAllObjects();
-        //    do dispose();
-        //}
 
         return;
     }

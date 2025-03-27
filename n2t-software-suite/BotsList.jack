@@ -45,12 +45,9 @@ class BotsList
     method void setMap(Objects _map)
     {
         let currentBot = this;
-        if (currentBot = null)
-        {
-            return;
-        }
-        
+
         let map = _map;
+        let base = map.getBase();
 
         while (~(currentBot = null))
         {
@@ -168,12 +165,6 @@ class BotsList
         var int yBase;
 
         let currentBot = this;
-        if (currentBot = null)
-        {
-            return;
-        }
-
-        let base = map.getBase();
 
         let xBase = (base.getX() + base.getSize()) / 2;
         let yBase = (base.getY() + base.getSize()) / 2;

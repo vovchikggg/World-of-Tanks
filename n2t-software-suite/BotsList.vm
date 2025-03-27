@@ -42,17 +42,11 @@ push argument 0
 pop pointer 0
 push pointer 0
 pop this 4
-push this 4
-push constant 0
-eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
-push constant 0
-return
-label IF_FALSE0
 push argument 1
 pop this 3
+push this 3
+call Objects.getBase 1
+pop this 7
 label WHILE_EXP0
 push this 4
 push constant 0
@@ -68,14 +62,14 @@ call Bot.getAlive 1
 push constant 0
 not
 eq
-if-goto IF_TRUE1
-goto IF_FALSE1
-label IF_TRUE1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
 push this 6
 push this 3
 call Bot.setMap 2
 pop temp 0
-label IF_FALSE1
+label IF_FALSE0
 push this 4
 call BotsList.getNext 1
 pop this 4
@@ -283,18 +277,6 @@ push argument 0
 pop pointer 0
 push pointer 0
 pop this 4
-push this 4
-push constant 0
-eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
-push constant 0
-return
-label IF_FALSE0
-push this 3
-call Objects.getBase 1
-pop this 7
 push this 7
 call Base.getX 1
 push this 7
@@ -326,9 +308,9 @@ call Bot.getAlive 1
 push constant 0
 not
 eq
-if-goto IF_TRUE1
-goto IF_FALSE1
-label IF_TRUE1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
 push this 6
 call Bot.getX 1
 push this 6
@@ -350,9 +332,9 @@ push local 0
 sub
 push constant 0
 gt
-if-goto IF_TRUE2
-goto IF_FALSE2
-label IF_TRUE2
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push local 3
 push local 1
 sub
@@ -360,6 +342,31 @@ push constant 50
 add
 push local 2
 push local 0
+sub
+gt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 6
+push constant 2
+call Bot.setDirection 2
+pop temp 0
+goto IF_END2
+label IF_FALSE2
+push this 6
+push constant 4
+call Bot.setDirection 2
+pop temp 0
+label IF_END2
+goto IF_END1
+label IF_FALSE1
+push local 3
+push local 1
+sub
+push constant 50
+add
+push local 0
+push local 2
 sub
 gt
 if-goto IF_TRUE3
@@ -372,40 +379,15 @@ pop temp 0
 goto IF_END3
 label IF_FALSE3
 push this 6
-push constant 4
-call Bot.setDirection 2
-pop temp 0
-label IF_END3
-goto IF_END2
-label IF_FALSE2
-push local 3
-push local 1
-sub
-push constant 50
-add
-push local 0
-push local 2
-sub
-gt
-if-goto IF_TRUE4
-goto IF_FALSE4
-label IF_TRUE4
-push this 6
-push constant 2
-call Bot.setDirection 2
-pop temp 0
-goto IF_END4
-label IF_FALSE4
-push this 6
 push constant 3
 call Bot.setDirection 2
 pop temp 0
-label IF_END4
-label IF_END2
+label IF_END3
+label IF_END1
 push this 6
 call Bot.moveBot 1
 pop temp 0
-label IF_FALSE1
+label IF_FALSE0
 push this 4
 call BotsList.getNext 1
 pop this 4
