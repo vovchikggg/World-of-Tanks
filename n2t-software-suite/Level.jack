@@ -2,15 +2,19 @@ class Level
 {
     field Objects firstLevel;
     field Objects secondLevel;
+    field int countBotsFirstLevel;
+    field int countBotsSecondLevel;
 
     constructor Level new()
     {
         // 1 Level
         let firstLevel = Objects.new();
+        let countBotsFirstLevel = 0;
         do CreateFirstLevel();
 
         // 2 Level
         let secondLevel = Objects.new();
+        let countBotsSecondLevel = 0;
         do CreateSecondLevel();
 
         // 3 Level
@@ -32,6 +36,7 @@ class Level
     method void CreateFirstLevelBot()
     {
         do firstLevel.addNewBot(Bot.new(512-100, 50));
+        let countBotsFirstLevel = 1;
 
         return;
     }
@@ -83,6 +88,7 @@ class Level
     method void CreateSecondLevelBot()
     {
         do secondLevel.addNewBot(Bot.new(100, 100));
+        let countBotsSecondLevel = 1;
 
         return;
     }
@@ -101,6 +107,28 @@ class Level
     method List getSecondLevel()
     {
         return secondLevel;
+    }
+
+    method void setCountBotsFirstLevel(int _countBots)
+    {
+        let countBotsFirstLevel = _countBots;
+        return;
+    }
+
+    method int countBotsFirstLevel()
+    {
+        return countBotsFirstLevel;
+    }
+
+    method void setCountBotsSecondLevel(int _countBots)
+    {
+        let countBotsSecondLevel = _countBots;
+        return;
+    }
+
+    method int countBotsSecondLevel()
+    {
+        return countBotsSecondLevel;
     }
 
     method void dispose()

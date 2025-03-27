@@ -12,6 +12,7 @@ class Game {
     field boolean exitLevel;
     field int playerTime;
     field int botsTime;
+    field int countBots;
 
     constructor Game new(ExitGame _exitGame, Level _level, CurrentLevel _currentLevel){
         let level = _level;
@@ -22,10 +23,12 @@ class Game {
         if (levelNumber = 1)
         {
             let map = level.getFirstLevel();
+            let countBots = _level.countBotsFirstLevel();
         }
         if (levelNumber = 2)
         {
             let map = level.getSecondLevel();
+            let countBots = _level.countBotsSecondLevel();
         }
 
         let player = map.getPlayer();
@@ -35,6 +38,17 @@ class Game {
         let exitGame = _exitGame;
 
         return this;
+    }
+
+    method void setCountBots(int _countBots)
+    {
+        let countBots = _countBots;
+        return;
+    }
+
+    method int getCountBots()
+    {
+        return countBots;
     }
 
     method void MoveKeyboard(char key){
@@ -87,10 +101,16 @@ class Game {
 
     method void additionalKeyLogicGame(char key)
     {
-        if (key = 81 | (base.getAlive() = false)) // Q - выйти
+        if (key = 81) // Q - выйти
         {
             let exitLevel = true;
             do exitGame.setExitGame(true);
+        }
+
+        if (base.getAlive() = false)
+        {
+            let exitLevel = true;
+            do disposeLose();
         }
 
         if (key = 32) // Space - пуля
@@ -111,7 +131,7 @@ class Game {
     method void mapWork()
     {
         do map.killObjectsWithBullet();
-        do map.removeDeadObjects();
+        do map.removeDeadObjects(this);
         do map.drowAllObjects();
 
         return;
@@ -127,6 +147,12 @@ class Game {
         do bulletsList.moveBullets();
         do botsList.moveBots();
 
+        //if (botsList.getNext() = null)
+        //{
+        //    do map.drowAllObjects();
+        //    do dispose();
+        //}
+
         return;
     }
 
@@ -139,6 +165,10 @@ class Game {
         while (~exitLevel){
             let key = Keyboard.keyPressed();
             
+            if (countBots = 0)
+            {
+                let exitLevel = true;
+            }
             do LogicKeyGame(key);
 
             if (player.getAlive() = true)
@@ -152,6 +182,7 @@ class Game {
                 let botsTime = 0;
             }
 
+
             do ListWork();
             do mapWork();
 
@@ -161,7 +192,16 @@ class Game {
         return;
     }
 
-    method void dispose()
+    method void disposeLose()
+    {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0,0,511,255);
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    
+    method void disposeWin()
     {
         do Screen.setColor(false);
         do Screen.drawRectangle(0,0,511,255);

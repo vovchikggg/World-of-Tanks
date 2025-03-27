@@ -178,7 +178,7 @@ goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
-function BotsList.removeDeadBotsFromList 2
+function BotsList.removeDeadBotsFromList 3
 push argument 0
 pop pointer 0
 push pointer 0
@@ -193,6 +193,9 @@ if-goto WHILE_END0
 push local 0
 call BotsList.getData 1
 pop local 1
+push argument 1
+call Game.getCountBots 1
+pop local 2
 push local 1
 call Bot.getAlive 1
 push constant 0
@@ -200,6 +203,12 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
+push argument 1
+push local 2
+push constant 1
+sub
+call Game.setCountBots 2
+pop temp 0
 push pointer 0
 push local 0
 call BotsList.removeDeadBot 2

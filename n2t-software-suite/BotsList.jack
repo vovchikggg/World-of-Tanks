@@ -108,17 +108,20 @@ class BotsList
         return;
     }
 
-    method void removeDeadBotsFromList()
+    method void removeDeadBotsFromList(Game game)
     {
         var BotsList currentBot;
         var Bot bot;
+        var int countBots;
 
         let currentBot = this;
         while (~(currentBot = null))
         {
             let bot = currentBot.getData();
+            let countBots = game.getCountBots();
             if (bot.getAlive() = false)
             {
+                do game.setCountBots(countBots - 1);
                 do removeDeadBot(currentBot);
             }
             let currentBot = currentBot.getNext();

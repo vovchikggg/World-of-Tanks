@@ -16,8 +16,9 @@ class Main {
             let level = Level.new();
             let game = Game.new(exitGame, level, currentLevel);
             do game.run();
-            do game.dispose();
+            do game.disposeLose();
             let exit = exitGame.getExitGame();
+            //do level.dispose();
         }
 
         return;

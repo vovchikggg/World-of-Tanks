@@ -214,7 +214,8 @@ function Objects.removeDeadObjects 0
 push argument 0
 pop pointer 0
 push this 2
-call BotsList.removeDeadBotsFromList 1
+push argument 1
+call BotsList.removeDeadBotsFromList 2
 pop temp 0
 push this 3
 call BricksList.removeDeadBricksFromList 1

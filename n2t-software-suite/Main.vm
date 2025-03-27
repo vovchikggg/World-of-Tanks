@@ -23,7 +23,7 @@ push local 3
 call Game.run 1
 pop temp 0
 push local 3
-call Game.dispose 1
+call Game.disposeLose 1
 pop temp 0
 push local 2
 call ExitGame.getExitGame 1
