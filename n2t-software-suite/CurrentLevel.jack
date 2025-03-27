@@ -17,4 +17,10 @@ class CurrentLevel {
     {
         return levelNumber;
     }
+
+    method void dispose()
+    {
+        do Memory.deAlloc(this);
+        return;
+    }
 }

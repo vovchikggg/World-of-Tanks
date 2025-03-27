@@ -18,4 +18,10 @@ class ExitGame {
         let exitGame = _exitGame;
         return;
     }
+
+    method void dispose()
+    {
+        do Memory.deAlloc(this);
+        return;
+    }
 }
