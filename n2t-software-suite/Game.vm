@@ -1,5 +1,5 @@
 function Game.new 0
-push constant 14
+push constant 15
 call Memory.alloc 1
 pop pointer 0
 push argument 1
@@ -11,6 +11,8 @@ call CurrentLevel.getLevel 1
 pop this 7
 push constant 0
 pop this 10
+push constant 2
+pop this 14
 push this 7
 push constant 1
 eq
@@ -201,6 +203,8 @@ label IF_TRUE1
 push constant 0
 not
 pop this 10
+push constant 0
+pop this 14
 push pointer 0
 call Game.disposeLose 1
 pop temp 0
@@ -297,6 +301,8 @@ label IF_TRUE0
 push constant 0
 not
 pop this 10
+push constant 1
+pop this 14
 label IF_FALSE0
 push pointer 0
 push local 0
@@ -344,6 +350,11 @@ pop this 12
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
+return
+function Game.getWin 0
+push argument 0
+pop pointer 0
+push this 14
 return
 function Game.disposeLose 0
 push argument 0

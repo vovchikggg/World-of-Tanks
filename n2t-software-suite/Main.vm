@@ -1,4 +1,4 @@
-function Main.main 6
+function Main.main 9
 push constant 0
 call ExitGame.new 1
 pop local 2
@@ -14,6 +14,8 @@ not
 if-goto WHILE_END0
 call Level.new 0
 pop local 0
+push constant 0
+pop local 6
 push local 2
 push local 0
 push local 1
@@ -25,6 +27,89 @@ pop temp 0
 push local 3
 call Game.disposeLose 1
 pop temp 0
+push local 3
+call Game.getWin 1
+pop local 8
+push local 8
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+label IF_FALSE0
+push local 8
+push constant 0
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+label IF_FALSE1
+push local 8
+push constant 0
+eq
+push local 8
+push constant 1
+eq
+or
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+call Keyboard.keyPressed 0
+pop local 6
+label WHILE_EXP1
+push local 6
+push constant 49
+eq
+not
+push local 6
+push constant 50
+eq
+not
+and
+push local 6
+push constant 81
+eq
+not
+and
+not
+if-goto WHILE_END1
+push local 6
+push constant 81
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+not
+pop local 4
+label IF_FALSE3
+call Keyboard.keyPressed 0
+pop local 6
+goto WHILE_EXP1
+label WHILE_END1
+push local 6
+push constant 49
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push local 1
+push constant 1
+call CurrentLevel.setLevel 2
+pop temp 0
+label IF_FALSE4
+push local 6
+push constant 50
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push local 1
+push constant 2
+call CurrentLevel.setLevel 2
+pop temp 0
+label IF_FALSE5
+label IF_FALSE2
 push local 2
 call ExitGame.getExitGame 1
 pop local 4
