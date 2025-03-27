@@ -1,6 +1,6 @@
 class BotsList
 {
-    field Bots data;
+    field Bot data;
     field BotsList next;
     field BricksList prev;
     field Objects map;
@@ -12,7 +12,7 @@ class BotsList
         return this;
     }
 
-    method Bots getData()
+    method Bot getData()
     {
         return data;
     }
@@ -240,7 +240,9 @@ class BotsList
         return;
     }
 
-    method void dispose(){
+    method void dispose()
+    {
+        do data.dispose();
         do Memory.deAlloc(this);
         return;
     }

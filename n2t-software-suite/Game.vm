@@ -349,6 +349,9 @@ add
 pop this 12
 goto WHILE_EXP0
 label WHILE_END0
+push this 0
+call Objects.dispose 1
+pop temp 0
 push constant 0
 return
 function Game.getWin 0

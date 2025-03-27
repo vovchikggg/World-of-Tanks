@@ -179,7 +179,8 @@ class Player
         return;
     }
 
-    method void dispose(){
+    method void dispose()
+    {
         do Memory.deAlloc(this);
         return;
     }

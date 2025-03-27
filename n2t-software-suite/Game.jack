@@ -193,8 +193,8 @@ class Game {
             let playerTime = playerTime + 1;
             let botsTime = botsTime + 1;
         }
-
-        //do map.disposeAllObjects();
+        
+        do map.dispose();
         return;
     }
 

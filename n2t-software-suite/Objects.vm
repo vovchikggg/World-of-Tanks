@@ -139,86 +139,6 @@ call BotsList.setMap 2
 pop temp 0
 push constant 0
 return
-function Objects.disposeAllObjects 6
-push argument 0
-pop pointer 0
-push this 0
-call Player.dispose 1
-pop temp 0
-push this 1
-call Base.dispose 1
-pop temp 0
-push this 2
-pop local 0
-label WHILE_EXP0
-push local 0
-push constant 0
-eq
-not
-not
-if-goto WHILE_END0
-push local 0
-call BotsList.getData 1
-pop local 3
-push local 3
-call Bot.dispose 1
-pop temp 0
-push local 0
-call BotsList.getNext 1
-pop local 0
-goto WHILE_EXP0
-label WHILE_END0
-push this 2
-call BotsList.dispose 1
-pop temp 0
-push this 3
-pop local 1
-label WHILE_EXP1
-push local 1
-push constant 0
-eq
-not
-not
-if-goto WHILE_END1
-push local 1
-call BricksList.getData 1
-pop local 4
-push local 4
-call Brick.dispose 1
-pop temp 0
-push local 1
-call BricksList.getNext 1
-pop local 1
-goto WHILE_EXP1
-label WHILE_END1
-push this 3
-call BricksList.dispose 1
-pop temp 0
-push this 4
-pop local 2
-label WHILE_EXP2
-push local 2
-push constant 0
-eq
-not
-not
-if-goto WHILE_END2
-push local 2
-call BulletsList.getData 1
-pop local 5
-push local 5
-call Bullet.dispose 1
-pop temp 0
-push local 2
-call BulletsList.getNext 1
-pop local 2
-goto WHILE_EXP2
-label WHILE_END2
-push this 4
-call BulletsList.dispose 1
-pop temp 0
-push constant 0
-return
 function Objects.drowAllObjects 0
 push argument 0
 pop pointer 0
@@ -309,7 +229,78 @@ function Objects.dispose 0
 push argument 0
 pop pointer 0
 push pointer 0
-call Memory.deAAlloc 1
+call Objects.disposeAllObjects 1
 pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Objects.disposeAllObjects 9
+push argument 0
+pop pointer 0
+push this 0
+call Player.dispose 1
+pop temp 0
+push this 1
+call Base.dispose 1
+pop temp 0
+push this 2
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto WHILE_END0
+push local 0
+call BotsList.getNext 1
+pop local 1
+push local 0
+call BotsList.dispose 1
+pop temp 0
+push local 1
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push this 3
+pop local 2
+label WHILE_EXP1
+push local 2
+push constant 0
+eq
+not
+not
+if-goto WHILE_END1
+push local 2
+call BricksList.getNext 1
+pop local 3
+push local 2
+call BricksList.dispose 1
+pop temp 0
+push local 3
+pop local 2
+goto WHILE_EXP1
+label WHILE_END1
+push this 4
+pop local 4
+label WHILE_EXP2
+push local 4
+push constant 0
+eq
+not
+not
+if-goto WHILE_END2
+push local 4
+call BulletsList.getNext 1
+pop local 5
+push local 4
+call BulletsList.dispose 1
+pop temp 0
+push local 5
+pop local 4
+goto WHILE_EXP2
+label WHILE_END2
 push constant 0
 return
