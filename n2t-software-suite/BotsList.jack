@@ -2,8 +2,13 @@ class BotsList
 {
     field Bot data;
     field BotsList next;
-    field BricksList prev;
+    field BotsList prev;
     field Objects map;
+
+    field BotsList currentBot;
+    field BotsList tempBot;
+    field Bot bot;
+    field Base base;
 
     constructor BotsList new(Bot _data, List _next)
     {
@@ -39,9 +44,6 @@ class BotsList
 
     method void setMap(Objects _map)
     {
-        var BotsList currentBot;
-        var Bot bot;
-
         let currentBot = this;
         if (currentBot = null)
         {
@@ -65,8 +67,6 @@ class BotsList
 
     method void drowBots(Game game)
     {
-        var BotsList currentBot;
-        var Bot bot;
         var int countBots;
 
         let currentBot = this;
@@ -88,8 +88,6 @@ class BotsList
 
     method void killBotsWithBullet(Bullet bullet)
     {
-        var BotsList currentBot;
-        var Bot bot;
         var bool exit;
 
         let currentBot = this;
@@ -114,18 +112,19 @@ class BotsList
 
     method void removeDeadBotsFromList()
     {
-        var BotsList currentBot;
-        var Bot bot;
-
         let currentBot = this;
         while (~(currentBot = null))
         {
+            let tempBot = currentBot.getNext();
+
             let bot = currentBot.getData();
             if (bot.getAlive() = false)
             {
                 do removeDeadBot(currentBot);
+                //do currentBot.dispose();
             }
-            let currentBot = currentBot.getNext();
+
+            let currentBot = tempBot;
         }
 
         return;
@@ -163,10 +162,6 @@ class BotsList
 
     method void moveBots()
     {
-        var BotsList currentBot;
-        var Bot bot;
-        var Base base;
-
         var int xBot;
         var int yBot;
         var int xBase;
@@ -223,9 +218,6 @@ class BotsList
 
     method void botsAtack()
     {
-        var BotsList currentBot;
-        var Bot bot;
-
         let currentBot = this;
         while (~(currentBot = null))
         {
@@ -242,7 +234,6 @@ class BotsList
 
     method void dispose()
     {
-        do data.dispose();
         do Memory.deAlloc(this);
         return;
     }

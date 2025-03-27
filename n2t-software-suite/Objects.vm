@@ -1,5 +1,5 @@
 function Objects.new 0
-push constant 5
+push constant 17
 call Memory.alloc 1
 pop pointer 0
 push constant 0
@@ -43,23 +43,23 @@ push argument 0
 pop pointer 0
 push this 2
 return
-function Objects.addNewBot 1
+function Objects.addNewBot 0
 push argument 0
 pop pointer 0
 push this 2
-pop local 0
+pop this 7
 push argument 1
 push this 2
 call BotsList.new 2
 pop this 2
-push local 0
+push this 7
 push constant 0
 eq
 not
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 0
+push this 7
 push this 2
 call BotsList.setPrev 2
 pop temp 0
@@ -71,23 +71,23 @@ push argument 0
 pop pointer 0
 push this 3
 return
-function Objects.addNewBrick 1
+function Objects.addNewBrick 0
 push argument 0
 pop pointer 0
 push this 3
-pop local 0
+pop this 10
 push argument 1
 push this 3
 call BricksList.new 2
 pop this 3
-push local 0
+push this 10
 push constant 0
 eq
 not
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 0
+push this 10
 push this 3
 call BricksList.setPrev 2
 pop temp 0
@@ -99,23 +99,23 @@ push argument 0
 pop pointer 0
 push this 4
 return
-function Objects.addNewBullet 1
+function Objects.addNewBullet 0
 push argument 0
 pop pointer 0
 push this 4
-pop local 0
+pop this 13
 push argument 1
 push this 4
 call BulletsList.new 2
 pop this 4
-push local 0
+push this 13
 push constant 0
 eq
 not
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 0
+push this 13
 push this 4
 call BulletsList.setPrev 2
 pop temp 0
@@ -126,56 +126,120 @@ function Objects.setMap 0
 push argument 0
 pop pointer 0
 push this 0
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
 push pointer 0
 call Player.setMap 2
 pop temp 0
+label IF_FALSE0
+push this 1
+push constant 0
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push this 1
 push pointer 0
 call Base.setMap 2
 pop temp 0
+label IF_FALSE1
+push this 2
+push constant 0
+eq
+not
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push this 2
 push pointer 0
 call BotsList.setMap 2
 pop temp 0
+label IF_FALSE2
 push constant 0
 return
 function Objects.drowAllObjects 0
 push argument 0
 pop pointer 0
 push this 0
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
 call Player.drowPlayer 1
 pop temp 0
+label IF_FALSE0
+push this 1
+push constant 0
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push this 1
 call Base.drowBase 1
 pop temp 0
+label IF_FALSE1
+push this 2
+push constant 0
+eq
+not
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push this 2
 push argument 1
 call BotsList.drowBots 2
 pop temp 0
+label IF_FALSE2
+push this 3
+push constant 0
+eq
+not
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
 push this 3
 call BricksList.drowBricks 1
 pop temp 0
+label IF_FALSE3
+push this 4
+push constant 0
+eq
+not
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
 push this 4
 call BulletsList.drowBullets 1
 pop temp 0
+label IF_FALSE4
 push constant 0
 return
-function Objects.killObjectsWithBullet 2
+function Objects.killObjectsWithBullet 0
 push argument 0
 pop pointer 0
 push this 4
-pop local 0
+pop this 11
 label WHILE_EXP0
-push local 0
+push this 11
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
-push local 0
+push this 11
 call BulletsList.getData 1
-pop local 1
-push local 1
+pop this 16
+push this 16
 call Bullet.getAlive 1
 push constant 0
 not
@@ -184,29 +248,69 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push this 0
-push local 1
+push constant 0
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 0
+push this 16
 call Player.killPlayerWithBullet 2
 pop temp 0
+label IF_FALSE1
 push this 1
-push local 1
+push constant 0
+eq
+not
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 1
+push this 16
 call Base.killBaseWithBullet 2
 pop temp 0
+label IF_FALSE2
 push this 2
-push local 1
+push constant 0
+eq
+not
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 2
+push this 16
 call BotsList.killBotsWithBullet 2
 pop temp 0
+label IF_FALSE3
 push this 3
-push local 1
+push constant 0
+eq
+not
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 3
+push this 16
 call BricksList.killBricksWithBullet 2
 pop temp 0
+label IF_FALSE4
 push this 4
-push local 1
+push constant 0
+eq
+not
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 4
+push this 16
 call BulletsList.killBulletsWithBullet 2
 pop temp 0
+label IF_FALSE5
 label IF_FALSE0
-push local 0
+push this 11
 call BulletsList.getNext 1
-pop local 0
+pop this 11
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
@@ -215,14 +319,38 @@ function Objects.removeDeadObjectsFromLists 0
 push argument 0
 pop pointer 0
 push this 2
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 2
 call BotsList.removeDeadBotsFromList 1
 pop temp 0
+label IF_FALSE0
+push this 3
+push constant 0
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push this 3
 call BricksList.removeDeadBricksFromList 1
 pop temp 0
+label IF_FALSE1
+push this 4
+push constant 0
+eq
+not
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push this 4
 call BulletsList.removeDeadBulletsFromList 1
 pop temp 0
+label IF_FALSE2
 push constant 0
 return
 function Objects.dispose 0
@@ -236,7 +364,7 @@ call Memory.deAlloc 1
 pop temp 0
 push constant 0
 return
-function Objects.disposeAllObjects 9
+function Objects.disposeAllObjects 0
 push argument 0
 pop pointer 0
 push this 0
@@ -246,60 +374,60 @@ push this 1
 call Base.dispose 1
 pop temp 0
 push this 2
-pop local 0
+pop this 5
 label WHILE_EXP0
-push local 0
+push this 5
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
-push local 0
+push this 5
 call BotsList.getNext 1
-pop local 1
-push local 0
+pop this 6
+push this 5
 call BotsList.dispose 1
 pop temp 0
-push local 1
-pop local 0
+push this 6
+pop this 5
 goto WHILE_EXP0
 label WHILE_END0
 push this 3
-pop local 2
+pop this 8
 label WHILE_EXP1
-push local 2
+push this 8
 push constant 0
 eq
 not
 not
 if-goto WHILE_END1
-push local 2
+push this 8
 call BricksList.getNext 1
-pop local 3
-push local 2
+pop this 9
+push this 8
 call BricksList.dispose 1
 pop temp 0
-push local 3
-pop local 2
+push this 9
+pop this 8
 goto WHILE_EXP1
 label WHILE_END1
 push this 4
-pop local 4
+pop this 11
 label WHILE_EXP2
-push local 4
+push this 11
 push constant 0
 eq
 not
 not
 if-goto WHILE_END2
-push local 4
+push this 11
 call BulletsList.getNext 1
-pop local 5
-push local 4
+pop this 12
+push this 11
 call BulletsList.dispose 1
 pop temp 0
-push local 5
-pop local 4
+push this 12
+pop this 11
 goto WHILE_EXP2
 label WHILE_END2
 push constant 0

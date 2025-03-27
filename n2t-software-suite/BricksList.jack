@@ -4,6 +4,10 @@ class BricksList
     field BricksList next;
     field BricksList prev;
 
+    field BricksList currentBrick;
+    field BricksList tempBrick;
+    field Brick brick;
+
     constructor BricksList new(Brick _data, BricksList _next)
     {
         let data = _data;
@@ -38,9 +42,6 @@ class BricksList
 
     method void drowBricks()
     {
-        var BricksList currentBrick;
-        var Brick brick;
-
         let currentBrick = this;
         while (~(currentBrick = null))
         {
@@ -57,8 +58,6 @@ class BricksList
 
     method void killBricksWithBullet(Bullet bullet)
     {
-        var BricksList currentBrick;
-        var Brick brick;
         var bool exit;
 
         let currentBrick = this;
@@ -83,18 +82,19 @@ class BricksList
 
     method void removeDeadBricksFromList()
     {
-        var BricksList currentBrick;
-        var Brick brick;
-
         let currentBrick = this;
         while (~(currentBrick = null))
         {
+            let tempBrick = currentBrick.getNext();
+
             let brick = currentBrick.getData();
             if (brick.getAlive() = false)
             {
                 do removeDeadBrick(currentBrick);
+                //do currentBrick.dispose();
             }
-            let currentBrick = currentBrick.getNext();
+
+            let currentBrick = tempBrick;
         }
 
         return;

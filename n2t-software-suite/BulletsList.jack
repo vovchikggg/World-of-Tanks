@@ -4,6 +4,10 @@ class BulletsList
     field BulletsList next;
     field BulletsList prev;
 
+    field BulletsList currentBullet;
+    field BulletsList tempBullet;
+    field Bullet bullet;
+
     constructor BulletsList new(Bullet _data, List _next)
     {
         let data = _data;
@@ -38,9 +42,6 @@ class BulletsList
 
     method void drowBullets()
     {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-
         let currentBullet = this;
         while (~(currentBullet = null))
         {
@@ -55,10 +56,8 @@ class BulletsList
         return;
     }
 
-    method void killBulletsWithBullet(Bullet bullet)
+    method void killBulletsWithBullet(Bullet anotherBullet)
     {
-        var BulletsList currentBullet;
-        var Bullet bullet;
         var bool exit;
 
         let currentBullet = this;
@@ -68,10 +67,10 @@ class BulletsList
             let bullet = currentBullet.getData();
             if (bullet.getAlive() = true)
             {
-                if ( BulletCollisions.CheckCollisionsWithBot(bullet, bullet, bullet.getX(), bullet.getY()) = true )
+                if ( BulletCollisions.CheckCollisionsWithBot(bullet, anotherBullet, anotherBullet.getX(), anotherBullet.getY()) = true )
                 {
                     do bullet.setAlive(false);
-                    do bullet.setAlive(false);
+                    do anotherBullet.setAlive(false);
                     let exit = true;
                 }
             }
@@ -83,18 +82,19 @@ class BulletsList
 
     method void removeDeadBulletsFromList()
     {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-
         let currentBullet = this;
         while (~(currentBullet = null))
         {
+            let tempBullet = currentBullet.getNext();
+
             let bullet = currentBullet.getData();
             if (bullet.getAlive() = false)
             {
                 do removeDeadBullet(currentBullet);
+                //do currentBullet.dispose();
             }
-            let currentBullet = currentBullet.getNext();
+            
+            let currentBullet = tempBullet;
         }
 
         return;
@@ -132,9 +132,6 @@ class BulletsList
 
     method void moveBullets()
     {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-
         let currentBullet = this;
         while (~(currentBullet = null))
         {
@@ -149,9 +146,6 @@ class BulletsList
 
     method void clearBullets()
     {
-        var BulletsList currentBullet;
-        var Bullet bullet;
-
         let currentBullet = this;
         while (~(currentBullet = null))
         {

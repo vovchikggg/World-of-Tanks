@@ -6,6 +6,7 @@ class Player
     field Objects map;
     field bool alive;
     field int timeBetweenAtacks;
+    field Bullet newBullet;
 
     constructor Player new(int _x, int _y, int _size){
         let x = _x;
@@ -148,7 +149,6 @@ class Player
 
     method void Atack()
     {
-        var Bullet newBullet;
         let newBullet = Bullet.new(x, y, direction);
         if (newBullet.getAlive() = true)
         {

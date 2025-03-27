@@ -1,5 +1,5 @@
 function Bot.new 0
-push constant 7
+push constant 8
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -89,15 +89,15 @@ push argument 1
 pop this 2
 push constant 0
 return
-function Bot.Atack 1
+function Bot.Atack 0
 push argument 0
 pop pointer 0
 push this 0
 push this 1
 push this 5
 call Bullet.new 3
-pop local 0
-push local 0
+pop this 7
+push this 7
 call Bullet.getAlive 1
 push constant 0
 not
@@ -106,7 +106,7 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push this 4
-push local 0
+push this 7
 call Objects.addNewBullet 2
 pop temp 0
 label IF_FALSE0

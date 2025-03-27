@@ -12,7 +12,7 @@ class BotCollisions
         var Base base;
         var Bot anotherBot;
         var Brick anotherBrick;
-        var Bullet anotherBullet;
+        //var Bullet anotherBullet;
 
         let flag = false;
 

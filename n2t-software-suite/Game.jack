@@ -146,9 +146,15 @@ class Game {
         let bricksList = map.getBricksList();
         let bulletsList = map.getBulletsList();
 
-        do bulletsList.clearBullets();
-        do bulletsList.moveBullets();
-        do botsList.moveBots();
+        if (~(bulletsList = null))
+        {
+            do bulletsList.clearBullets();
+            do bulletsList.moveBullets();
+        }
+        if (~(botsList = null))
+        {
+            do botsList.moveBots();
+        }
 
         //if (botsList.getNext() = null)
         //{
