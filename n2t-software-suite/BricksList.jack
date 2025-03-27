@@ -8,6 +8,10 @@ class BricksList
     field BricksList tempBrick;
     field Brick brick;
 
+    field BricksList bricksList;
+    field BricksList prevBrick;
+    field BricksList nextBrick;
+
     constructor BricksList new(Brick _data, BricksList _next)
     {
         let data = _data;
@@ -102,10 +106,6 @@ class BricksList
 
     method void removeDeadBrick(BricksList currentBrick)
     {
-        var BricksList bricksList;
-        var BricksList prevBrick;
-        var BricksList nextBrick;
-
         let bricksList = this;
         let prevBrick = currentBrick.getPrev();
         let nextBrick = currentBrick.getNext();

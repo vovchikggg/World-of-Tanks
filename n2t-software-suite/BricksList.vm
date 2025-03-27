@@ -1,5 +1,5 @@
 function BricksList.new 0
-push constant 6
+push constant 9
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -168,53 +168,53 @@ goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
-function BricksList.removeDeadBrick 3
+function BricksList.removeDeadBrick 0
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
+pop this 6
 push argument 1
 call BricksList.getPrev 1
-pop local 1
+pop this 7
 push argument 1
 call BricksList.getNext 1
-pop local 2
-push local 1
+pop this 8
+push this 7
 push constant 0
 eq
 not
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 1
-push local 2
+push this 7
+push this 8
 call BricksList.setNext 2
 pop temp 0
-push local 2
+push this 8
 push constant 0
 eq
 not
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push local 2
-push local 1
+push this 8
+push this 7
 call BricksList.setPrev 2
 pop temp 0
 label IF_FALSE1
 goto IF_END0
 label IF_FALSE0
-push local 0
+push this 6
 call BricksList.getNext 1
-pop local 0
-push local 0
+pop this 6
+push this 6
 push constant 0
 eq
 not
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push local 0
+push this 6
 push constant 0
 call BricksList.setPrev 2
 pop temp 0

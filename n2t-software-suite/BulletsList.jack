@@ -8,6 +8,10 @@ class BulletsList
     field BulletsList tempBullet;
     field Bullet bullet;
 
+    field BulletsList bulletsList;
+    field BulletsList prevBullet;
+    field BulletsList nextBullet;
+
     constructor BulletsList new(Bullet _data, List _next)
     {
         let data = _data;
@@ -101,11 +105,7 @@ class BulletsList
     }
 
     method void removeDeadBullet(BulletsList currentBullet)
-    {
-        var BulletsList bulletsList;
-        var BulletsList prevBullet;
-        var BulletsList nextBullet;
-        
+    {   
         let bulletsList = this;
         let prevBullet = currentBullet.getPrev();
         let nextBullet = currentBullet.getNext();

@@ -10,6 +10,10 @@ class BotsList
     field Bot bot;
     field Base base;
 
+    field BotsList botsList;
+    field BotsList prevBot;
+    field BotsList nextBot;
+
     constructor BotsList new(Bot _data, List _next)
     {
         let data = _data;
@@ -129,10 +133,6 @@ class BotsList
 
     method void removeDeadBot(BotsList currentBot)
     {
-        var BotsList botsList;
-        var BotsList prevBot;
-        var BotsList nextBot;
-
         let botsList = this;
         let prevBot = currentBot.getPrev();
         let nextBot = currentBot.getNext();

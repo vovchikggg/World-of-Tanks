@@ -1,5 +1,5 @@
 function BotsList.new 0
-push constant 8
+push constant 11
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -218,53 +218,53 @@ goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
-function BotsList.removeDeadBot 3
+function BotsList.removeDeadBot 0
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
+pop this 8
 push argument 1
 call BotsList.getPrev 1
-pop local 1
+pop this 9
 push argument 1
 call BotsList.getNext 1
-pop local 2
-push local 1
+pop this 10
+push this 9
 push constant 0
 eq
 not
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 1
-push local 2
+push this 9
+push this 10
 call BotsList.setNext 2
 pop temp 0
-push local 2
+push this 10
 push constant 0
 eq
 not
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push local 2
-push local 1
+push this 10
+push this 9
 call BotsList.setPrev 2
 pop temp 0
 label IF_FALSE1
 goto IF_END0
 label IF_FALSE0
-push local 0
+push this 8
 call BotsList.getNext 1
-pop local 0
-push local 0
+pop this 8
+push this 8
 push constant 0
 eq
 not
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push local 0
+push this 8
 push constant 0
 call BotsList.setPrev 2
 pop temp 0
