@@ -1,0 +1,2526 @@
+function DrawPlayer.DrawPlayerRight 1
+push argument 0
+push constant 16
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+sub
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 1
+push constant 16
+add
+pop argument 1
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+sub
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 1
+push constant 16
+sub
+pop argument 1
+label IF_FALSE0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 21856
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 21856
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 21856
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 21856
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push argument 1
+push constant 16
+add
+pop argument 1
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 21856
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 21856
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 21856
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 21856
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push argument 1
+push constant 16
+sub
+pop argument 1
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 170
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 170
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 170
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 170
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 255
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 255
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 255
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 511
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 511
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push argument 1
+push constant 16
+add
+pop argument 1
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 511
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 511
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 255
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 255
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 127
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 255
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 170
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 170
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 170
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 170
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawPlayer.DrawPlayerDown 1
+push argument 1
+push constant 3
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 16384
+push constant 32
+push argument 1
+push constant 3
+sub
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push constant 16384
+push constant 32
+push argument 1
+push constant 3
+sub
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+sub
+pop argument 0
+label IF_FALSE0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 62
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 31744
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+sub
+pop argument 0
+push argument 1
+push constant 16
+add
+pop argument 1
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 1986
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 8192
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 32767
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 31775
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 7
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawPlayer.DrawPlayerLeft 1
+push argument 0
+push constant 512
+push constant 32
+sub
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 32
+add
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 1
+push constant 16
+add
+pop argument 1
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 32
+add
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 1
+push constant 16
+sub
+pop argument 1
+label IF_FALSE0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 21760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 21760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 21760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 21760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 256
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 256
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 256
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 128
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 128
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 1365
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 1365
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 1365
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 1365
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+sub
+pop argument 0
+push argument 1
+push constant 16
+add
+pop argument 1
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 128
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 128
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 256
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 256
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 512
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 256
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 21760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 21760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 21760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 21760
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 1365
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 1365
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 1365
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 1365
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function DrawPlayer.DrawPlayerUp 1
+push argument 1
+push constant 256
+push constant 32
+sub
+push constant 4
+sub
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 16384
+push constant 32
+push argument 1
+push constant 32
+add
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push constant 16384
+push constant 32
+push argument 1
+push constant 32
+add
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+sub
+pop argument 0
+label IF_FALSE0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 32000
+neg
+push constant 768
+sub
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 8192
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 1924
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 7
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 15903
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+sub
+pop argument 0
+push argument 1
+push constant 16
+add
+pop argument 1
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 60
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push argument 0
+push constant 16
+add
+pop argument 0
+push constant 16384
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+push argument 0
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 15360
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
