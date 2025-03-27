@@ -131,7 +131,7 @@ class Game {
     method void mapWork()
     {
         do map.killObjectsWithBullet();
-        do map.removeDeadObjects();
+        do map.removeDeadObjectsFromLists();
         do map.drowAllObjects(this);
 
         return;

@@ -90,48 +90,49 @@ class Objects
         return;
     }
 
-    //НУЖНО СДЕЛАТЬ
+    method void disposeAllObjects()
+    {
+        var BotsList currentBot;
+        var BricksList currentBrick;
+        var BulletsList currentBullet;
 
-    //method void disposeAllObjects()
-    //{
-    //    var BotsList currentBot;
-    //    var BricksList currentBrick;
-    //    var BulletsList currentBullet;
+        var Bot bot;
+        var Brick brick;
+        var Bullet bullet;
 
-    //    var Bot bot;
-    //    var Brick brick;
-    //    var Bullet bullet;
+        do player.dispose();
 
-    //    do player.setAlive(false);
+        do base.dispose();
 
-    //    do base.setAlive(false);
+        let currentBot = botsList;
+        while (~(currentBot = null))
+        {
+            let bot = currentBot.getData();
+            do bot.dispose();
+            let currentBot = currentBot.getNext();
+        }
+        do botsList.dispose();
 
-    //    let currentBot = botsList;
-    //    while (~(currentBot = null))
-    //    {
-    //        let bot = currentBot.getData();
-    //        do bot.setAlive(false);
-    //        let currentBot = currentBot.getNext();
-    //    }
+        let currentBrick = bricksList;
+        while (~(currentBrick = null))
+        {
+            let brick = currentBrick.getData();
+            do brick.dispose();
+            let currentBrick = currentBrick.getNext();
+        }
+        do bricksList.dispose();
 
-    //    let currentBrick = bricksList;
-    //    while (~(currentBrick = null))
-    //    {
-    //        let brick = currentBrick.getData();
-    //        do brick.setAlive(false);
-    //        let currentBrick = currentBrick.getNext();
-    //    }
+        let currentBullet = bulletsList;
+        while (~(currentBullet = null))
+        {
+            let bullet = currentBullet.getData();
+            do bullet.dispose();
+            let currentBullet = currentBullet.getNext();
+        }
+        do bulletsList.dispose();
 
-    //    let currentBullet = bulletsList;
-    //    while (~(currentBullet = null))
-    //    {
-    //        let bullet = currentBullet.getData();
-    //        do bullet.setAlive(false);
-    //        let currentBullet = currentBullet.getNext();
-    //    }
-
-    //    return;
-    //}
+        return;
+    }
 
     method void drowAllObjects(Objects map)
     {
@@ -166,7 +167,7 @@ class Objects
         return;
     }
 
-    method void removeDeadObjects()
+    method void removeDeadObjectsFromLists()
     {
         do botsList.removeDeadBotsFromList();
         do bricksList.removeDeadBricksFromList();

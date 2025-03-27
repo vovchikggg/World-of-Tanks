@@ -243,7 +243,7 @@ push this 0
 call Objects.killObjectsWithBullet 1
 pop temp 0
 push this 0
-call Objects.removeDeadObjects 1
+call Objects.removeDeadObjectsFromLists 1
 pop temp 0
 push this 0
 push pointer 0
