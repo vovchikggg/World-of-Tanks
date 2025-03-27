@@ -34,7 +34,7 @@ class Game {
         let player = map.getPlayer();
         let base = map.getBase();
         do map.setMap();
-        do map.drowAllObjects();
+        do map.drowAllObjects(this);
         let exitGame = _exitGame;
 
         return this;
@@ -131,8 +131,8 @@ class Game {
     method void mapWork()
     {
         do map.killObjectsWithBullet();
-        do map.removeDeadObjects(this);
-        do map.drowAllObjects();
+        do map.removeDeadObjects();
+        do map.drowAllObjects(this);
 
         return;
     }

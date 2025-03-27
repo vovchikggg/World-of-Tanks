@@ -47,7 +47,8 @@ push this 0
 call Objects.setMap 1
 pop temp 0
 push this 0
-call Objects.drowAllObjects 1
+push pointer 0
+call Objects.drowAllObjects 2
 pop temp 0
 push argument 0
 pop this 6
@@ -242,11 +243,11 @@ push this 0
 call Objects.killObjectsWithBullet 1
 pop temp 0
 push this 0
-push pointer 0
-call Objects.removeDeadObjects 2
+call Objects.removeDeadObjects 1
 pop temp 0
 push this 0
-call Objects.drowAllObjects 1
+push pointer 0
+call Objects.drowAllObjects 2
 pop temp 0
 push constant 0
 return

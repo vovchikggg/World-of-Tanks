@@ -88,6 +88,7 @@ class Level
     method void CreateSecondLevelBot()
     {
         do secondLevel.addNewBot(Bot.new(100, 100));
+        do secondLevel.addNewBot(Bot.new(150, 150));
         let countBotsSecondLevel = 1;
 
         return;

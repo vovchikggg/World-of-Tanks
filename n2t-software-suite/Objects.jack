@@ -133,11 +133,11 @@ class Objects
     //    return;
     //}
 
-    method void drowAllObjects()
+    method void drowAllObjects(Objects map)
     {
         do player.drowPlayer();
         do base.drowBase();
-        do botsList.drowBots();
+        do botsList.drowBots(map);
         do bricksList.drowBricks();
         do bulletsList.drowBullets();
 
@@ -166,9 +166,9 @@ class Objects
         return;
     }
 
-    method void removeDeadObjects(Game game)
+    method void removeDeadObjects()
     {
-        do botsList.removeDeadBotsFromList(game);
+        do botsList.removeDeadBotsFromList();
         do bricksList.removeDeadBricksFromList();
         do bulletsList.removeDeadBulletsFromList();
 

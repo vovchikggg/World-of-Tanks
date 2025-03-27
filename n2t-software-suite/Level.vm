@@ -294,6 +294,12 @@ push constant 100
 call Bot.new 2
 call Objects.addNewBot 2
 pop temp 0
+push this 1
+push constant 150
+push constant 150
+call Bot.new 2
+call Objects.addNewBot 2
+pop temp 0
 push constant 1
 pop this 3
 push constant 0
