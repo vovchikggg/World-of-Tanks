@@ -144,6 +144,8 @@ class Bullet
 
     method void moveBullet()
     {
+        do Drower.clearBullet(this);
+
         if (direction = 1) //Up
         {
             if (y > 1)

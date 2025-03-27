@@ -1,5 +1,5 @@
 function BotsList.new 0
-push constant 4
+push constant 11
 call Memory.alloc 1
 pop pointer 0
 push argument 0
@@ -37,70 +37,64 @@ push argument 1
 pop this 2
 push constant 0
 return
-function BotsList.setMap 2
+function BotsList.setMap 0
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
-push local 0
-push constant 0
-eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
-push constant 0
-return
-label IF_FALSE0
+pop this 4
 push argument 1
 pop this 3
+push this 3
+call Objects.getBase 1
+pop this 7
 label WHILE_EXP0
-push local 0
+push this 4
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
-push local 0
+push this 4
 call BotsList.getData 1
-pop local 1
-push local 1
+pop this 6
+push this 6
 call Bot.getAlive 1
 push constant 0
 not
 eq
-if-goto IF_TRUE1
-goto IF_FALSE1
-label IF_TRUE1
-push local 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 6
 push this 3
 call Bot.setMap 2
 pop temp 0
-label IF_FALSE1
-push local 0
+label IF_FALSE0
+push this 4
 call BotsList.getNext 1
-pop local 0
+pop this 4
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
-function BotsList.drowBots 3
+function BotsList.drowBots 1
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
+pop this 4
 push constant 0
-pop local 2
+pop local 0
 label WHILE_EXP0
-push local 0
+push this 4
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
-push local 0
+push this 4
 call BotsList.getData 1
-pop local 1
-push local 1
+pop this 6
+push this 6
 call Bot.getAlive 1
 push constant 0
 not
@@ -108,46 +102,46 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 2
+push local 0
 push constant 1
 add
-pop local 2
-push local 1
+pop local 0
+push this 6
 call Drower.DrawBot 1
 pop temp 0
 label IF_FALSE0
-push local 0
+push this 4
 call BotsList.getNext 1
-pop local 0
+pop this 4
 goto WHILE_EXP0
 label WHILE_END0
 push argument 1
-push local 2
+push local 0
 call Game.setCountBots 2
 pop temp 0
 push constant 0
 return
-function BotsList.killBotsWithBullet 3
+function BotsList.killBotsWithBullet 1
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
+pop this 4
 push constant 0
-pop local 2
+pop local 0
 label WHILE_EXP0
-push local 0
+push this 4
 push constant 0
 eq
 not
-push local 2
+push local 0
 not
 and
 not
 if-goto WHILE_END0
-push local 0
+push this 4
 call BotsList.getData 1
-pop local 1
-push local 1
+pop this 6
+push this 6
 call Bot.getAlive 1
 push constant 0
 not
@@ -155,7 +149,7 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 1
+push this 6
 push argument 1
 push argument 1
 call Bullet.getX 1
@@ -168,7 +162,7 @@ eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push local 1
+push this 6
 push constant 0
 call Bot.setAlive 2
 pop temp 0
@@ -178,32 +172,35 @@ call Bullet.setAlive 2
 pop temp 0
 push constant 0
 not
-pop local 2
+pop local 0
 label IF_FALSE1
 label IF_FALSE0
-push local 0
+push this 4
 call BotsList.getNext 1
-pop local 0
+pop this 4
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
-function BotsList.removeDeadBotsFromList 2
+function BotsList.removeDeadBotsFromList 0
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
+pop this 4
 label WHILE_EXP0
-push local 0
+push this 4
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
-push local 0
+push this 4
+call BotsList.getNext 1
+pop this 5
+push this 4
 call BotsList.getData 1
-pop local 1
-push local 1
+pop this 6
+push this 6
 call Bot.getAlive 1
 push constant 0
 eq
@@ -211,64 +208,63 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push pointer 0
-push local 0
+push this 4
 call BotsList.removeDeadBot 2
 pop temp 0
 label IF_FALSE0
-push local 0
-call BotsList.getNext 1
-pop local 0
+push this 5
+pop this 4
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
-function BotsList.removeDeadBot 3
+function BotsList.removeDeadBot 0
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
+pop this 8
 push argument 1
 call BotsList.getPrev 1
-pop local 1
+pop this 9
 push argument 1
 call BotsList.getNext 1
-pop local 2
-push local 1
+pop this 10
+push this 9
 push constant 0
 eq
 not
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 1
-push local 2
+push this 9
+push this 10
 call BotsList.setNext 2
 pop temp 0
-push local 2
+push this 10
 push constant 0
 eq
 not
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push local 2
-push local 1
+push this 10
+push this 9
 call BotsList.setPrev 2
 pop temp 0
 label IF_FALSE1
 goto IF_END0
 label IF_FALSE0
-push local 0
+push this 8
 call BotsList.getNext 1
-pop local 0
-push local 0
+pop this 8
+push this 8
 push constant 0
 eq
 not
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push local 0
+push this 8
 push constant 0
 call BotsList.setPrev 2
 pop temp 0
@@ -276,157 +272,145 @@ label IF_FALSE2
 label IF_END0
 push constant 0
 return
-function BotsList.moveBots 7
+function BotsList.moveBots 4
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
-push local 0
-push constant 0
-eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
-push constant 0
-return
-label IF_FALSE0
-push this 3
-call Objects.getBase 1
-pop local 2
-push local 2
+pop this 4
+push this 7
 call Base.getX 1
-push local 2
+push this 7
 call Base.getSize 1
 add
 push constant 2
 call Math.divide 2
-pop local 5
-push local 2
+pop local 2
+push this 7
 call Base.getY 1
-push local 2
+push this 7
 call Base.getSize 1
 add
 push constant 2
 call Math.divide 2
-pop local 6
+pop local 3
 label WHILE_EXP0
-push local 0
+push this 4
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
-push local 0
+push this 4
 call BotsList.getData 1
-pop local 1
-push local 1
+pop this 6
+push this 6
 call Bot.getAlive 1
 push constant 0
 not
 eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 6
+call Bot.getX 1
+push this 6
+call Bot.getSize 1
+add
+push constant 2
+call Math.divide 2
+pop local 0
+push this 6
+call Bot.getY 1
+push this 6
+call Bot.getSize 1
+add
+push constant 2
+call Math.divide 2
+pop local 1
+push local 2
+push local 0
+sub
+push constant 0
+gt
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push local 1
-call Bot.getX 1
-push local 1
-call Bot.getSize 1
-add
-push constant 2
-call Math.divide 2
-pop local 3
-push local 1
-call Bot.getY 1
-push local 1
-call Bot.getSize 1
-add
-push constant 2
-call Math.divide 2
-pop local 4
-push local 5
 push local 3
+push local 1
 sub
-push constant 0
+push constant 50
+add
+push local 2
+push local 0
+sub
 gt
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push local 6
-push local 4
+push this 6
+push constant 2
+call Bot.setDirection 2
+pop temp 0
+goto IF_END2
+label IF_FALSE2
+push this 6
+push constant 4
+call Bot.setDirection 2
+pop temp 0
+label IF_END2
+goto IF_END1
+label IF_FALSE1
+push local 3
+push local 1
 sub
 push constant 50
 add
-push local 5
-push local 3
+push local 0
+push local 2
 sub
 gt
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
-push local 1
+push this 6
 push constant 2
 call Bot.setDirection 2
 pop temp 0
 goto IF_END3
 label IF_FALSE3
-push local 1
-push constant 4
-call Bot.setDirection 2
-pop temp 0
-label IF_END3
-goto IF_END2
-label IF_FALSE2
-push local 6
-push local 4
-sub
-push constant 50
-add
-push local 3
-push local 5
-sub
-gt
-if-goto IF_TRUE4
-goto IF_FALSE4
-label IF_TRUE4
-push local 1
-push constant 2
-call Bot.setDirection 2
-pop temp 0
-goto IF_END4
-label IF_FALSE4
-push local 1
+push this 6
 push constant 3
 call Bot.setDirection 2
 pop temp 0
-label IF_END4
-label IF_END2
-push local 1
+label IF_END3
+label IF_END1
+push this 6
 call Bot.moveBot 1
 pop temp 0
-label IF_FALSE1
-push local 0
+label IF_FALSE0
+push this 4
 call BotsList.getNext 1
-pop local 0
+pop this 4
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
 return
-function BotsList.botsAtack 2
+function BotsList.botsAtack 0
 push argument 0
 pop pointer 0
 push pointer 0
-pop local 0
+pop this 4
 label WHILE_EXP0
-push local 0
+push this 4
 push constant 0
 eq
 not
 not
 if-goto WHILE_END0
-push local 0
+push this 4
 call BotsList.getData 1
-pop local 1
-push local 1
+pop this 6
+push this 6
 call Bot.getAlive 1
 push constant 0
 not
@@ -434,13 +418,13 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push local 1
+push this 6
 call Bot.Atack 1
 pop temp 0
 label IF_FALSE0
-push local 0
+push this 4
 call BotsList.getNext 1
-pop local 0
+pop this 4
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
@@ -448,9 +432,6 @@ return
 function BotsList.dispose 0
 push argument 0
 pop pointer 0
-push this 0
-call Bot.dispose 1
-pop temp 0
 push pointer 0
 call Memory.deAlloc 1
 pop temp 0

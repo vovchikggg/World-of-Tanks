@@ -268,14 +268,27 @@ push this 0
 call Objects.getBulletsList 1
 pop this 5
 push this 5
-call BulletsList.clearBullets 1
-pop temp 0
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
 push this 5
 call BulletsList.moveBullets 1
 pop temp 0
+label IF_FALSE0
+push this 3
+push constant 0
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
 push this 3
 call BotsList.moveBots 1
 pop temp 0
+label IF_FALSE1
 push constant 0
 return
 function Game.run 1

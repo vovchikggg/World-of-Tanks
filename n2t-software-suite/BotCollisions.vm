@@ -1,4 +1,4 @@
-function BotCollisions.Check 9
+function BotCollisions.Check 8
 push constant 0
 pop local 0
 push argument 0
