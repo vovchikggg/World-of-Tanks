@@ -1,6 +1,6 @@
 class BotsList
 {
-    field Bots data;
+    field Bot data;
     field BotsList next;
     field BricksList prev;
     field Objects map;
@@ -12,7 +12,7 @@ class BotsList
         return this;
     }
 
-    method Bots getData()
+    method Bot getData()
     {
         return data;
     }
@@ -63,21 +63,25 @@ class BotsList
         return;
     }
 
-    method void drowBots()
+    method void drowBots(Game game)
     {
         var BotsList currentBot;
         var Bot bot;
+        var int countBots;
 
         let currentBot = this;
+        let countBots = 0;
         while (~(currentBot = null))
         {
             let bot = currentBot.getData();
             if (bot.getAlive() = true)
             {
+                let countBots = countBots + 1;
                 do Drower.DrawBot(bot);
             }
             let currentBot = currentBot.getNext();
         }
+        do game.setCountBots(countBots);
 
         return;
     }
@@ -236,7 +240,9 @@ class BotsList
         return;
     }
 
-    method void dispose(){
+    method void dispose()
+    {
+        do data.dispose();
         do Memory.deAlloc(this);
         return;
     }

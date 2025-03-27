@@ -5,33 +5,52 @@ class Game {
     field BotsList botsList;
     field BricksList bricksList;
     field BulletsList bulletsList;
-
     field ExitGame exitGame;
     field int levelNumber;
     field Level level;
     field CurrentLevel currentLevel;
+    field boolean exitLevel;
+    field int playerTime;
+    field int botsTime;
+    field int countBots;
+    field int win;
 
     constructor Game new(ExitGame _exitGame, Level _level, CurrentLevel _currentLevel){
         let level = _level;
         let currentLevel = _currentLevel;
         let levelNumber = _currentLevel.getLevel();
+        let exitLevel = false;
+        let win = 2;
 
         if (levelNumber = 1)
         {
             let map = level.getFirstLevel();
+            let countBots = _level.countBotsFirstLevel();
         }
         if (levelNumber = 2)
         {
             let map = level.getSecondLevel();
+            let countBots = _level.countBotsSecondLevel();
         }
 
         let player = map.getPlayer();
         let base = map.getBase();
         do map.setMap();
-        do map.drowAllObjects();
+        do map.drowAllObjects(this);
         let exitGame = _exitGame;
 
         return this;
+    }
+
+    method void setCountBots(int _countBots)
+    {
+        let countBots = _countBots;
+        return;
+    }
+
+    method int getCountBots()
+    {
+        return countBots;
     }
 
     method void MoveKeyboard(char key){
@@ -57,47 +76,104 @@ class Game {
         return;
     }
 
+    method void LogicKeyGame(char key)
+    {
+        do LogicLevelGame(key);
+        do additionalKeyLogicGame(key);
+
+        return;
+    }
+
+    method void LogicLevelGame(char key)
+    {
+        if (key = 49) // 1 Level (Нажать на 1)
+        {
+            do currentLevel.setLevel(1);
+            let exitLevel = true;
+        }
+
+        if (key = 50) // 2 Level (Нажать на 2)
+        {
+            do currentLevel.setLevel(2);
+            let exitLevel = true;
+        }
+
+        return;
+    }
+
+    method void additionalKeyLogicGame(char key)
+    {
+        if (key = 81) // Q - выйти
+        {
+            let exitLevel = true;
+            do exitGame.setExitGame(true);
+        }
+
+        if (base.getAlive() = false) // я проиграл
+        {
+            let exitLevel = true;
+            let win = 0;
+            do disposeLose();
+        }
+
+        if (key = 32) // Space - пуля
+        {   
+            if (player.getAlive() = true)
+            {
+                if (playerTime > player.getTimeBetweenAtacks())
+                {
+                    do player.Atack();
+                    let playerTime = 0;
+                }
+            }
+        }
+
+        return;
+    }
+
+    method void mapWork()
+    {
+        do map.killObjectsWithBullet();
+        do map.removeDeadObjectsFromLists();
+        do map.drowAllObjects(this);
+
+        return;
+    }
+
+    method void ListWork()
+    {
+        let botsList = map.getBotsList();
+        let bricksList = map.getBricksList();
+        let bulletsList = map.getBulletsList();
+
+        do bulletsList.clearBullets();
+        do bulletsList.moveBullets();
+        do botsList.moveBots();
+
+        //if (botsList.getNext() = null)
+        //{
+        //    do map.drowAllObjects();
+        //    do dispose();
+        //}
+
+        return;
+    }
+
     method void run(){
         var char key;
-        var boolean exitLevel;
-        var int playerTime;
-        var int botsTime;
 
         let playerTime = 0;
         let botsTime = 0;
-        let exitLevel = false;
 
         while (~exitLevel){
             let key = Keyboard.keyPressed();
-            if (key = 49) // 1 Level (Нажать на 1)
-            {
-                do currentLevel.setLevel(1);
-                let exitLevel = true;
-            }
-
-            if (key = 50) // 2 Level (Нажать на 2)
-            {
-                do currentLevel.setLevel(2);
-                let exitLevel = true;
-            }
-
-            if (key = 81 | (base.getAlive() = false)) // Q - выйти
+            
+            if (countBots = 0)
             {
                 let exitLevel = true;
-                do exitGame.setExitGame(true);
+                let win = 1;
             }
-
-            if (key = 32) // Space - пуля
-            {   
-                if (player.getAlive() = true)
-                {
-                    if (playerTime > player.getTimeBetweenAtacks())
-                    {
-                        do player.Atack();
-                        let playerTime = 0;
-                    }
-                }
-            }
+            do LogicKeyGame(key);
 
             if (player.getAlive() = true)
             {
@@ -110,28 +186,36 @@ class Game {
                 let botsTime = 0;
             }
 
-            let botsList = map.getBotsList();
-            let bricksList = map.getBricksList();
-            let bulletsList = map.getBulletsList();
 
-            do bulletsList.clearBullets();
-            do bulletsList.moveBullets();
-            do botsList.moveBots();
-            do map.killObjectsWithBullet();
-            do map.removeDeadObjects();
-            do map.drowAllObjects();
+            do ListWork();
+            do mapWork();
 
             let playerTime = playerTime + 1;
             let botsTime = botsTime + 1;
         }
+        
+        do map.dispose();
         return;
     }
 
-    method void dispose()
+    method int getWin() // (0 - проигрыш) (1 - выигрыш) (2 - не определен)
+    {
+        return win;
+    }
+
+    method void disposeLose()
     {
         do Screen.setColor(false);
         do Screen.drawRectangle(0,0,511,255);
+        do Memory.deAlloc(this);
+        return;
+    }
 
+    
+    method void disposeWin()
+    {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0,0,511,255);
         do Memory.deAlloc(this);
         return;
     }

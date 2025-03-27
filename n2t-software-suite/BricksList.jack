@@ -130,7 +130,9 @@ class BricksList
         return;
     }
 
-    method void dispose(){
+    method void dispose()
+    {
+        do data.dispose();
         do Memory.deAlloc(this);
         return;
     }

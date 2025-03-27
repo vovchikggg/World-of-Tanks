@@ -90,54 +90,11 @@ class Objects
         return;
     }
 
-    //НУЖНО СДЕЛАТЬ
-
-    //method void disposeAllObjects()
-    //{
-    //    var BotsList currentBot;
-    //    var BricksList currentBrick;
-    //    var BulletsList currentBullet;
-
-    //    var Bot bot;
-    //    var Brick brick;
-    //    var Bullet bullet;
-
-    //    do player.setAlive(false);
-
-    //    do base.setAlive(false);
-
-    //    let currentBot = botsList;
-    //    while (~(currentBot = null))
-    //    {
-    //        let bot = currentBot.getData();
-    //        do bot.setAlive(false);
-    //        let currentBot = currentBot.getNext();
-    //    }
-
-    //    let currentBrick = bricksList;
-    //    while (~(currentBrick = null))
-    //    {
-    //        let brick = currentBrick.getData();
-    //        do brick.setAlive(false);
-    //        let currentBrick = currentBrick.getNext();
-    //    }
-
-    //    let currentBullet = bulletsList;
-    //    while (~(currentBullet = null))
-    //    {
-    //        let bullet = currentBullet.getData();
-    //        do bullet.setAlive(false);
-    //        let currentBullet = currentBullet.getNext();
-    //    }
-
-    //    return;
-    //}
-
-    method void drowAllObjects()
+    method void drowAllObjects(Objects map)
     {
         do player.drowPlayer();
         do base.drowBase();
-        do botsList.drowBots();
+        do botsList.drowBots(map);
         do bricksList.drowBricks();
         do bulletsList.drowBullets();
 
@@ -166,7 +123,7 @@ class Objects
         return;
     }
 
-    method void removeDeadObjects()
+    method void removeDeadObjectsFromLists()
     {
         do botsList.removeDeadBotsFromList();
         do bricksList.removeDeadBricksFromList();
@@ -177,7 +134,52 @@ class Objects
 
     method void dispose()
     {
-        do Memory.deAAlloc(this);
+        do disposeAllObjects();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void disposeAllObjects()
+    {
+        var BotsList currentBot;
+        var BotsList nextBot;
+        var BricksList currentBrick;
+        var BricksList nextBrick;
+        var BulletsList currentBullet;
+        var BulletsList nextBullet;
+
+        var Bot bot;
+        var Brick brick;
+        var Bullet bullet;
+
+        do player.dispose();
+
+        do base.dispose();
+
+        let currentBot = botsList;
+        while (~(currentBot = null))
+        {
+            let nextBot = currentBot.getNext();
+            do currentBot.dispose();
+            let currentBot = nextBot;
+        }
+
+        let currentBrick = bricksList;
+        while (~(currentBrick = null))
+        {
+            let nextBrick = currentBrick.getNext();
+            do currentBrick.dispose();
+            let currentBrick = nextBrick;
+        }
+
+        let currentBullet = bulletsList;
+        while (~(currentBullet = null))
+        {
+            let nextBullet = currentBullet.getNext();
+            do currentBullet.dispose();
+            let currentBullet = nextBullet;
+        }
+
         return;
     }
 }

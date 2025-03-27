@@ -7,6 +7,9 @@ class Main {
         var Game game;
         var boolean exit;
         var int levelNumber;
+        var char key;
+        var char keyWinLose;
+        var int win;
         let exitGame = ExitGame.new(false);
         let exit = exitGame.getExitGame();
         let currentLevel = CurrentLevel.new();
@@ -14,17 +17,46 @@ class Main {
         while (~(exit))
         {
             let level = Level.new();
+            let key = 0; //key != 1,2,3,... уровень 
             let game = Game.new(exitGame, level, currentLevel);
-            //let game = Game.new(exitGame, levelNumber);
             do game.run();
-            do game.dispose();
+            do game.disposeLose();
+            let win = game.getWin();
+            if (win = 1) // я победил
+            {
+                //Drower
+            }
+            if (win = 0) // я проиграл
+            {
+                //Drower
+            }
+
+            if ((win = 0) | (win = 1))
+            {
+                let key = Keyboard.keyPressed();
+                while ((~(key = 49)) & (~(key = 50)) & (~(key = 81)))
+                {
+                    if (key = 81)
+                    {
+                        let exit = true;
+                    }
+                    let key = Keyboard.keyPressed();
+                }
+                if (key = 49)
+                {
+                    do currentLevel.setLevel(1);
+                }
+                if (key = 50)
+                {
+                    do currentLevel.setLevel(2);
+                }
+            }
             let exit = exitGame.getExitGame();
+            //do level.dispose();
         }
-
-        //let game = Game.new();
-        //do game.run();
-        //do game.dispose();
-
+        do currentLevel.dispose();
+        do exitGame.dispose();
+        
         return;
     }
 }

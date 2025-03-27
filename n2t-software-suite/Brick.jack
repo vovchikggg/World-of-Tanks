@@ -56,7 +56,7 @@ class Brick
 
     method void dispose()
     {
-        do Memory.deAAlloc(this);
+        do Memory.deAlloc(this);
         return;
     }
 }
